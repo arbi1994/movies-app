@@ -1,0 +1,18 @@
+@use './components';
+@use './layouts';
+@use './abstracts' as *;
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+body{
+  background: $background-color;
+}
