@@ -1,0 +1,66 @@
+@use '../abstracts' as *;
+
+.burger {
+  display: block;
+  padding: 0.5em;
+  cursor: pointer;
+
+  @include media(">SMdesktop") {
+    display: none;
+  }
+
+  .fas {
+    font-size: 2.4rem;
+    color: $main_text_color;
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 8vh;
+  right: -1000px;
+  width: 15em;
+  height: 20em;
+  background: $background_color;
+  display: block;
+  transition: right 0.5s ease;
+
+  @include media(">SMdesktop") {
+    display: none;
+  }
+
+  ul {
+    height: 100%;
+    @include flex(column, space-around, center);
+
+    li {
+      list-style: none;
+      width: 100%;
+      text-align: center;
+      padding: 1em;
+      transform: translateX(0px);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateX(10px);
+        a {
+          font-weight: 600;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: $main_text_color;
+        font-size: 1.6rem;
+        font-weight: 400;
+        letter-spacing: 1.5px;
+      }
+    }
+  }
+
+  &.active {
+    right: 0;
+    transition: right 0.5s ease;
+    z-index: 5000;
+  }
+}

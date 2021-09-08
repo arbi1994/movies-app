@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/dist/main.css" />
+    <title>321 Movies</title>
+  </head>
+  <body>
+
+    <div class="hero__carousel"></div>
+
+    <!-- Search window -->
+    <div class="search__window">
+      
+      <span class="fas fa-times"></span>
+
+      <div class="search__header">
+        <h4>Search your favourite movie</h4>
+      </div>
+
+      <div class="search__container">
+        <form id="search-form" class="search__bar">
+          <i class="fas fa-search" aria-hidden="true"></i>
+          <input class="input" type="text" list="searchdata"/>
+
+          <a  class="search"><i class="fas fa-play" aria-hidden="true"></i></a>
+
+          <span class="search__underline"></span>
+        </form>
+      </div>
+
+    </div>
+    
+    <!-- Burger menu -->
+    <div class="nav__menu--mobile">
+      <span class="menu--mobile__close">
+        <img src="/src/images/icons/close_icon.svg" alt="">
+     
+      </span>
+
+        <ul class="menu__list">
+          <li class="list__item"><a href="#home">Home</a></li>
+          <li class="list__item"><a href="#movies">Movies</a></li>
+          <li class="list__item"><a class="about">About</a></li>
+        </ul>
+    </div>
+
+    <!-- Header section -->
+    <header>
+      <!-- navbar -->
+      <nav class="navbar">
+        <div class="navbar__left">
+          <div class="navbar__logo">
+            
+            <a href="" title="Logo">
+              <img src="/src/images/logos/logo_1.svg" alt="">
+            </a>
+         
+          </div>
+        </div>
+
+        <div class="navbar__right">
+
+          <ul class="menu__list">
+            <li class="list__item"><a href="#home" title="Home">Home</a></li>
+            <li class="list__item"><a href="#movies" title="Movies">Movies</a></li>
+            <li class="list__item"><a href="about.html" title="About" target="_blank">About</a></li>
+          </ul>
+          
+          <form id="navbarSearch-form" class="navbar__search">
+            <input
+              type="text"
+              class="navbar__input"
+              placeholder="Search..."
+            />
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <i class="fas fa-play" aria-hidden="true"></i>
+            <span class="underline"></span>
+            <button type="button" class="navbar__button" title="Search Movie">Search</button>
+          </form>
+
+          <div class="navbar__burger">
+            <img src="/src/images/icons/burger_icon.svg" alt="burger menu icon" />
+          </div>
+
+        </div>
+        
+      </nav>
+
+      <!-- Hero section -->
+      <section id="home" class="hero">
+
+        <div class="hero__container">
+
+          <h2 class="hero__title"><span class="from-left">Discover </span><span class="from-top">the </span><span class="from-right">latest</span></h2>
+          <h1 class="hero__title hero__title--main"><span class="from-bottom">MOVIES</span></h1>
+
+        </div>
+
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <!-- Movies section -->
+      <section id="movies" class="movies">
+        <!-- Movie genres slider -->
+        <div class="movies__nav">
+          <hr class="line line__top"></hr>
+
+          <div class="movies__slider">
+
+            <div class="movies__genres">
+              <div class="genres__btn">
+                <button class="genre_btn" id="Action">Action</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Adventure">Adventure</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Animation">Animation</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Comedy">Comedy</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Crime">Crime</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Documentary">Documentary</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Drama">Drama</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Family">Family</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Fantasy">Fantasy</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="History">History</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Horror">Horror</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Music">Music</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Mistery">Mistery</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Romance">Romance</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Science Fiction">Science Fiction</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="TV Movie">TV Movie</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Thriller">Thriller</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="War">War</button>
+              </div>
+              <div class="genres__btn">
+                <button class="genre_btn" id="Western">Western</button>
+              </div>
+            </div>
+            
+          </div>
+          
+          <hr class="line line__bottom"></hr>
+          <i class="fas fa-chevron-right"></i>
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        
+        <!-- Cards section -->
+        <div class="cards">
+          <div class="cards__container"></div>
+        </div>
+      </section>
+    </main>
+
+    <script type="text/javascript" src="/config.js"></script>
+    <script src="/dist/mainBundle.js"></script>
+    <!-- <script src="/src/js/mainPage/main.js"></script>
+    <script src="/src/js/mainPage/carousel.js"></script>
+    <script src="/src/js/mainPage/burgerMenu.js"></script>
+    <script src="/src/js/mainPage/buttonsSlider.js"></script>
+    <script src="/src/js/mainPage/infiniteScrolling.js"></script>
+    <script src="/src/js/mainPage/navbar.js"></script>
+    <script src="/src/js/mainPage/moviesByGenre.js"></script>
+    <script src="/src/js/mainPage/search.js"></script> -->
+  </body>
+</html>

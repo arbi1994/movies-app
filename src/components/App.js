@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react';
+import NavBar from './NavBar';
+import Main from './Main';
+import Menu from './Menu'
+import '../sass/index.scss';
 
 const App = () => {
+  const [active, setActive] = useState(false);
+
   return (
-    <div>
-      <h1>Movies app</h1>
-    </div>
+    <>
+      <NavBar active={active} setActive={setActive}/>
+      <Menu active={active} setActive={setActive} />
+      <Main />
+    </>
   )
 }
 

@@ -1,0 +1,96 @@
+@use '../abstracts' as *;
+
+.navbar {
+  min-height: 10vh;
+  @include flex(row, space-between, center);
+
+  &__left {
+    flex: 0.5;
+    height: 100%;
+    @include flex(row, flex-start, center);
+
+    &--logo {
+      width: 8.2rem;
+      height: 100%;
+      padding-top: 0.5em;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__right {
+    flex: 1;
+    @include flex(row, space-between, center);
+
+    &--searchbar {
+      flex: 2;
+      width: 100%;
+      height: 4rem;
+      background: $input_box_color;
+      border-radius: 10px;
+      padding: 1em;
+      @include flex(row, space-between, center);
+      margin-right: 4em;
+
+      input {
+        border: none;
+        background: inherit;
+        color: $main_text_color;
+        width: 92%;
+        height: 100%;
+        border-radius: 10px;
+        outline-style: none;
+        font-size: 16px;
+        letter-spacing: 1px;
+        padding: 0.5em 0 0.5em 0.5em;
+      }
+
+      .fa-search {
+        color: $main_text_color;
+        padding: 0.5em;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      &.active {
+        background: white;
+      }
+    }
+
+    &--navbar {
+      flex: 1;
+      display: block;
+
+      @include media("<=SMdesktop") {
+        display: none;
+      }
+
+      ul {
+        @include flex(row, space-around, center);
+
+        li {
+          list-style: none;
+          a {
+            text-decoration: none;
+            color: $main_text_color;
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

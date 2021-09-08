@@ -1,18 +1,23 @@
 @use './components';
 @use './layouts';
 @use './abstracts' as *;
+@use "./base" as *;
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html{
+html {
   scroll-behavior: smooth;
   font-size: 62.5%;
+  background-color: $background_color;
 }
 
-body{
-  background: $background-color;
+body {
+  max-width: 1752px;
+  font-family: $font;
+  margin-right: auto;
+  margin-left: auto;
 }
