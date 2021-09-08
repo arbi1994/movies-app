@@ -1,5 +1,6 @@
 import React from 'react';
 import navlinks from './navlinksConfig';
+import SearchBar from './SearchBar';
 
 const NavBar = ({ active, setActive }) => {
 
@@ -16,10 +17,7 @@ const NavBar = ({ active, setActive }) => {
         </div>
 
         <div className="navbar__right">
-          <form className="navbar__right--searchbar">
-            <input placeholder="Search your favourite movie" />
-            <i className="fas fa-search"></i>
-          </form> 
+          <SearchBar />
           <nav className='navbar__right--navbar'>
             <ul>
               {navlinks.map(links => {

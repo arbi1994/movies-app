@@ -34,6 +34,8 @@
       padding: 1em;
       @include flex(row, space-between, center);
       margin-right: 4em;
+      position: relative;
+      z-index: 5000;
 
       input {
         border: none;
@@ -48,11 +50,15 @@
         padding: 0.5em 0 0.5em 0.5em;
       }
 
-      .fa-search {
+      .fas {
         color: $main_text_color;
         padding: 0.5em;
         font-size: 16px;
         font-weight: 600;
+      }
+
+      .fa-times {
+        cursor: pointer;
       }
 
       &.active {
