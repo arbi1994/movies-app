@@ -15,6 +15,25 @@ const SearchWindow = ({ input, searchedData }) => {
     to: {opacity: 1},
     config: { duration: 200}
   })
+
+  /**
+   * Rendered searched results
+   */
+  const renderedResults = searchedData.map(data => {
+    const year_released = getYear(data.release_date)
+
+    return (
+        <div key={data.id} className="search-window__content">
+          <div className="search-window__content--poster">
+            <img src={`${SECURE_BASE_IMAGE_URL}${POSTER_SIZES[0]}${data.poster_path}`} alt={data.original_title}/>
+          </div>
+          <div className="search-window__content--details">
+            <span className="title">{data.original_title}</span>
+            <span className="release-date">{year_released}</span>
+          </div>
+        </div>
+      )
+  })
   
   return (
     <animated.div style={fade}>
@@ -27,21 +46,7 @@ const SearchWindow = ({ input, searchedData }) => {
         
         <div className="search-window__wrapper">
           
-          {searchedData.map(data => {
-            const year_released = getYear(data.release_date)
-
-            return (
-                <div key={data.id} className="search-window__content">
-                  <div className="search-window__content--poster">
-                    <img src={`${SECURE_BASE_IMAGE_URL}${POSTER_SIZES[0]}${data.poster_path}`} alt={data.original_title}/>
-                  </div>
-                  <div className="search-window__content--details">
-                    <span className="title">{data.original_title}</span>
-                    <span className="release-date">{year_released}</span>
-                  </div>
-                </div>
-              )
-          })}
+          {renderedResults}
             
         </div>
       </div>

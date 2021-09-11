@@ -1,12 +1,8 @@
 import React from 'react';
 import navlinks from './navlinksConfig';
 import SearchBar from './SearchBar';
-import useTmdb from '../hooks/useTmdb';
-import { GET } from '../api_config';
 
 const NavBar = ({ active, setActive }) => {
-  const pageNum = 1;
-  const [searchedData, getData] = useTmdb(GET.search, pageNum, '');
 
   return (
     <header 
@@ -21,7 +17,7 @@ const NavBar = ({ active, setActive }) => {
         </div>
 
         <div className="navbar__right">
-          <SearchBar getData={getData} searchedData={searchedData} />
+          <SearchBar />
           <nav className='navbar__right--navbar'>
             <ul>
               {navlinks.map(links => {
