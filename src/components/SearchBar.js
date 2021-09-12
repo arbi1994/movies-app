@@ -17,10 +17,15 @@ const SearchBar = () => {
   // hook to set the input value
   const [input, setInput] = useState("");
   // custom hook to get the data
-  const [searchedData, getData] = useTmdb(GET.search, pageNum, input);
+  const [searchedData, getData, isLoading, error] = useTmdb(GET.search, pageNum, input);
 
+  /**
+   * Custom hook to handle users clicks event
+   * outside my specified ref (in this case I set form element as ref)
+   */
   const inputRef = useClickOutside(() => {
-    setActive(false);
+    setActive(false); //set the active state back to false
+
     setInput(''); // reset input value
   })
 
@@ -69,7 +74,14 @@ const SearchBar = () => {
           onClick={() => setInput('')} //reset input value
         ></i>
 
-        {active && <SearchWindow input={input} searchedData={searchedData}/>}
+        {active && 
+          <SearchWindow 
+            input={input} 
+            searchedData={searchedData} 
+            isLoading={isLoading} 
+            error={error}
+          />
+        }
       </form> 
 
       {active && <SearchOverlay setActive={setActive} setInput={setInput} />}
