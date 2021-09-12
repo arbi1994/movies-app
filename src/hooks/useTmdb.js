@@ -27,7 +27,7 @@ const useTmdb = (endpoint, pageNum, searchedTerm = '') => {
       setError(false)
     }
    
-  }, [data])
+  }, [data, searchedTerm, isLoading])
 
   const getData = async (term) => {
     if(!term) return

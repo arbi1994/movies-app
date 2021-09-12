@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { useSpring, animated } from 'react-spring';
 import { 
-  BASE_IMAGE_URL,
   SECURE_BASE_IMAGE_URL,
   POSTER_SIZES,
 } from '../api_config';
@@ -39,7 +38,7 @@ const SearchWindow = ({ input, searchedData, isLoading, error }) => {
           </div>
         )
     })
-  console.log(error)
+
   return (
     <animated.div style={fade}>
       <div className="search-window">

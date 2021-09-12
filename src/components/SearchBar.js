@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import SearchWindow from './SearchWindow';
 import SearchOverlay from './SearchOverlay';
 import useClickOutside from '../hooks/useClickOutside';
