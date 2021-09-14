@@ -68,11 +68,6 @@
     transform: translateX(-50%);
   }
 }
-@media (max-width: 425px) {
-  .navbar__right--searchbar {
-    top: 6em;
-  }
-}
 .navbar__right--searchbar input {
   border: none;
   background: inherit;

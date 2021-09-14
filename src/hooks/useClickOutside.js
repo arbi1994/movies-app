@@ -24,7 +24,7 @@ const useClickOutside = (handler) => {
       document.body.removeEventListener("mousedown", clickOutside)
       document.body.removeEventListener("touchstart", clickOutside)
     }
-  });
+  }, []);
 
   return domNode
 }

@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import debounce from 'lodash.debounce';
+
 import SearchWindow from './SearchWindow';
 import SearchOverlay from './SearchOverlay';
 import useClickOutside from '../hooks/useClickOutside';
@@ -17,7 +19,7 @@ const SearchBar = () => {
   // hook to set the input value
   const [input, setInput] = useState("");
   // custom hook to get the data
-  const [searchedData, getData, isLoading, error] = useTmdb(GET.search, pageNum, input);
+  const [searchedData, getData, isLoading, error, setError] = useTmdb(GET.search, pageNum);
 
   /**
    * Custom hook to handle users clicks event
@@ -45,8 +47,43 @@ const SearchBar = () => {
    */
   const onChange = (e) => {
     setInput(e.target.value) //set the input state to the input value
+  }
 
-    getData(input) //invoke the getData function from the custom hook (useTmdb) 
+  // Applied a debounce of 500ms with useMemo hook for performance optimization
+  const debouncedInput = useMemo(() => debounce(onChange, 300), [input])
+
+  // Stop the invocation of the debounced function
+  // after unmounting
+  useEffect(() => {
+    return () => {
+      debouncedInput.cancel()
+    }
+  }, [])
+
+  // Fetch the data
+  useEffect(() => {
+    getData(input) //getting the data we searched for
+  }, [input])
+
+  // Display error message if what we are searching for 
+  // gives us no data
+  useEffect(() => {
+    (input !== '' && searchedData.length === 0)
+    ? setError(true) 
+    : setError(false)
+
+    return () => {
+      setError(false)
+    }
+  }, [searchedData])
+
+  /**
+   * Reset input value and input state
+   */
+  const resetInputValue = () => {
+    document.querySelector(".input").value = ""
+
+    setInput("")
   }
   
   return (
@@ -63,15 +100,15 @@ const SearchBar = () => {
         }}
       >
         <input  
-          placeholder="Search your favourite movie" 
-          onClick={onInputClick} 
-          value={input}
-          onChange={onChange}
+          className="input"
           type="text"
+          onClick={onInputClick} 
+          placeholder="Search your favourite movie" 
+          onChange={debouncedInput}
         />
         <i 
           className={`fas ${input ? 'fa-times' : 'fa-search'}`}
-          onClick={() => setInput('')} //reset input value
+          onClick={resetInputValue} //reset input value
         ></i>
 
         {active && 

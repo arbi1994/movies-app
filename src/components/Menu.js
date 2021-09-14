@@ -4,7 +4,7 @@ import useClickOutside from '../hooks/useClickOutside';
 
 const Menu = ({ active, setActive }) => {
 
-const domNode = useClickOutside(() => {
+  const domNode = useClickOutside(() => {
     setActive(false);
   })
 

@@ -48,16 +48,16 @@ const SearchWindow = ({ input, searchedData, isLoading, error }) => {
           <h2>{input ? `Results for: ${input}` : ''}</h2>
         </header>
         
-        {error === true ? <ErrorMessage /> : 
-          (
+        {error === true && input !== ''
+          ? <ErrorMessage /> 
+          : (
             <div className="search-window__wrapper">
 
               {isLoading && <LoadingSpinner /> }
 
-              {renderedResults}
+              {input && renderedResults}
 
             </div>
-
           )
         }
         
