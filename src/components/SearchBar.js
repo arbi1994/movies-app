@@ -27,8 +27,6 @@ const SearchBar = () => {
    */
   const inputRef = useClickOutside(() => {
     setActive(false); //set the active state back to false
-
-    setInput(''); // reset input value
   })
 
   /**
