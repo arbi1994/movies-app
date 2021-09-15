@@ -8,7 +8,15 @@ import { getYear } from '../helpers';
 import LoadingSpinner from './LoadingSpinner';
 import ErrorMessage from './ErrorMessage';
 
-const SearchWindow = ({ input, searchedData, isLoading, error }) => {
+const SearchWindow = ({ 
+  input, 
+  searchedData, 
+  isLoading, 
+  error, 
+  page, 
+  setPage, 
+  totalPages 
+}) => {
 
   // set fade animation with useSpring hook
   const fade = useSpring({
@@ -16,6 +24,14 @@ const SearchWindow = ({ input, searchedData, isLoading, error }) => {
     to: {opacity: 1},
     config: { duration: 200}
   })
+
+  const handleScroll = (e) => {
+    const { scrollTop, clientHeight, scrollHeight } = e.currentTarget;
+
+    if((scrollHeight - scrollTop) - 1 <= clientHeight && page < totalPages) {
+      setPage((prev) => prev + 1)
+    }
+  }
 
   /**
    * Rendered searched results
@@ -51,15 +67,17 @@ const SearchWindow = ({ input, searchedData, isLoading, error }) => {
         {error === true && input !== ''
           ? <ErrorMessage /> 
           : (
-            <div className="search-window__wrapper">
+            <div className="search-window__wrapper" onScroll={handleScroll}>
 
-              {isLoading && <LoadingSpinner /> }
+              {/* {isLoading && <LoadingSpinner /> } */}
 
               {input && renderedResults}
 
             </div>
           )
         }
+
+        {isLoading && <LoadingSpinner />}
         
       </div>
     </animated.div>

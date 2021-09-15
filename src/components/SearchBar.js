@@ -12,14 +12,21 @@ const SearchBar = () => {
   /**
    * pageNum value needs to be changed to load more data
    */
-  const pageNum = 1; 
+  // const pageNum = 1; 
 
+  const [page, setPage] = useState(1);
   // hook to keep track of user events
   const [active, setActive] = useState(false);
   // hook to set the input value
   const [input, setInput] = useState("");
   // custom hook to get the data
-  const [searchedData, getData, isLoading, error, setError] = useTmdb(GET.search, pageNum);
+  const [
+    searchedData,
+    getData, 
+    isLoading, 
+    error, 
+    setError,
+    totalPages] = useTmdb(GET.search, page);
 
   /**
    * Custom hook to handle users clicks event
@@ -60,8 +67,14 @@ const SearchBar = () => {
 
   // Fetch the data
   useEffect(() => {
+    // console.log(totalPages)
+
     getData(input) //getting the data we searched for
-  }, [input])
+
+    if(input === '') setPage(1)
+
+    console.log(page)
+  }, [input, page])
 
   // Display error message if what we are searching for 
   // gives us no data
@@ -83,6 +96,10 @@ const SearchBar = () => {
 
     setInput("")
   }
+
+  useEffect(() => {
+    if(page <= totalPages) return
+  }, [page])
   
   return (
     <>
@@ -109,12 +126,15 @@ const SearchBar = () => {
           onClick={resetInputValue} //reset input value
         ></i>
 
-        {active && 
+        {active &&
           <SearchWindow 
             input={input} 
             searchedData={searchedData} 
             isLoading={isLoading} 
             error={error}
+            page={page}
+            setPage={setPage}
+            totalPages={totalPages}
           />
         }
       </form> 
