@@ -110,10 +110,10 @@ const SearchBar = () => {
         style={{
           // change the border bottom style based on the active state
           borderBottomLeftRadius: `${active ? '0' : '10px'}`,
-          borderBottomRightRadius: `${active ? '0' : '10px'}`, 
-          zIndex: `${active ? '5000' : '0'}`
+          borderBottomRightRadius: `${active ? '0' : '10px'}`,
         }}
       >
+        <i className="fas fa-search"></i>
         <input  
           className="input"
           type="text"
@@ -122,10 +122,9 @@ const SearchBar = () => {
           onChange={debouncedInput}
         />
         <i 
-          className={`fas ${input ? 'fa-times' : 'fa-search'}`}
+          className={input ? "fas fa-times" : null}
           onClick={resetInputValue} //reset input value
         ></i>
-
         {active &&
           <SearchWindow 
             input={input} 

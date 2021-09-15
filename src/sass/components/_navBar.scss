@@ -51,6 +51,7 @@
         left: 50%;
         width: 90vw;
         transform: translateX(-50%);
+        z-index: 5000;
       }
 
       @include media("<phoneL") {

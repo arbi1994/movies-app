@@ -11,11 +11,15 @@
     "lodash.debounce": "^4.0.8",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
+    "react-alice-carousel": "^2.5.1",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "react-spring": "^9.2.4",
     "web-vitals": "^1.1.2"
   },
+  "tags": [
+    "swiper"
+  ],
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
