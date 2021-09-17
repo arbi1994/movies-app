@@ -3,6 +3,7 @@
 .navbar {
   min-height: 10vh;
   @include flex(row, space-between, center);
+  position: relative;
 
   &__left {
     flex: 0.5;
@@ -26,69 +27,15 @@
   }
 
   &__right {
-    flex: 1;
+    flex: 0 1 40em;
     @include flex(row, space-between, center);
-
-    @include media("<tablet") {
+    
+    @include media("<=SMdesktop"){
       flex: 0;
     }
 
-    &--searchbar {
-      flex: 2;
-      width: 100%;
-      height: 4rem;
-      background: $input_box_color;
-      border-radius: 10px;
-      padding: 1em;
-      @include flex(row, space-between, center);
-      margin-right: 4em;
-      position: relative;
-      z-index: 5000;
-
-      @include media("<tablet") {
-        position: absolute;
-        top: 8em;
-        left: 50%;
-        width: 90vw;
-        transform: translateX(-50%);
-        z-index: 5000;
-      }
-
-      @include media("<phoneL") {
-        //top: 6em;
-      }
-
-      input {
-        border: none;
-        background: inherit;
-        color: $main_text_color;
-        width: 92%;
-        height: 100%;
-        border-radius: 10px;
-        outline-style: none;
-        font-size: 1.6rem;
-        letter-spacing: 1px;
-        padding: 0.5em 0 0.5em 0.5em;
-
-        @include media("<tablet") {
-          font-size: 1.2rem;
-        }
-      }
-
-      .fas {
-        color: $main_text_color;
-        padding: 0.5em;
-        font-size: 16px;
-        font-weight: 600;
-      }
-
-      .fa-times {
-        cursor: pointer;
-      }
-
-      &.active {
-        background: white;
-      }
+    @include media("<tablet") {
+      flex: 0;
     }
 
     &--navbar {
@@ -108,7 +55,7 @@
             text-decoration: none;
             color: $main_text_color;
             font-size: 1.6rem;
-            font-weight: 400;
+            font-weight: 500;
             letter-spacing: 1.5px;
           }
         }

@@ -1,7 +1,8 @@
 @use './../abstracts/' as *;
 
 header {
-  background: $background_color;
+  //background: $background_color;
+  background: transparent;
   padding: 0em 2em;
   transition: all .5s ease;
 }

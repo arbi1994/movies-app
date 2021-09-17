@@ -40,13 +40,11 @@ const Main = () => {
      
       <section className="carousel">
         <AliceCarousel 
-            responsive
             autoPlay={true}
-            autoPlayInterval="3000"
+            autoPlayInterval="5000"
             fadeOutAnimation={true}
-            fadeOutDuration="1000"
-            disableAutoPlayOnAction={true}
-            autoPlayDirection="rtl"
+            animationType="fadeout"
+            fadeOutDuration="500"
             mouseTrackingEnabled={true}
             disableAutoPlayOnAction={true}
             disableButtonsControls

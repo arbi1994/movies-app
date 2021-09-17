@@ -16,8 +16,10 @@ const NavBar = ({ active, setActive }) => {
           </div>
         </div>
 
+        <SearchBar />
+        
         <div className="navbar__right">
-          <SearchBar />
+       
           <nav className='navbar__right--navbar'>
             <ul>
               {navlinks.map(links => {

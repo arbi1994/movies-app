@@ -1,0 +1,84 @@
+@use '../abstracts' as *;
+
+.searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4em;
+  height: 4em;
+  border-radius: 20px;
+  transition: width 0.5s ease;
+  position: absolute;
+  top: 50%;
+  right: 40em;
+  transform: translateY(-50%);
+  z-index: 5000;
+  background: transparent;
+
+  &:hover {
+    width: 60em;
+
+    @include media("<=tablet"){
+      width: 40em;
+    }
+  }
+
+  @include media("<=SMdesktop") {
+    right: 5em;
+  }
+
+  @include media("<tablet") {
+    position: absolute;
+    top: 8em;
+    left: 50%;
+    width: 90vw;
+    transform: translateX(-50%);
+    z-index: 5000;
+  }
+
+  @include media("<phoneL") {
+    //top: 6em;
+  }
+
+  &__icon {
+    //border: 1px solid white;
+    flex: 1 1 2em;
+  }
+
+  input {
+    visibility: hidden;
+    flex: 0 1 50em;
+    border: none;
+    background: transparent;
+    color: $main_text_color;
+    width: 92%;
+    height: 100%;
+    border-radius: 20px;
+    outline-style: none;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    padding: 0;
+    padding: 0.5em;
+    //margin-left: 1em;
+    transition: all 0.3s ease;
+
+    @include media("<tablet") {
+      font-size: 1.2rem;
+    }
+  }
+
+  .fas {
+    color: $main_text_color;
+    padding: 0.5em;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .fa-times {
+    cursor: pointer;
+  }
+
+  &.active {
+    background: white;
+  }
+}
