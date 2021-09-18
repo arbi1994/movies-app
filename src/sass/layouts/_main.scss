@@ -1,50 +1,65 @@
 @use '../abstracts/' as *;
 
 main {
-  .carousel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    // overflow-x: hidden;
+  @include flex(row, center, center);
+  overflow-x: hidden;
 
-    .alice-carousel {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      margin: auto;
+  .hero {
+    min-height: 90vh;
+    width: 80vw;
+    @include flex(row, center, center);
 
-      &__wrapper {
-        @include media("<=SMdesktop") {
-          height: 100vh;
-        }
-        @include media("<=phoneL") {
-          height: 60vh;
-          width: 100vw;
+    &__wrapper {
+      width: 60em;
+      @include flex(column, center, center);
+      position: relative;
+
+      @include media("<=tablet") {
+        width: 45em;
+      }
+
+      h1 {
+        background: linear-gradient(180deg, $logo_color-1, $logo_color-2);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        opacity: 0;
+        transition: opacity 1s ease 1.5s;
+
+        &.active {
+          opacity: 1;
         }
       }
 
-      &::after {
-        display: block;
-        position: absolute;
+      h2 {
+        color: white;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+      }
+
+      .from-left {
+        position: relative;
         top: 0;
-        left: 0;
-        content: "";
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        background-image: linear-gradient(180deg, black, transparent 350px);
+        left: -10000px;
+        margin-right: 2rem;
       }
-    }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      .from-top {
+        position: relative;
+        top: -10000px;
+      }
+
+      .from-right {
+        position: relative;
+        top: 0;
+        right: -10000px;
+        margin-left: 2rem;
+      }
     }
   }
 }

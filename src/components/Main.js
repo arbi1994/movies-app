@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
 
 import { GET, BASE_URL, BASE_IMAGE_URL, BACKDROP_SIZES } from '../api_config';
 import tmdb from '../apis/tmdb';
-
+import AliceCarousel from 'react-alice-carousel';
+import Hero from './Hero';
 
 const Main = () => {
   const [imgItems, setImgItems] = useState([])
@@ -36,8 +36,7 @@ const Main = () => {
   }, [])
 
   return (
-    <main>
-     
+    <main> 
       <section className="carousel">
         <AliceCarousel 
             autoPlay={true}
@@ -56,7 +55,9 @@ const Main = () => {
             })}
         </AliceCarousel>
       </section>
-    
+            
+      <Hero />
+      
     </main>
   )
 }
