@@ -1,12 +1,10 @@
 @use '../abstracts/' as *;
 
 main {
-  @include flex(row, center, center);
   overflow-x: hidden;
 
   .hero {
     min-height: 90vh;
-    width: 80vw;
     @include flex(row, center, center);
 
     &__wrapper {

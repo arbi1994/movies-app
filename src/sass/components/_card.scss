@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+
+.card {
+  position: relative;
+  min-width: 10em;
+  overflow: hidden;
+  cursor: pointer;
+  
+  &__title {
+    background: rgba(0, 0, 0, 0.5);
+    min-height: 4em;
+    padding: 1em;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    cursor: auto;
+
+    h5 {
+      color: white;
+    }
+  }
+
+  &__img {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

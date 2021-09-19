@@ -5,11 +5,13 @@ import { GET, BASE_URL, BASE_IMAGE_URL, BACKDROP_SIZES } from '../api_config';
 import tmdb from '../apis/tmdb';
 import AliceCarousel from 'react-alice-carousel';
 import Hero from './Hero';
+import Cards from './Cards';
 
 const Main = () => {
   const [imgItems, setImgItems] = useState([])
 
   const getData = async (numberOfItems) => {
+    
     try {
       const {data} = await tmdb.get(`${BASE_URL}${GET.discover}`, {
         params: {
@@ -57,6 +59,8 @@ const Main = () => {
       </section>
             
       <Hero />
+
+      <Cards />
       
     </main>
   )

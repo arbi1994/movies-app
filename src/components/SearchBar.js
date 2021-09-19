@@ -4,7 +4,7 @@ import debounce from 'lodash.debounce';
 import SearchWindow from './SearchWindow';
 import SearchOverlay from './SearchOverlay';
 import useClickOutside from '../hooks/useClickOutside';
-import useTmdb from '../hooks/useTmdb';
+import useTmdbSearch from '../hooks/useTmdbSearch';
 import { GET } from '../api_config';
 
 const SearchBar = () => {
@@ -25,7 +25,7 @@ const SearchBar = () => {
     isLoading, 
     error, 
     setError,
-    totalPages] = useTmdb(GET.search, page);
+    totalPages] = useTmdbSearch(GET.search, page);
 
   /**
    * onClick Handler
@@ -33,7 +33,6 @@ const SearchBar = () => {
    */
   const onInputClick = (e) => {
     e.preventDefault(); //prevent default browser behaviour
-
     setActive(true); //set the active state to true
   }
 

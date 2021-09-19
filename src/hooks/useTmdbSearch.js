@@ -8,7 +8,7 @@ const useTmdb = (endpoint, pageNum) => {
   const [error, setError] = useState(false)
   const [totalPages, setTotalPages] = useState()
 
-  const getData = async (term) => {
+  const getData = async (term = '') => {
     // Check if there is any term
     if(!term) {
       setData([])

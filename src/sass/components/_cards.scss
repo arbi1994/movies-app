@@ -1,0 +1,45 @@
+@use '../abstracts' as *;
+
+.cards {
+  background: $background_color;
+  min-height: 100vh;
+  width: 100%;
+  @include flex(row, center, flex-start);
+  padding: 2 em;
+  position: relative;
+
+  &__wrapper {
+    padding: 2em 4em;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    gap: 2em;
+
+    @include media("<=phoneL") {
+      grid-template-columns: repeat(2, minmax(10em, 1fr));
+    }
+  }
+
+  .top-left {
+    position: absolute;
+    top: -5em;
+    left: 0;
+    width: 5em;
+    height: 5em;
+    background: $background_color;
+    mask-image: radial-gradient(circle at 5em 0em, transparent 5em, #000 0);
+    object-fit: cover;
+  }
+
+  .top-right {
+    position: absolute;
+    top: -5em;
+    right: 0;
+    width: 5em;
+    height: 5em;
+    background: $background_color;
+    mask-image: radial-gradient(circle at 0em 0em, transparent 5em, #000 0);
+    object-fit: cover;
+  }
+}

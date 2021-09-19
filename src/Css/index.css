@@ -351,13 +351,7 @@
   font-size: 16px;
 }
 
-header {
-  background: transparent;
-  padding: 0em 2em;
-  transition: all 0.5s ease;
-}
-
-main .carousel {
+.carousel {
   position: absolute;
   top: 0;
   left: 0;
@@ -365,7 +359,7 @@ main .carousel {
   height: 100%;
   z-index: -1;
 }
-main .carousel .alice-carousel {
+.carousel .alice-carousel {
   position: fixed;
   top: 0;
   left: 0;
@@ -374,17 +368,17 @@ main .carousel .alice-carousel {
   margin: auto;
 }
 @media (max-width: 1024px) {
-  main .carousel .alice-carousel__wrapper {
+  .carousel .alice-carousel__wrapper {
     height: 100vh;
   }
 }
 @media (max-width: 426px) {
-  main .carousel .alice-carousel__wrapper {
+  .carousel .alice-carousel__wrapper {
     height: 60vh;
     width: 100vw;
   }
 }
-main .carousel .alice-carousel::after {
+.carousel .alice-carousel::after {
   display: block;
   position: absolute;
   top: 0;
@@ -393,12 +387,152 @@ main .carousel .alice-carousel::after {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-image: linear-gradient(180deg, black, transparent 350px);
+  background: rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(180deg, #070014, transparent 350px);
 }
-main .carousel img {
+.carousel img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.cards {
+  background: #070014;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2 em;
+  position: relative;
+}
+.cards__wrapper {
+  padding: 2em 4em;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+  gap: 2em;
+}
+@media (max-width: 426px) {
+  .cards__wrapper {
+    grid-template-columns: repeat(2, minmax(10em, 1fr));
+  }
+}
+.cards .top-left {
+  position: absolute;
+  top: -5em;
+  left: 0;
+  width: 5em;
+  height: 5em;
+  background: #070014;
+  mask-image: radial-gradient(circle at 5em 0em, transparent 5em, #000 0);
+  object-fit: cover;
+}
+.cards .top-right {
+  position: absolute;
+  top: -5em;
+  right: 0;
+  width: 5em;
+  height: 5em;
+  background: #070014;
+  mask-image: radial-gradient(circle at 0em 0em, transparent 5em, #000 0);
+  object-fit: cover;
+}
+
+.card {
+  position: relative;
+  min-width: 10em;
+  overflow: hidden;
+  cursor: pointer;
+}
+.card__title {
+  background: rgba(0, 0, 0, 0.5);
+  min-height: 4em;
+  padding: 1em;
+  text-align: center;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  cursor: auto;
+}
+.card__title h5 {
+  color: white;
+}
+.card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+header {
+  background: transparent;
+  padding: 0em 2em;
+  transition: all 0.5s ease;
+}
+
+main {
+  overflow-x: hidden;
+}
+main .hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+main .hero__wrapper {
+  width: 60em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+@media (max-width: 768px) {
+  main .hero__wrapper {
+    width: 45em;
+  }
+}
+main .hero__wrapper h1 {
+  background: linear-gradient(180deg, #aab2ff, #eca0ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  opacity: 0;
+  transition: opacity 1s ease 1.5s;
+}
+main .hero__wrapper h1.active {
+  opacity: 1;
+}
+main .hero__wrapper h2 {
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+main .hero__wrapper .from-left {
+  position: relative;
+  top: 0;
+  left: -10000px;
+  margin-right: 2rem;
+}
+main .hero__wrapper .from-top {
+  position: relative;
+  top: -10000px;
+}
+main .hero__wrapper .from-right {
+  position: relative;
+  top: 0;
+  right: -10000px;
+  margin-left: 2rem;
 }
 
 h1,
@@ -422,7 +556,7 @@ p {
 }
 
 h1 {
-  font-size: clamp(4rem, 5vw, 7.2rem);
+  font-size: clamp(4rem, 10vw, 10rem);
 }
 
 h2 {
