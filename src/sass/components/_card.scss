@@ -3,23 +3,40 @@
 .card {
   position: relative;
   min-width: 10em;
+  max-height: 31em;
   overflow: hidden;
   cursor: pointer;
-  
+  border-radius: 10px;
+
+  @include hover-supported() {
+    .card__title {
+      top: 0;
+    }
+
+    .card__rating {
+      bottom: 0;
+    }
+  }
+
+  @include media("<=phoneL") {
+    height: 24em;
+  }
+
   &__title {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
     min-height: 4em;
     padding: 1em;
     text-align: center;
     position: absolute;
-    top: 0px;
+    top: -100px;
     left: 0;
     width: 100%;
     backdrop-filter: blur(10px);
     cursor: auto;
+    transition: top 0.5s ease;
 
     h5 {
-      color: white;
+      color: $main_text_color;
     }
   }
 
@@ -28,6 +45,64 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+  }
+
+  &__rating {
+    background: rgba(0, 0, 0, 0.5);
+    min-height: 3em;
+    padding: 1em;
+    text-align: center;
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    @supports not (backdrop-filter: blur(10px)) {
+      background: hsla(261, 100%, 4%, 0.8);
+    }
+    @include flex(row, space-between, center);
+    transition: bottom 0.5s ease;
+    cursor: auto;
+    h5 {
+      font-weight: 500;
+      color: $main_text_color;
+      margin-right: 1em;
+    }
+
+    .rating-stars {
+      font-size: 1.4rem;
+      background: linear-gradient(90deg, #aab3ff77, #eca0ff77);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-background-clip: text;
+      -moz-text-fill-color: transparent;
+      @include flex(row, space-around, center);
+      position: relative;
+
+      i {
+        padding-right: 1rem;
+      }
+
+      &--inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(90deg, $logo_color-1, $logo_color-2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+
+        i {
+          padding-right: 1rem;
+        }
+      }
     }
   }
 }

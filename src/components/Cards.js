@@ -18,6 +18,7 @@ const Cards = () => {
         key={card.id}
         title={card.title} 
         imgURL={`${BASE_IMAGE_URL}${POSTER_SIZES[4]}${card.poster_path}`}
+        rating={card.vote_average}
       />
     )
   })
