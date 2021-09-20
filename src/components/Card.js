@@ -1,17 +1,23 @@
 import React from 'react';
+import LoadingSpinner from './LoadingSpinner';
 import Rating from './Rating';
 
-const Card = ({ title, imgURL, rating }) => {
+const Card = ({ title, imgURL, rating, loading }) => {
   return (
-    <div className="card">
-      <span className="card__title">
-        <h5 >{title}</h5>
-      </span>
-      <figure className="card__img">
-        <img src={imgURL}/>
-      </figure>
-      <Rating rating={rating} />
-    </div>
+    <>
+      {loading 
+        ? 
+        <LoadingSpinner />
+        :
+        <div className="card">
+          <span className="card__title">
+            <h5 >{title}</h5>
+          </span>
+          <img src={imgURL}/>
+          <Rating rating={rating} />
+        </div>
+      }
+    </>
   )
 }
 

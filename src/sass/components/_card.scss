@@ -19,7 +19,11 @@
   }
 
   @include media("<=phoneL") {
-    height: 24em;
+    height: 21em;
+  }
+
+  @include media("<=phone") {
+    height: 18em;
   }
 
   &__title {
@@ -28,7 +32,7 @@
     padding: 1em;
     text-align: center;
     position: absolute;
-    top: -100px;
+    top: -250px;
     left: 0;
     width: 100%;
     backdrop-filter: blur(10px);
@@ -40,12 +44,12 @@
     }
   }
 
-  &__img {
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  // &__img {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    // }
   }
 
   &__rating {
@@ -54,7 +58,7 @@
     padding: 1em;
     text-align: center;
     position: absolute;
-    bottom: -100px;
+    bottom: -250px;
     left: 0;
     width: 100%;
     backdrop-filter: blur(10px);
@@ -93,11 +97,7 @@
         width: 0;
         display: flex;
         align-items: center;
-        background: linear-gradient(90deg, $logo_color-1, $logo_color-2);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -moz-background-clip: text;
-        -moz-text-fill-color: transparent;
+        @include gradientColor();
 
         i {
           padding-right: 1rem;

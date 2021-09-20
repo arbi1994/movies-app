@@ -4,8 +4,11 @@ import { GET, BASE_URL } from '../api_config';
 
 const useTmdbMain = () => {
   const [data, setData] = useState([])
+  const [loading, setLoading] = useState(false)
 
   const getData = async (pageNum) => {
+    setLoading(true)
+
     try {
       const {data} = await tmdb.get(`${BASE_URL}${GET.discover}`, {
         params: {
@@ -19,6 +22,8 @@ const useTmdbMain = () => {
         : [...data.results]
       ))
   
+      setLoading(false)
+
     } catch (error) {
       console.log(error.message)
     }
@@ -26,7 +31,7 @@ const useTmdbMain = () => {
 
   //console.log(data)
 
-  return [getData, data]
+  return [getData, data, loading]
 }
 
 export default useTmdbMain
