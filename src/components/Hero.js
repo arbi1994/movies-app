@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import anime from 'animejs';
 
-const Hero = () => {
+const Hero = ({ children }) => {
   const [active, setActive] = useState(false)
 
   const animateHeroContainer = () => {
@@ -42,6 +42,7 @@ const Hero = () => {
         </h2>
         <h1 className={active ? 'active' : ''}>Movies</h1>
       </div>
+      {children}
     </section>
   )
 }

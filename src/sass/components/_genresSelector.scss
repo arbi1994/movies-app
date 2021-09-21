@@ -1,0 +1,44 @@
+@use '../abstracts' as *;
+
+.genres {
+  width: 100%;
+  border-radius: 40px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 1em 4em;
+  @include flex(column, center, center);
+  overflow: hidden;
+  background: $background_color;
+
+  &__wrapper {
+    @include flex(row, center, center);
+    flex-wrap: wrap;
+    max-height: fit-content;
+    width: 100%;
+    overflow: hidden;
+    height: 3em;
+
+    &.active {
+      height: 100%;
+    }
+  }
+
+  &__genre {
+    margin-right: 2em;
+    margin-bottom: 1em;
+    cursor: pointer;
+    color: $main_text_color;
+
+    h5 {
+      font-weight: 500;
+    }
+  }
+
+  .fas {
+    font-size: 3rem;
+    @include gradientColor();
+    margin: 1rem 0 0 0;
+    cursor: pointer;
+  }
+}

@@ -3,7 +3,7 @@ import React from 'react';
 const Rating = ({ rating }) => {
   return (
     <div className="card__rating">
-      <h5>Rating</h5>
+      <h6>Rating</h6>
 
       <div className="rating-stars">
         <i className="fas fa-star"></i>

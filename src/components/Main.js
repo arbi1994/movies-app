@@ -6,6 +6,7 @@ import tmdb from '../apis/tmdb';
 import AliceCarousel from 'react-alice-carousel';
 import Hero from './Hero';
 import Cards from './Cards';
+import GenresSelector from './GenresSelector';
 
 const Main = () => {
   const [imgItems, setImgItems] = useState([])
@@ -58,7 +59,9 @@ const Main = () => {
         </AliceCarousel>
       </section>
             
-      <Hero />
+      <Hero>
+        <GenresSelector/>
+      </Hero>
 
       <Cards />
       

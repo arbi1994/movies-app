@@ -478,7 +478,7 @@
   }
 }
 .card__title {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.5);
   min-height: 4em;
   padding: 1em;
   text-align: center;
@@ -491,7 +491,8 @@
   transition: top 0.5s ease;
 }
 .card__title h5 {
-  color: #828282;
+  color: white;
+  font-weight: 600;
 }
 .card img {
   width: 100%;
@@ -520,10 +521,9 @@
     background: rgba(7, 0, 20, 0.8);
   }
 }
-.card__rating h5 {
+.card__rating h6 {
   font-weight: 500;
-  color: #828282;
-  margin-right: 1em;
+  color: white;
 }
 .card__rating .rating-stars {
   font-size: 1.4rem;
@@ -561,23 +561,64 @@
   padding-right: 1rem;
 }
 
-header {
-  background: transparent;
-  padding: 0em 2em;
-  transition: all 0.5s ease;
+.genres {
+  width: 100%;
+  border-radius: 40px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 1em 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #070014;
 }
-
-main {
-  overflow-x: hidden;
-}
-main .hero {
-  min-height: 90vh;
+.genres__wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  max-height: fit-content;
+  width: 100%;
+  overflow: hidden;
+  height: 3em;
 }
-main .hero__wrapper {
+.genres__wrapper.active {
+  height: 100%;
+}
+.genres__genre {
+  margin-right: 2em;
+  margin-bottom: 1em;
+  cursor: pointer;
+  color: #828282;
+}
+.genres__genre h5 {
+  font-weight: 500;
+}
+.genres .fas {
+  font-size: 3rem;
+  background: linear-gradient(180deg, #aab2ff, #eca0ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  margin: 1rem 0 0 0;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.hero__wrapper {
   width: 60em;
   display: flex;
   flex-direction: column;
@@ -586,11 +627,11 @@ main .hero__wrapper {
   position: relative;
 }
 @media (max-width: 768px) {
-  main .hero__wrapper {
+  .hero__wrapper {
     width: 45em;
   }
 }
-main .hero__wrapper h1 {
+.hero__wrapper h1 {
   background: linear-gradient(180deg, #aab2ff, #eca0ff);
   background-clip: text;
   -webkit-background-clip: text;
@@ -603,29 +644,39 @@ main .hero__wrapper h1 {
   opacity: 0;
   transition: opacity 1s ease 1.5s;
 }
-main .hero__wrapper h1.active {
+.hero__wrapper h1.active {
   opacity: 1;
 }
-main .hero__wrapper h2 {
+.hero__wrapper h2 {
   color: white;
   font-weight: 600;
   letter-spacing: 1.5px;
 }
-main .hero__wrapper .from-left {
+.hero__wrapper .from-left {
   position: relative;
   top: 0;
   left: -10000px;
   margin-right: 2rem;
 }
-main .hero__wrapper .from-top {
+.hero__wrapper .from-top {
   position: relative;
   top: -10000px;
 }
-main .hero__wrapper .from-right {
+.hero__wrapper .from-right {
   position: relative;
   top: 0;
   right: -10000px;
   margin-left: 2rem;
+}
+
+header {
+  background: transparent;
+  padding: 0em 2em;
+  transition: all 0.5s ease;
+}
+
+main {
+  overflow-x: hidden;
 }
 
 h1,
@@ -657,7 +708,7 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(2.8rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 2.6rem);
 }
 
 h4 {
@@ -669,7 +720,7 @@ h5 {
 }
 
 h6 {
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
 }
 
 a {
