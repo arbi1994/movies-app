@@ -15,8 +15,8 @@
   }
 }
 
-@mixin gradientColor() {
-  background: linear-gradient(180deg, $logo_color-1, $logo_color-2);
+@mixin gradientColor($deg) {
+  background: linear-gradient($deg, $logo_color-1, $logo_color-2);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

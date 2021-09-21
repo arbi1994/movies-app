@@ -4,7 +4,7 @@ import Card from './Card';
 import useTmdbMain from '../hooks/useTmdbMain';
 import { BASE_IMAGE_URL, POSTER_SIZES } from '../api_config';
 
-const Cards = () => {
+const Cards = ({ children }) => {
   const [page, setPage] = useState(1);
   const [getData, data, loading] = useTmdbMain()
 
@@ -30,11 +30,10 @@ const Cards = () => {
 
   return (
     <section className="cards">
+      { children }
       <div className="cards__wrapper">
         {renderedCards}
       </div>
-      <img className="top-left" src="images/mask-image.svg"></img>
-      <img className="top-right" src="images/mask-image.svg"></img>
       {loading 
         ? null 
         : <button 

@@ -59,11 +59,11 @@ const Main = () => {
         </AliceCarousel>
       </section>
             
-      <Hero>
-        <GenresSelector/>
-      </Hero>
+      <Hero />
 
-      <Cards />
+      <Cards>
+        <GenresSelector />
+      </Cards>
       
     </main>
   )

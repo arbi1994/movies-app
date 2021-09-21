@@ -2,22 +2,45 @@
 
 .genres {
   width: 100%;
-  border-radius: 40px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
   position: absolute;
   left: 0;
-  bottom: 0;
+  top: -7em;
   padding: 1em 4em;
   @include flex(column, center, center);
   overflow: hidden;
   background: $background_color;
+  z-index: 5000;
+
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
 
   &__wrapper {
-    @include flex(row, center, center);
-    flex-wrap: wrap;
-    max-height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+    gap: 1em;
     width: 100%;
     overflow: hidden;
-    height: 3em;
+    height: 2em;
+
+    @include media("<=SMdesktop") {
+      grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+    }
+
+    @include media("<=phoneL") {
+      grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+    }
+
+    @include media("<phone") {
+      display: flex;
+      @include flex(row, center, center);
+      flex-wrap: wrap;
+    }
 
     &.active {
       height: 100%;
@@ -25,10 +48,13 @@
   }
 
   &__genre {
-    margin-right: 2em;
-    margin-bottom: 1em;
     cursor: pointer;
     color: $main_text_color;
+    padding: 0.5em;
+    //overflow: hidden;
+    @include flex(row, center, center);
+    min-height: 2em;
+    text-align: center;
 
     h5 {
       font-weight: 500;
@@ -37,7 +63,7 @@
 
   .fas {
     font-size: 3rem;
-    @include gradientColor();
+    @include gradientColor(180deg);
     margin: 1rem 0 0 0;
     cursor: pointer;
   }

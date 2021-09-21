@@ -6,10 +6,7 @@ import '../sass/index.scss';
 
 const App = () => {
   const [active, setActive] = useState(false);
-  // const [home_data] = useTmdb(GET.discover, pageNum);
-
-  // console.log(home_data) //MAIN component data
- 
+  
   return (
     <>
       <NavBar active={active} setActive={setActive}/>

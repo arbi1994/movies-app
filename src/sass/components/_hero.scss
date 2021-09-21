@@ -5,22 +5,22 @@
   @include flex(column, center, center);
   position: relative;
 
+  @include media("<=tablet"){
+    min-height: 50vh;
+    @include flex(column, flex-start, center);
+  }
+
   &__wrapper {
-    width: 60em;
+    max-width: 60em;
     @include flex(column, center, center);
     position: relative;
 
     @include media("<=tablet") {
-      width: 45em;
+      margin-top: 10vh;
     }
 
     h1 {
-      background: linear-gradient(180deg, $logo_color-1, $logo_color-2);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -moz-background-clip: text;
-      -moz-text-fill-color: transparent;
+      @include gradientColor(180deg);
       text-transform: uppercase;
       font-weight: 700;
       letter-spacing: 1.5px;

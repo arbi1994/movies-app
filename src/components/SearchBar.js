@@ -75,13 +75,10 @@ const SearchBar = () => {
 
   // Fetch the data
   useEffect(() => {
-    // console.log(totalPages)
-
     getData(input) //getting the data we searched for
 
     if(input === '') setPage(1)
 
-    console.log(page)
   }, [input, page])
 
   // Display error message if what we are searching for 
