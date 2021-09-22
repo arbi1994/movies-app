@@ -7,9 +7,17 @@ import AliceCarousel from 'react-alice-carousel';
 import Hero from './Hero';
 import Cards from './Cards';
 import GenresSelector from './GenresSelector';
+import ScrollUpButton from './ScrollUpButton';
+import useHandleScroll from '../hooks/useHandleScroll';
 
 const Main = () => {
   const [imgItems, setImgItems] = useState([])
+  const [scrollToTopBtn, setScrollToTopBtn] = useState(false)
+  const ref = useHandleScroll(() => {
+    setScrollToTopBtn(ref.current.getBoundingClientRect().top <= (-20))
+  })
+
+  console.log(scrollToTopBtn)
 
   const getData = async (numberOfItems) => {
     
@@ -39,7 +47,7 @@ const Main = () => {
   }, [])
 
   return (
-    <main> 
+    <main ref={ref}> 
       <section className="carousel">
         <AliceCarousel 
             autoPlay={true}
@@ -64,6 +72,8 @@ const Main = () => {
       <Cards>
         <GenresSelector />
       </Cards>
+
+      <ScrollUpButton scrollToTopBtn={scrollToTopBtn}/>
       
     </main>
   )

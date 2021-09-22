@@ -1,4 +1,4 @@
-import { useState, useEffect,useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const useHandleScroll = (handler) => {
   const domElement = useRef(null);
@@ -8,7 +8,6 @@ const useHandleScroll = (handler) => {
 
       if (domElement.current) {
         handler()
-        //setSticky(ref.current.getBoundingClientRect().top <= 0);
       }
     };
 

@@ -708,6 +708,28 @@
   margin-left: 2rem;
 }
 
+.scroll-up {
+  position: fixed;
+  bottom: 80px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5000;
+  border: none;
+  background: linear-gradient(180deg, #aab2ff, #eca0ff);
+}
+.scroll-up .fa {
+  font-size: 2rem;
+  color: #070014;
+}
+.scroll-up:hover {
+  background: linear-gradient(180deg, #aab2ff, #eca0ff);
+}
+
 header {
   background: transparent;
   padding: 0em 2em;

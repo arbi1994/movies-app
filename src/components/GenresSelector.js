@@ -10,7 +10,6 @@ const GenresSelector = () => {
 
   const ref = useHandleScroll(() => {
     setIsSticky(false) 
-    
     //set isSticky to true only when window's top border touches
     //the DOM element top border
     setIsSticky(ref.current.getBoundingClientRect().top <= 0)
