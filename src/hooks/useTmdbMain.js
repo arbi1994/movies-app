@@ -6,13 +6,14 @@ const useTmdbMain = () => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
 
-  const getData = async (pageNum) => {
+  const getData = async (pageNum, genre) => {
     setLoading(true)
 
     try {
       const {data} = await tmdb.get(`${BASE_URL}${GET.discover}`, {
         params: {
           page: pageNum,
+          with_genres: genre,
         }
       })
 
