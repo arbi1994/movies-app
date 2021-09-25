@@ -11,7 +11,7 @@
   @include flex(column, center, center);
   overflow: hidden;
   background: $background_color;
-  z-index: 5000;
+  z-index: 4000;
 
   &.sticky {
     position: fixed;

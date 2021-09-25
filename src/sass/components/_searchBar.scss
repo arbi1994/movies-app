@@ -1,4 +1,4 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .searchbar {
   display: flex;
@@ -13,31 +13,32 @@
   right: 40em;
   transform: translateY(-50%);
   z-index: 5000;
-  background: transparent;
+  //background: transparent;
+
+  // &.active {
+  //   width: 60em;
+  // }
 
   &:hover {
     width: 60em;
-
-    @include media("<=tablet"){
-      width: 40em;
-    }
   }
 
   @include media("<=SMdesktop") {
     right: 5em;
   }
 
-  @include media("<tablet") {
-    position: absolute;
-    top: 8em;
-    left: 50%;
-    width: 90vw;
-    transform: translateX(-50%);
-    z-index: 5000;
+  @include media("<=tablet"){
+    display: none;
   }
 
-  @include media("<phoneL") {
-    //top: 6em;
+  @include media("<=phoneL") {
+    // position: absolute;
+    // top: 0;
+    // left: 50%;
+    // width: 90vw;
+    // transform: translateX(-50%);
+    // z-index: 5000;
+    pointer-events: none;
   }
 
   &__icon {
@@ -65,6 +66,10 @@
     @include media("<tablet") {
       font-size: 1.2rem;
     }
+
+    @include media("<=phoneL") {
+      pointer-events: none;
+    }
   }
 
   .fas {
@@ -78,7 +83,7 @@
     cursor: pointer;
   }
 
-  &.active {
-    background: white;
-  }
+  // .active {
+  //   width: 2em;
+  // }
 }

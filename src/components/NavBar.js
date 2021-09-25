@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import navlinks from './navlinksConfig';
-import SearchBar from './SearchBar';
+import SearchBar from './Search';
 
 const NavBar = ({ active, setActive }) => {
+  const [activeSearch, setActiveSearch] = useState(false)
 
   return (
     <header 
@@ -16,7 +17,7 @@ const NavBar = ({ active, setActive }) => {
           </div>
         </div>
 
-        <SearchBar />
+        <SearchBar activeSearch={activeSearch} setActiveSearch={setActiveSearch}/>
         
         <div className="navbar__right">
        
@@ -29,6 +30,11 @@ const NavBar = ({ active, setActive }) => {
               })}
             </ul>
           </nav>
+
+          <div className="search-icon" onClick={() => setActiveSearch(true)}>
+            <i className="fas fa-search"></i>
+          </div>
+
           <div className="burger" onClick={() => setActive(!active)}>
             <i className={`fas ${active ? 'fa-times' : 'fa-bars'}`}></i>
           </div>

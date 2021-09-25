@@ -1,4 +1,4 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .navbar {
   min-height: 10vh;
@@ -29,8 +29,8 @@
   &__right {
     flex: 0 1 40em;
     @include flex(row, space-between, center);
-    
-    @include media("<=SMdesktop"){
+
+    @include media("<=SMdesktop") {
       flex: 0;
     }
 
@@ -59,6 +59,20 @@
             letter-spacing: 1.5px;
           }
         }
+      }
+    }
+
+    .search-icon {
+      font-size: 2em;
+      margin-right: 1em;
+      cursor: pointer;
+
+      @include media(">tablet") {
+        display: none;
+      }
+
+      .fa-search {
+        color: $main_text_color;
       }
     }
   }

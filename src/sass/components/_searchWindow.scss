@@ -1,10 +1,10 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .search-window {
   position: absolute;
   top: 4rem;
   left: 0;
-  background: $input_box_color;
+  background: $background_color;
   width: 100%;
   min-height: 20em;
   padding: 0 2em;
@@ -13,10 +13,19 @@
   z-index: 5000;
   overflow-y: hidden;
 
+  @include media("<=tablet") {
+    min-height: 100vh;
+    border-radius: 0;
+  }
+
   &__top-line {
     width: 70%;
     margin: auto;
     border: 0.5px solid $main_text_color;
+
+    @include media("<=tablet") {
+      margin-top: 2em;
+    }
   }
 
   &__header {

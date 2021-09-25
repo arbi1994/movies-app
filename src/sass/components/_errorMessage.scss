@@ -1,7 +1,11 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .error-message {
   @include flex(row, center, center);
+
+  @include media("<phoneL") {
+    text-align: center;
+  }
 
   span {
     color: white;
