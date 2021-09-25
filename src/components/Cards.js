@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import GenresSelector from './GenresSelector';
 import Card from './Card';
 
@@ -12,11 +12,9 @@ const Cards = () => {
   const [genreID, setGenreID] = useState(null);
   const [offsetTop, setOffsetTop] = useState()
 
-  const ref = useRef();
-
-  useEffect(() => {
+  const ref = useHandleScroll(() => {
     setOffsetTop(ref.current.getBoundingClientRect().top)
-  }, [])
+  })
 
   console.log(offsetTop)
 
