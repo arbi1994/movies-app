@@ -192,6 +192,7 @@
   border-bottom-left-radius: 20px;
   display: block;
   transition: right 0.5s ease;
+  padding: 0 2em 2em;
 }
 @media (min-width: 1025px) {
   .menu {
@@ -239,6 +240,14 @@
   transition: right 0.5s ease;
   z-index: 5000;
 }
+.menu .discover-menu {
+  width: 100%;
+  padding: 0 1em 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
 .menu .discover-menu li > a {
   font-size: 1.5rem;
   letter-spacing: 0;
@@ -248,7 +257,8 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  margin: 10px 10px 5px 0;
+  margin: 10px 0px 5px 0;
+  cursor: pointer;
 }
 
 .search-window {

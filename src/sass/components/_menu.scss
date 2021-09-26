@@ -24,6 +24,7 @@
   border-bottom-left-radius: 20px;
   display: block;
   transition: right 0.5s ease;
+  padding: 0 2em 2em;
 
   @include media(">SMdesktop") {
     display: none;
@@ -69,6 +70,10 @@
   }
 
   .discover-menu {
+    width: 100%;
+    padding: 0 1em 0 0;
+    @include flex(row, flex-end, center);
+
     li > a {
       font-size: 1.5rem;
       letter-spacing: 0;
@@ -77,6 +82,7 @@
 
   .close-menu {
     @include flex(row, flex-end, center);
-    margin: 10px 10px 5px 0;
+    margin: 10px 0px 5px 0;
+    cursor: pointer;
   }
 }

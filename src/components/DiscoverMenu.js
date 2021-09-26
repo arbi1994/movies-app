@@ -9,9 +9,11 @@ const DiscoverMenu = () => {
   })
 
   return (
-    <ul className="discover-menu">
-      {rendereMenu}
-    </ul>
+    <div className="discover-menu">
+      <ul>
+        {rendereMenu}
+      </ul>
+    </div>
   )
 }
 
