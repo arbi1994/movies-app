@@ -43,8 +43,8 @@ const Menu = ({ active, setActive }) => {
                     <a onClick={onDiscoverClick}>
                       {links.label} 
                       {dropdownActive 
-                        ? <ArrowDropDownRoundedIcon style={iconStyle}/>
-                        : <ArrowDropUpRoundedIcon style={iconStyle}/>
+                        ? <ArrowDropUpRoundedIcon style={iconStyle}/>
+                        : <ArrowDropDownRoundedIcon style={iconStyle}/>
                       } 
                     </a>
                   </li>

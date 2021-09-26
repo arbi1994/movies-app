@@ -238,7 +238,7 @@
 .menu.active {
   right: 0;
   transition: right 0.5s ease;
-  z-index: 5000;
+  z-index: 6000;
 }
 .menu .discover-menu {
   width: 100%;
