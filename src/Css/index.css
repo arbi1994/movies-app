@@ -157,7 +157,7 @@
   }
 }
 .navbar__right .search-icon .fa-search {
-  color: #828282;
+  color: #f4f0fa;
 }
 
 @keyframes fadeIn {
@@ -180,16 +180,16 @@
 }
 .burger .fas {
   font-size: 2.4rem;
-  color: #828282;
+  color: #f4f0fa;
 }
 
 .menu {
   position: fixed;
-  top: 8vh;
+  top: 0;
   right: -1000px;
-  width: 15em;
-  height: 20em;
   background: #070014;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   display: block;
   transition: right 0.5s ease;
 }
@@ -199,7 +199,7 @@
   }
 }
 .menu ul {
-  height: 100%;
+  min-height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -208,34 +208,53 @@
 .menu ul li {
   list-style: none;
   width: 100%;
-  text-align: center;
   padding: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.menu ul li a {
+  font-weight: 600;
+  margin-left: 1em;
   transform: translateX(0px);
   transition: transform 0.3s ease;
 }
-.menu ul li:hover {
+.menu ul li a:hover {
   transform: translateX(10px);
-}
-.menu ul li:hover a {
-  font-weight: 600;
 }
 .menu ul li a {
   text-decoration: none;
   color: #828282;
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 1.5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 .menu.active {
   right: 0;
   transition: right 0.5s ease;
   z-index: 5000;
 }
+.menu .discover-menu li > a {
+  font-size: 1.5rem;
+  letter-spacing: 0;
+}
+.menu .close-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px 10px 5px 0;
+}
 
 .search-window {
   position: absolute;
-  top: 4rem;
   left: 0;
+  margin-top: 3em;
   background: #070014;
   width: 100%;
   min-height: 20em;
@@ -255,11 +274,6 @@
   width: 70%;
   margin: auto;
   border: 0.5px solid #828282;
-}
-@media (max-width: 768px) {
-  .search-window__top-line {
-    margin-top: 2em;
-  }
 }
 .search-window__header {
   padding: 2em;
@@ -712,7 +726,7 @@
   opacity: 1;
 }
 .hero__wrapper h2 {
-  color: white;
+  color: #f4f0fa;
   font-weight: 600;
   letter-spacing: 1.5px;
 }
@@ -760,12 +774,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 8vh;
+  min-height: 20vh;
   z-index: 6000;
   display: none;
 }
 .mobile-searchbar.active {
-  display: block;
+  display: flex;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -780,8 +794,8 @@
   font-size: clamp(1.2rem, 3vw, 1.6rem);
 }
 .mobile-searchbar .input {
+  width: 15em;
   border: none;
-  width: 40%;
   background: inherit;
   padding: 1em;
   color: white;

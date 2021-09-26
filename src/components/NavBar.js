@@ -7,9 +7,10 @@ const NavBar = ({ active, setActive }) => {
 
   return (
     <header 
-      style={
-        {transform: `${active ? 'translateX(-150px)' : ''}`, paddingRight: `${active ? '0' : '2em'}`}
-      }>
+      // style={
+      //   {transform: `${active ? 'translateX(-150px)' : ''}`, paddingRight: `${active ? '0' : '2em'}`}
+      // }
+    >
       <div className="navbar">
         <div className="navbar__left">
           <div className="navbar__left--logo">

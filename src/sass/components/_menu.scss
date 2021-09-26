@@ -1,4 +1,4 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .burger {
   display: block;
@@ -11,17 +11,17 @@
 
   .fas {
     font-size: 2.4rem;
-    color: $main_text_color;
+    color: $hover_text_color;
   }
 }
 
 .menu {
   position: fixed;
-  top: 8vh;
+  top: 0;
   right: -1000px;
-  width: 15em;
-  height: 20em;
   background: $background_color;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   display: block;
   transition: right 0.5s ease;
 
@@ -30,21 +30,23 @@
   }
 
   ul {
-    height: 100%;
+    min-height: 30vh;
     @include flex(column, space-around, center);
 
     li {
       list-style: none;
       width: 100%;
-      text-align: center;
       padding: 1em;
-      transform: translateX(0px);
-      transition: transform 0.3s ease;
+      @include flex(row, null, center);
 
-      &:hover {
-        transform: translateX(10px);
-        a {
-          font-weight: 600;
+      a {
+        font-weight: 600;
+        margin-left: 1em;
+        transform: translateX(0px);
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateX(10px);
         }
       }
 
@@ -52,8 +54,10 @@
         text-decoration: none;
         color: $main_text_color;
         font-size: 1.6rem;
-        font-weight: 400;
+        font-weight: 500;
         letter-spacing: 1.5px;
+        @include flex(row, center, center);
+        cursor: pointer;
       }
     }
   }
@@ -62,5 +66,17 @@
     right: 0;
     transition: right 0.5s ease;
     z-index: 5000;
+  }
+
+  .discover-menu {
+    li > a {
+      font-size: 1.5rem;
+      letter-spacing: 0;
+    }
+  }
+
+  .close-menu {
+    @include flex(row, flex-end, center);
+    margin: 10px 10px 5px 0;
   }
 }

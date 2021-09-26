@@ -1,11 +1,11 @@
-@use '../abstracts/' as *;
+@use "../abstracts/" as *;
 
 .hero {
   min-height: 90vh;
   @include flex(column, center, center);
   position: relative;
 
-  @include media("<=tablet"){
+  @include media("<=tablet") {
     min-height: 50vh;
     @include flex(column, flex-start, center);
   }
@@ -33,7 +33,7 @@
     }
 
     h2 {
-      color: white;
+      color: $hover_text_color;
       font-weight: 600;
       letter-spacing: 1.5px;
     }

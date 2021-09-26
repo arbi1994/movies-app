@@ -5,12 +5,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 8vh;
+  min-height: 20vh;
   z-index: 6000;
   display: none;
 
   &.active {
-    display: block;
+    display: flex;
 
     @include flex(row, center, center);
     background: $background_color;
@@ -26,8 +26,8 @@
   }
 
   .input {
+    width: 15em;
     border: none;
-    width: 40%;
     background: inherit;
     padding: 1em;
     color: white;
