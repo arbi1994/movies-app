@@ -11,16 +11,20 @@ import NotFound from './NotFound';
 // Styling
 import '../sass/index.scss';
 
-const App = () => (
-  <Router> 
-      <NavBar />
-      <Menu />
-    <Switch>
-      <Route exact path="/" component={Main} />
-      <Route path="/movie/:title" component={Movie} /> 
-      <Route path="/*" component={NotFound} /> 
-    </Switch>
-  </Router> 
-)
+const App = () => {
+  const [active, setActive] = useState(false)
+
+  return(
+    <Router> 
+      <NavBar active={active} setActive={setActive}/>
+      <Menu active={active} setActive={setActive}/>
+      <Switch>
+        <Route exact path="/" component={Main} />
+        <Route path="/movie/:title" component={Movie} /> 
+        <Route path="/*" component={NotFound} /> 
+      </Switch>
+    </Router> 
+  )
+}
 
 export default App

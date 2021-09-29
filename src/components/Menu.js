@@ -7,8 +7,7 @@ import navlinks from './navlinksConfig';
 import useClickOutside from '../hooks/useClickOutside';
 import DiscoverMenu from './DiscoverMenu';
 
-const Menu = () => {
-  const [active, setActive] = useState(false)
+const Menu = ({ active, setActive }) => {
   const [dropdownActive, setDropdownActive] = useState(false)
 
   const domNode = useClickOutside(() => {

@@ -7,8 +7,7 @@ import navlinks from './navlinksConfig';
 import SearchBar from './Search';
 import DiscoverMenu from './DiscoverMenu';
 
-const NavBar = () => {
-  const [active, setActive] = useState(false)
+const NavBar = ({ active, setActive }) => {
   const [activeSearch, setActiveSearch] = useState(false)
   const [dropdownActive, setDropdownActive] = useState(false)
 
@@ -24,7 +23,6 @@ const NavBar = () => {
   }
 
   return (
-    <>
       <header>
         <div className="navbar">
           <div className="navbar__left">
@@ -77,7 +75,6 @@ const NavBar = () => {
           </div>
         </div>      
       </header>
-    </>
   )
 }
 
