@@ -12,29 +12,29 @@ const navLinksConfig = [
     id: 1,
     icon: <HomeRoundedIcon style={iconStyle}/>,
     label: 'Home',
-    path: '/home'
+    path: '/'
   },
   {
     id: 2,
     icon: <LocalMoviesRoundedIcon style={iconStyle}/>,
     label: 'Discover',
-    path: '/movies',
+    path: '/',
     movies: [
       {
         label: 'Latest',
-        path: '/latest'
+        path: 'latest'
       },
       {
         label: 'Now Play',
-        path: '/now_play'
+        path: 'now_play'
       },
       {
         label: 'Popular',
-        path: '/popular'
+        path: 'popular'
       },
       {
         label: 'Upcoming',
-        path: '/upcoming'
+        path: 'upcoming'
       },
     ]
   },

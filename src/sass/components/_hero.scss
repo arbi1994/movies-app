@@ -4,6 +4,7 @@
   min-height: 90vh;
   @include flex(column, center, center);
   position: relative;
+  z-index: -5000;
 
   @include media("<=tablet") {
     min-height: 50vh;

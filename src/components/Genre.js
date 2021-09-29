@@ -1,14 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Genre = ({ id, name, handleGenderClick }) => {
   return (
-    <div 
+    <Link 
+      to={`?genres=${name.split(' ').join('-')}`}
       id={id}
       className="genres__genre"
       onClick={handleGenderClick}
     >
       <h5>{name}</h5>
-    </div>
+    </Link>
   )
 }
 

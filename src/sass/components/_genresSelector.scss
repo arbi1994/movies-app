@@ -55,6 +55,7 @@
     @include flex(row, center, center);
     min-height: 2em;
     text-align: center;
+    text-decoration: none;
 
     h5 {
       font-weight: 500;

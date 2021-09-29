@@ -48,6 +48,7 @@
 
       ul {
         @include flex(row, space-around, center);
+        height: 10vh;
 
         li {
           list-style: none;
