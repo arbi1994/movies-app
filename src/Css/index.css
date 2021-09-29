@@ -608,6 +608,9 @@
   background: #070014;
   z-index: 4000;
 }
+.genres.open {
+  transform: translateY(-75px);
+}
 .genres.sticky {
   position: fixed;
   top: 0;

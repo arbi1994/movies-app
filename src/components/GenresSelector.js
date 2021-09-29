@@ -32,6 +32,8 @@ const GenresSelector = ({ handleCallback, setPage, offsetTop }) => {
 
   const onArrowDownClick = () => {
     setOpen(!open)
+
+    if(!isSticky) genreRef.current.classList.toggle('open') // toggle open class to genres element
   }
 
   const renderedGenres = genres.map((genre, index) => {

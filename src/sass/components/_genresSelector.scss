@@ -1,4 +1,4 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .genres {
   width: 100%;
@@ -12,6 +12,10 @@
   overflow: hidden;
   background: $background_color;
   z-index: 4000;
+
+  &.open {
+    transform: translateY(-75px);
+  }
 
   &.sticky {
     position: fixed;
