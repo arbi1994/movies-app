@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 import Menu from './Menu'
 import Main from './Main';
 import Movie from './Movie';
+import Cards from './Cards';
 import NotFound from './NotFound';
 
 // Styling
@@ -16,11 +17,12 @@ const App = () => {
 
   return(
     <Router> 
-      <NavBar active={active} setActive={setActive}/>
-      <Menu active={active} setActive={setActive}/>
+      <NavBar active={active} setActive={setActive} />
+      <Menu active={active} setActive={setActive} />
       <Switch>
         <Route exact path="/" component={Main} />
         <Route path="/movie/:title" component={Movie} /> 
+        <Route path="/discover/:path" component={Cards} />
         <Route path="/*" component={NotFound} /> 
       </Switch>
     </Router> 

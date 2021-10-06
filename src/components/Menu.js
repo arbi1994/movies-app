@@ -23,6 +23,30 @@ const Menu = ({ active, setActive }) => {
     setDropdownActive(!dropdownActive)
   }
 
+  const renderedMenu = navlinks.map((links, index) => { 
+
+    if(links.label === 'Discover'){
+
+      return (
+        <>
+          <li key={index}>
+            {links.icon}
+            <a onClick={onDiscoverClick}>
+              {links.label} 
+              {dropdownActive 
+                ? <ArrowDropUpRoundedIcon style={iconStyle}/>
+                : <ArrowDropDownRoundedIcon style={iconStyle}/>
+              } 
+            </a>
+          </li>
+          {dropdownActive ? <DiscoverMenu setActive={setActive} /> : null}
+        </>
+      )
+    }
+
+    return <li key={index}>{links.icon}<a href={links.path} onClick={() => setActive(false)}>{links.label}</a></li> 
+  })
+
   return (
     <div ref={domNode} className={`menu ${active ? 'active' : ''}`}>
       
@@ -32,30 +56,7 @@ const Menu = ({ active, setActive }) => {
       ><CloseRoundedIcon style={iconStyle}/></div>
       
       <ul>
-        {navlinks.map((links, index) => { 
-
-            if(links.label === 'Discover'){
-
-              return (
-                <>
-                  <li key={links.id}>
-                    {links.icon}
-                    <a onClick={onDiscoverClick}>
-                      {links.label} 
-                      {dropdownActive 
-                        ? <ArrowDropUpRoundedIcon style={iconStyle}/>
-                        : <ArrowDropDownRoundedIcon style={iconStyle}/>
-                      } 
-                    </a>
-                  </li>
-                  {dropdownActive ? <DiscoverMenu /> : null}
-                </>
-              )
-            }
-
-            return <li key={links.id}>{links.icon}<a href={links.path}>{links.label}</a></li> 
-          })
-        }
+        {renderedMenu}
       </ul>
     </div>
   )

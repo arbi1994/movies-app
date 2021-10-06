@@ -1,0 +1,24 @@
+@use "../abstracts" as *;
+
+.cardsHeader {
+  width: 80%;
+  @include flex(row, center, center);
+  margin: 1em 0 2em 0;
+
+  hr {
+    border: none;
+    min-width: 40%;
+    height: 0.5px;
+    background: $main_text_color;
+
+    @include media("<phoneL") {
+      min-width: 30%;
+    }
+  }
+
+  &__title {
+    color: $main_text_color;
+    margin: 0 1em;
+    text-align: center;
+  }
+}

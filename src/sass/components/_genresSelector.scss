@@ -15,6 +15,14 @@
 
   &.open {
     transform: translateY(-75px);
+
+    @include media("<=tablet") {
+      transform: translateY(-120px);
+    }
+
+    @include media("<=phoneL") {
+      transform: translateY(-250px);
+    }
   }
 
   &.sticky {

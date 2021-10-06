@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import "react-alice-carousel/lib/alice-carousel.css";
 
 import { GET, BASE_URL, BASE_IMAGE_URL, BACKDROP_SIZES } from '../api_config';
 import tmdb from '../apis/tmdb';
+// Components
 import AliceCarousel from 'react-alice-carousel';
 import Hero from './Hero';
 import Cards from './Cards';
 import GenresSelector from './GenresSelector';
 import ScrollUpButton from './ScrollUpButton';
+// Hooks
 import useHandleScroll from '../hooks/useHandleScroll';
 
 const Main = () => {
@@ -16,8 +18,6 @@ const Main = () => {
   const ref = useHandleScroll(() => {
     setScrollToTopBtn(ref.current.getBoundingClientRect().top <= (-20))
   })
-
-  console.log(scrollToTopBtn)
 
   const getData = async (numberOfItems) => {
     

@@ -1,23 +1,37 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
 import tmdb from '../apis/tmdb';
 import { GET, BASE_URL } from '../api_config';
 
 const useTmdbMain = () => {
-  const [data, setData] = useState([])
+  const [endpoint, setEndpoint] = useState()
+  const [movies, setMovies] = useState([])
   const [loading, setLoading] = useState(false)
+  const { path } = useParams() //get the current URL parameter
+
+  console.log("path: ", path)
+
+  console.log("endpoint: ", endpoint)
+    
+  useEffect(() => {
+    setEndpoint(`/movie/${path}`)
+  }, [])
 
   const getData = async (pageNum, genre) => {
     setLoading(true)
 
+    console.log('endpoint value: ', endpoint)
+
     try {
-      const {data} = await tmdb.get(`${BASE_URL}${GET.discover}`, {
+      const {data} = await tmdb.get(`${BASE_URL}${path ? endpoint : GET.discover}`, {
         params: {
           page: pageNum,
           with_genres: genre,
         }
       })
 
-      setData((prev) => (
+      setMovies((prev) => (
         pageNum > 1
         ? [...prev, ...data.results] 
         : [...data.results]
@@ -32,7 +46,7 @@ const useTmdbMain = () => {
 
   //console.log(data)
 
-  return [getData, data, loading]
+  return [getData, movies, loading]
 }
 
 export default useTmdbMain

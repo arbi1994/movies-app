@@ -26,7 +26,7 @@ const navLinksConfig = [
       },
       {
         label: 'Now Play',
-        path: 'now_play'
+        path: 'now_playing'
       },
       {
         label: 'Popular',

@@ -6,6 +6,10 @@ const BASE_URL = "https://api.themoviedb.org/3";
 // set ENDPOINTS
 const GET = {
   discover: "/discover/movie", 
+  latest: "/movie/latest", 
+  popular: "/movie/popular", 
+  now_playing: "/movie/now_playing", 
+  upcoming: "/movie/upcoming", 
   genres: "/genre/movie/list",
   search: "/search/movie", 
   configuration: "/configuration"

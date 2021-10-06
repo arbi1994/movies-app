@@ -1,32 +1,41 @@
 import React, { useEffect, useState } from 'react';
+import { useParams, useLocation } from 'react-router-dom';
+
 import GenresSelector from './GenresSelector';
 import Card from './Card';
+import CardsHeader from './CardsHeader';
 
 import useTmdbMain from '../hooks/useTmdbMain';
 import useHandleScroll from '../hooks/useHandleScroll';
-import { BASE_IMAGE_URL, POSTER_SIZES } from '../api_config';
+import { GET, BASE_IMAGE_URL, POSTER_SIZES } from '../api_config';
 
 const Cards = () => {
-  const [page, setPage] = useState(1);
-  const [getData, data, loading] = useTmdbMain()
-  const [genreID, setGenreID] = useState(null);
+  const breakpoint = 768
+  const [page, setPage] = useState(1)
+  const [getData, movies, loading] = useTmdbMain()
+
+  const [genreID, setGenreID] = useState(null)
+  const [genreName, setGenreName] = useState('Discover')
   const [offsetTop, setOffsetTop] = useState()
+
+  const { path } = useParams() //get the current URL parameter
+  console.log(path)
 
   const ref = useHandleScroll(() => {
     setOffsetTop(ref.current.getBoundingClientRect().top)
   })
 
-  console.log(offsetTop)
+  console.log('offsetTop', offsetTop)
 
   useEffect(() => {
-    getData(page, genreID)
-  }, [page, genreID])
+    getData(page, genreID) 
+  }, [path, page, genreID])
 
   const onButtonClick = () => {
     setPage((prev) => prev + 1)
   } 
 
-  const renderedCards = data.map((card, index) => {
+  const renderedCards = movies.map((card, index) => {
     return (
       <Card 
         key={index} 
@@ -44,19 +53,22 @@ const Cards = () => {
    * from GenresSelector component
    * @param {Number} id 
    */
-  const handleCallback = (id) => {
+  const handleGenreCallback = (id, name) => {
     setGenreID(id)
+    setGenreName(name)
   }
-
-  console.log(offsetTop)
 
   return (
     <section className="cards" id="cards">
-      <GenresSelector 
-        handleCallback={handleCallback}
-        setPage={setPage}
-        offsetTop={offsetTop}
-      />
+      {!path && 
+        <GenresSelector 
+          handleGenreCallback={handleGenreCallback}
+          setPage={setPage}
+          offsetTop={offsetTop}
+        />
+      }
+
+      <CardsHeader genreName={genreName}/>
 
       <div ref={ref} className="cards__wrapper">
         {renderedCards}
@@ -64,10 +76,7 @@ const Cards = () => {
 
       {loading 
         ? null 
-        : <button 
-            className="loadMore-btn"
-            onClick={onButtonClick}
-        >Load more</button>
+        : <button className="loadMore-btn" onClick={onButtonClick}>Load more</button>
       }
     </section>
   )
