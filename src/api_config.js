@@ -12,6 +12,7 @@ const GET = {
   upcoming: "/movie/upcoming", 
   genres: "/genre/movie/list",
   search: "/search/movie", 
+  details: "/movie",
   configuration: "/configuration"
 }
 

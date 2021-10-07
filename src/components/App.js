@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 // Routing
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// Utils
+import ScrollToTop from '../utils/ScrollToTop';
 // Components
 import NavBar from './NavBar';
 import Menu from './Menu'
@@ -12,17 +14,18 @@ import NotFound from './NotFound';
 // Styling
 import '../sass/index.scss';
 
-const App = () => {
+function App () {
   const [active, setActive] = useState(false)
 
   return(
-    <Router> 
+    <Router>
       <NavBar active={active} setActive={setActive} />
       <Menu active={active} setActive={setActive} />
+      <ScrollToTop />
       <Switch>
         <Route exact path="/" component={Main} />
-        <Route path="/movie/:title" component={Movie} /> 
         <Route path="/discover/:path" component={Cards} />
+        <Route path="/movie/:title/:id" component={Movie} /> 
         <Route path="/*" component={NotFound} /> 
       </Switch>
     </Router> 

@@ -1,0 +1,138 @@
+@use "../abstracts" as *;
+
+.movie-details {
+  @include flex(row, center, flex-end);
+
+  @include media("<=tablet") {
+    @include flex(row, center, flex-start);
+  }
+
+  &__backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+
+    @include media("<=tablet") {
+      height: 40vh;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background-image: linear-gradient(180deg, #070014, transparent 250px);
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background-image: linear-gradient(0deg, #070014, transparent 250px);
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__container {
+    background: $background_color;
+    max-width: 1150px;
+    @include flex(row, null, null);
+    flex-wrap: wrap;
+    gap: 2em;
+    margin-top: 40em;
+    padding: 2em;
+    border-radius: 20px;
+
+    @include media("<=tablet") {
+      margin-top: 20em;
+      width: 100%;
+    }
+
+    @include media("<=phoneL") {
+      margin-top: 10em;
+    }
+
+    .col-1 {
+      flex: 1;
+
+      .poster {
+        img {
+          width: 100%;
+        }
+
+        @include media("<=tablet") {
+          display: none;
+        }
+      }
+    }
+
+    .col-2 {
+      flex: 2;
+      padding: 1em;
+
+      .details {
+        &__header {
+          // border: 1px solid white;
+          @include flex(column, space-between, flex-start);
+
+          &--title {
+            width: 100%;
+            @include flex(row, space-between, center);
+
+            h3 {
+              color: $main_text_color;
+              @include gradientColor(180deg);
+              @include flex(row, space-between, center);
+            }
+
+            h4 {
+              font-weight: 600;
+              color: $main_text_color;
+              @include flex(row, center, center);
+
+              span > * {
+                font-weight: 500;
+              }
+            }
+          }
+
+          &--subtitle {
+            @include flex(row, center, center);
+            padding: 1em;
+
+            h6 {
+              font-weight: 500;
+              color: $main_text_color;
+            }
+
+            h6:nth-child(2)::before {
+              display: inline-block;
+              margin: 0 0.8rem;
+              content: "";
+              line-height: 0.5rem;
+              padding: 1.5px;
+              border-radius: 50%;
+              vertical-align: middle;
+              background-color: $main_text_color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

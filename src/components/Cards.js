@@ -9,23 +9,14 @@ import useTmdbMain from '../hooks/useTmdbMain';
 import useHandleScroll from '../hooks/useHandleScroll';
 import { GET, BASE_IMAGE_URL, POSTER_SIZES } from '../api_config';
 
-const Cards = () => {
-  const breakpoint = 768
+const Cards = ({ setDetails }) => {
   const [page, setPage] = useState(1)
   const [getData, movies, loading] = useTmdbMain()
-
   const [genreID, setGenreID] = useState(null)
   const [genreName, setGenreName] = useState('Discover')
-  const [offsetTop, setOffsetTop] = useState()
 
   const { path } = useParams() //get the current URL parameter
   console.log(path)
-
-  const ref = useHandleScroll(() => {
-    setOffsetTop(ref.current.getBoundingClientRect().top)
-  })
-
-  console.log('offsetTop', offsetTop)
 
   useEffect(() => {
     getData(page, genreID) 
@@ -44,6 +35,7 @@ const Cards = () => {
         imgURL={`${BASE_IMAGE_URL}${POSTER_SIZES[4]}${card.poster_path}`}
         rating={card.vote_average}
         loading={loading}
+        setDetails={setDetails}
       />
     )
   })
@@ -64,13 +56,12 @@ const Cards = () => {
         <GenresSelector 
           handleGenreCallback={handleGenreCallback}
           setPage={setPage}
-          offsetTop={offsetTop}
         />
       }
 
       <CardsHeader genreName={genreName}/>
 
-      <div ref={ref} className="cards__wrapper">
+      <div className="cards__wrapper">
         {renderedCards}
       </div>
 

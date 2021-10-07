@@ -4,14 +4,19 @@ import { Link } from 'react-router-dom';
 import LoadingSpinner from './LoadingSpinner';
 import Rating from './Rating';
 
-const Card = ({ title, imgURL, rating, loading }) => {
+const Card = ({ id, title, imgURL, rating, loading }) => {
+
   return (
     <>
       {loading 
         ? 
           <LoadingSpinner />
         :
-          <Link to={`movie/${title.split(' ').join('-')}`} className="card">
+          <Link 
+            to={`movie/${title.split(' ').join('-')}/${id}`} 
+            className="card"
+            // onClick={handleOnClick}
+          >
             <span className="card__title">
               <h6>{title}</h6>
             </span>
