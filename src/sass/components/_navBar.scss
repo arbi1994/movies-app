@@ -54,7 +54,7 @@
           list-style: none;
           a {
             text-decoration: none;
-            color: $main_text_color;
+            color: $link_text_color;
             font-size: 1.6rem;
             font-weight: 500;
             letter-spacing: 1.5px;
@@ -64,16 +64,13 @@
     }
 
     .search-icon {
-      font-size: 2em;
-      margin-right: 1em;
+      font-size: clamp(2.4em, 5vw, 3em);
+      margin-right: .5em;
       cursor: pointer;
+      color: $hover_text_color;
 
       @include media(">tablet") {
         display: none;
-      }
-
-      .fa-search {
-        color: $hover_text_color;
       }
     }
   }

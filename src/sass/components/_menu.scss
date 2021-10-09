@@ -1,17 +1,13 @@
 @use "../abstracts" as *;
 
 .burger {
-  display: block;
-  padding: 0.5em;
+  // display: block;
+  // padding: 0.5em;
   cursor: pointer;
+  color: $hover_text_color;
 
   @include media(">SMdesktop") {
     display: none;
-  }
-
-  .fas {
-    font-size: 2.4rem;
-    color: $hover_text_color;
   }
 }
 
@@ -42,7 +38,7 @@
 
       a {
         text-decoration: none;
-        color: $main_text_color;
+        color: $link_text_color;
         font-size: 1.6rem;
         font-weight: 500;
         letter-spacing: 1.5px;

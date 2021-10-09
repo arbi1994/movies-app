@@ -61,7 +61,7 @@
 
   &__genre {
     cursor: pointer;
-    color: $main_text_color;
+    color: $link_text_color;
     padding: 0.5em;
     //overflow: hidden;
     @include flex(row, center, center);
@@ -75,7 +75,7 @@
   }
 
   .fas {
-    font-size: 3rem;
+    font-size: 2rem;
     @include gradientColor(180deg);
     margin: 1rem 0 0 0;
     cursor: pointer;

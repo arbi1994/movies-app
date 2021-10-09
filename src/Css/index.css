@@ -148,17 +148,15 @@
   letter-spacing: 1.5px;
 }
 .navbar__right .search-icon {
-  font-size: 2em;
-  margin-right: 1em;
+  font-size: clamp(2.4em, 5vw, 3em);
+  margin-right: 0.5em;
   cursor: pointer;
+  color: #f4f0fa;
 }
 @media (min-width: 769px) {
   .navbar__right .search-icon {
     display: none;
   }
-}
-.navbar__right .search-icon .fa-search {
-  color: #f4f0fa;
 }
 
 @keyframes fadeIn {
@@ -170,18 +168,13 @@
   }
 }
 .burger {
-  display: block;
-  padding: 0.5em;
   cursor: pointer;
+  color: #f4f0fa;
 }
 @media (min-width: 1025px) {
   .burger {
     display: none;
   }
-}
-.burger .fas {
-  font-size: 2.4rem;
-  color: #f4f0fa;
 }
 
 .menu {
@@ -274,7 +267,7 @@
 .search-window__header h2 {
   text-align: center;
   font-size: 2rem;
-  color: #828282;
+  color: #a0a0a0;
   letter-spacing: 0.5px;
 }
 .search-window__wrapper {
@@ -674,7 +667,7 @@
   font-weight: 500;
 }
 .genres .fas {
-  font-size: 3rem;
+  font-size: 2rem;
   background: linear-gradient(180deg, #aab2ff, #eca0ff);
   background-clip: text;
   -webkit-background-clip: text;
@@ -819,8 +812,8 @@
 .close-icon {
   display: none;
   position: fixed;
-  top: 5px;
-  right: 10px;
+  top: 15px;
+  right: 20px;
   background: linear-gradient(180deg, #aab2ff, #eca0ff);
   background-clip: text;
   -webkit-background-clip: text;
@@ -926,13 +919,12 @@
   }
 }
 .cardsHeader__title {
-  color: #828282;
+  color: #a0a0a0;
   margin: 0 1em;
   text-align: center;
 }
 
 .movie-details {
-  min-height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -950,14 +942,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   z-index: -1;
-}
-@media (max-width: 768px) {
-  .movie-details__backdrop {
-    height: 40vh;
-  }
 }
 .movie-details__backdrop::before {
   position: absolute;
@@ -1007,18 +994,18 @@
   }
 }
 .movie-details__container .col-1 {
-  flex: 1;
+  flex: 0 0 35em;
+}
+@media (max-width: 768px) {
+  .movie-details__container .col-1 {
+    display: none;
+  }
 }
 .movie-details__container .col-1 .poster img {
   width: 100%;
 }
-@media (max-width: 768px) {
-  .movie-details__container .col-1 .poster {
-    display: none;
-  }
-}
 .movie-details__container .col-2 {
-  flex: 2;
+  flex: 1;
   padding: 1em;
 }
 .movie-details__container .col-2 .details__header {
@@ -1035,13 +1022,7 @@
   align-items: center;
 }
 .movie-details__container .col-2 .details__header--title h3 {
-  color: #828282;
-  background: linear-gradient(180deg, #aab2ff, #eca0ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
+  color: #a0a0a0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1049,7 +1030,7 @@
 }
 .movie-details__container .col-2 .details__header--title h4 {
   font-weight: 600;
-  color: #828282;
+  color: #a0a0a0;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1057,13 +1038,14 @@
 }
 .movie-details__container .col-2 .details__header--title h4 span > * {
   font-weight: 500;
+  color: #828282;
 }
 .movie-details__container .col-2 .details__header--subtitle {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 1em;
+  padding: 0.5em 0 0 0.5em;
 }
 .movie-details__container .col-2 .details__header--subtitle h6 {
   font-weight: 500;
@@ -1078,6 +1060,44 @@
   border-radius: 50%;
   vertical-align: middle;
   background-color: #828282;
+}
+.movie-details__container .col-2 .details__header--subtitle h6:nth-child(2)::after {
+  display: inline-block;
+  margin: 0 0.8rem;
+  content: "";
+  line-height: 0.5rem;
+  padding: 1.5px;
+  border-radius: 50%;
+  vertical-align: middle;
+  background-color: #828282;
+}
+
+.title-loader {
+  min-width: 60em;
+}
+@media (max-width: 1024px) {
+  .title-loader {
+    min-width: 35em;
+  }
+}
+@media (max-width: 768px) {
+  .title-loader {
+    min-width: 100%;
+  }
+}
+
+.subtitle-loader {
+  min-width: 20em;
+}
+@media (max-width: 1024px) {
+  .subtitle-loader {
+    min-width: 15em;
+  }
+}
+@media (max-width: 375px) {
+  .subtitle-loader {
+    min-width: 10em;
+  }
 }
 
 header {

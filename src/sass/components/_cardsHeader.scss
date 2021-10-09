@@ -9,7 +9,7 @@
     border: none;
     min-width: 40%;
     height: 0.5px;
-    background: $main_text_color;
+    background: $link_text_color;
 
     @include media("<phoneL") {
       min-width: 30%;
@@ -17,7 +17,7 @@
   }
 
   &__title {
-    color: $main_text_color;
+    color: $title_text_color;
     margin: 0 1em;
     text-align: center;
   }

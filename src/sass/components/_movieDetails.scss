@@ -11,13 +11,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     z-index: -1;
-
-    @include media("<=tablet") {
-      height: 40vh;
-    }
 
     &::before {
       position: absolute;
@@ -68,21 +64,21 @@
     }
 
     .col-1 {
-      flex: 1;
+      flex: 0 0 35em;
+
+      @include media("<=tablet") {
+        display: none;
+      }
 
       .poster {
         img {
           width: 100%;
         }
-
-        @include media("<=tablet") {
-          display: none;
-        }
       }
     }
 
     .col-2 {
-      flex: 2;
+      flex: 1;
       padding: 1em;
 
       .details {
@@ -95,29 +91,29 @@
             @include flex(row, space-between, center);
 
             h3 {
-              color: $main_text_color;
-              @include gradientColor(180deg);
+              color: $title_text_color;
               @include flex(row, space-between, center);
             }
 
             h4 {
               font-weight: 600;
-              color: $main_text_color;
+              color: $title_text_color;
               @include flex(row, center, center);
 
               span > * {
                 font-weight: 500;
+                color: $link_text_color;
               }
             }
           }
 
           &--subtitle {
             @include flex(row, center, center);
-            padding: 1em;
+            padding: 0.5em 0 0 0.5em;
 
             h6 {
               font-weight: 500;
-              color: $main_text_color;
+              color: $link_text_color;
             }
 
             h6:nth-child(2)::before {
@@ -128,11 +124,46 @@
               padding: 1.5px;
               border-radius: 50%;
               vertical-align: middle;
-              background-color: $main_text_color;
+              background-color: $link_text_color;
+            }
+
+            h6:nth-child(2)::after {
+              display: inline-block;
+              margin: 0 0.8rem;
+              content: "";
+              line-height: 0.5rem;
+              padding: 1.5px;
+              border-radius: 50%;
+              vertical-align: middle;
+              background-color: $link_text_color;
             }
           }
         }
       }
     }
+  }
+}
+
+.title-loader {
+  min-width: 60em;
+
+  @include media("<=SMdesktop") {
+    min-width: 35em;
+  }
+
+  @include media("<=tablet") {
+    min-width: 100%;
+  }
+}
+
+.subtitle-loader {
+  min-width: 20em;
+
+  @include media("<=SMdesktop") {
+    min-width: 15em;
+  }
+
+  @include media("<=phoneM") {
+    min-width: 10em;
   }
 }

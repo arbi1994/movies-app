@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+//Material UI icons
 import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded';
 import ArrowDropUpRoundedIcon from '@mui/icons-material/ArrowDropUpRounded';
-import { Link } from 'react-router-dom';
-
+import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+// Navlinks configuration
 import navlinks from './navlinksConfig';
+//Components
 import SearchBar from './Search';
 import DiscoverMenu from './DiscoverMenu';
 
@@ -64,14 +68,13 @@ const NavBar = ({ active, setActive }) => {
                 })}
               </ul>
             </nav>
-
-            <div className="search-icon" onClick={() => setActiveSearch(true)}>
-              <i className="fas fa-search"></i>
+         
+            <SearchRoundedIcon className="search-icon" onClick={() => setActiveSearch(true)}/>
+          
+            <div className="burger">
+              <MenuRoundedIcon onClick={() => setActive(!active)} style={{ fontSize: 'clamp(2.4rem, 5vw, 3rem)'}}/>
             </div>
-
-            <div className="burger" onClick={() => setActive(!active)}>
-              <i className="fas fa-bars"></i>
-            </div>
+            
           </div>
         </div>      
       </header>

@@ -17,7 +17,7 @@
   }
 
   .searchbar__icon {
-    color: $main_text_color;
+    color: $link_text_color;
     flex: 0;
 
     .fa-search {
@@ -38,7 +38,7 @@
   }
 
   .fa-times {
-    color: $main_text_color;
+    color: $link_text_color;
     font-size: clamp(1.2rem, 3vw, 1.6rem);
   }
 }
@@ -46,8 +46,8 @@
 .close-icon {
   display: none;
   position: fixed;
-  top: 5px;
-  right: 10px;
+  top: 15px;
+  right: 20px;
   @include gradientColor(180deg);
   cursor: pointer;
 

@@ -11,3 +11,11 @@ export const getYear = (date) => {
 
   return year
 }
+
+export const splitData = (data) => {
+  if(data === undefined) return
+  
+  if(data.length > 1) return data.join(', ') 
+
+  return data
+}

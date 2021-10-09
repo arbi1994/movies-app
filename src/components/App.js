@@ -19,9 +19,9 @@ function App () {
 
   return(
     <Router>
+      <ScrollToTop />
       <NavBar active={active} setActive={setActive} />
       <Menu active={active} setActive={setActive} />
-      <ScrollToTop />
       <Switch>
         <Route exact path="/" component={Main} />
         <Route path="/discover/:path" component={Cards} />

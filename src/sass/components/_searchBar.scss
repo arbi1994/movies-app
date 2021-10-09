@@ -32,12 +32,6 @@
   }
 
   @include media("<=phoneL") {
-    // position: absolute;
-    // top: 0;
-    // left: 50%;
-    // width: 90vw;
-    // transform: translateX(-50%);
-    // z-index: 5000;
     pointer-events: none;
   }
 
@@ -51,7 +45,7 @@
     flex: 0 1 50em;
     border: none;
     background: transparent;
-    color: $main_text_color;
+    color: $link_text_color;
     width: 92%;
     height: 100%;
     border-radius: 20px;
@@ -73,7 +67,7 @@
   }
 
   .fas {
-    color: $main_text_color;
+    color: $link_text_color;
     padding: 0.5em;
     font-size: 20px;
     font-weight: 600;
