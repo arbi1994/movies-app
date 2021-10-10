@@ -1,0 +1,91 @@
+import React, { useEffect } from 'react';
+import { useParams } from "react-router-dom";
+import Skeleton from '@mui/material/Skeleton';
+// Hooks
+import useTmdbMovie from '../../hooks/useTmdbMovie';
+// api configurations
+import { 
+  BASE_IMAGE_URL, 
+  BACKDROP_SIZES,
+  POSTER_SIZES
+} from '../../api_config';
+// Components 
+import Backdrop from './Backdrop';
+import Poster from './Poster';
+import Title from './Title';
+import SubTitle from './SubTitle';
+import Directors from './Directors';
+import Cast from './Cast';
+import Description from './Description';
+
+const Movie = () => {
+  const { id } = useParams();
+  const [
+    getMovieDetails, 
+    movieDetails, 
+    loading,
+    error,
+    productionCountries,
+    directors,
+    cast
+  ] = useTmdbMovie();
+
+  useEffect(() => {
+    getMovieDetails(id) // get data
+  }, [])
+
+  //extract all the parameters needed
+  const { 
+    title, 
+    backdrop_path, 
+    genres, 
+    poster_path,
+    release_date, 
+    runtime, 
+    vote_average,
+    overview,
+    videos 
+  } = movieDetails;
+
+  return (
+    <section className="movie-details">
+      <div className="movie-details__backdrop">
+        <Backdrop backdrop_path={backdrop_path} loading={loading} />
+      </div>
+      
+      <div className="movie-details__container">
+        <div className="col-1">
+          <Poster poster_path={poster_path} loading={loading} />      
+        </div>
+        
+        <div className="col-2">
+          <div className="details">
+            <div className="details__header">
+              <Title title={title} vote_average={vote_average} loading={loading} />
+              <SubTitle 
+                productionCountries={productionCountries} 
+                release_date={release_date} 
+                runtime={runtime} 
+                loading={loading} 
+              />
+            </div>
+
+            <hr className="details__line-separator"/>
+
+            <div className="details__main">
+              <Directors directors={directors} />
+              <Cast cast={cast} />
+              <Description overview={overview}/>
+              {/* <div className="details__header--genres">
+              <h5>Genres</h5>
+              <p></p>
+              </div> */}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Movie

@@ -7,7 +7,7 @@ import ScrollToTop from '../utils/ScrollToTop';
 import NavBar from './NavBar';
 import Menu from './Menu'
 import Main from './Main';
-import Movie from './Movie';
+import Movie from './MovieDetails/Movie';
 import Cards from './Cards';
 import NotFound from './NotFound';
 

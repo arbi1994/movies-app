@@ -90,19 +90,29 @@
             width: 100%;
             @include flex(row, space-between, center);
 
-            h3 {
+            h4 {
               color: $title_text_color;
               @include flex(row, space-between, center);
+              margin-right: 1em;
+
+              @include media("<phoneL") {
+                font-size: 1.6rem;
+              }
+
+              @include media("<phoneM") {
+                font-size: 1.4rem;
+              }
             }
 
-            h4 {
+            h5 {
               font-weight: 600;
               color: $title_text_color;
               @include flex(row, center, center);
 
               span > * {
-                font-weight: 500;
+                font-weight: 600;
                 color: $link_text_color;
+                margin-left: 5px;
               }
             }
           }
@@ -136,6 +146,76 @@
               border-radius: 50%;
               vertical-align: middle;
               background-color: $link_text_color;
+            }
+          }
+        }
+
+        &__line-separator {
+          border: none;
+          width: 70%;
+          height: 0.5px;
+          background: #828282;
+          margin: 2em 0;
+          position: relative;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        &__main {
+          &--directors,
+          &--cast,
+          &--description {
+            width: 100%;
+            margin-bottom: 2em;
+
+            h5 {
+              color: $title_text_color;
+              letter-spacing: 0.5px;
+              line-height: 1.5em;
+            }
+
+            p {
+              color: $link_text_color;
+              font-weight: 500;
+            }
+          }
+
+          &--cast {
+            .wrapper {
+              height: 4em;
+              overflow: hidden;
+              position: relative;
+
+              &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "";
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                background-image: linear-gradient(
+                  0deg,
+                  #070014,
+                  transparent 25px
+                );
+              }
+
+              &.active {
+                height: 100%;
+
+                &::after {
+                  background-image: none;
+                }
+              }
+            }
+
+            span {
+              position: relative;
+              left: 50%;
+              transform: translateX(-50%);
             }
           }
         }
