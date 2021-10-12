@@ -1,14 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import Skeleton from '@mui/material/Skeleton';
 // Hooks
 import useTmdbMovie from '../../hooks/useTmdbMovie';
-// api configurations
-import { 
-  BASE_IMAGE_URL, 
-  BACKDROP_SIZES,
-  POSTER_SIZES
-} from '../../api_config';
 // Components 
 import Backdrop from './Backdrop';
 import Poster from './Poster';
