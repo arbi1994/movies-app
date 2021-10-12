@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 // Hooks
 import useTmdbMovie from '../../hooks/useTmdbMovie';
 // Components 
@@ -25,7 +25,7 @@ const Movie = () => {
 
   useEffect(() => {
     getMovieDetails(id) // get data
-  }, [])
+  }, [id])
 
   //extract all the parameters needed
   const { 
@@ -40,8 +40,13 @@ const Movie = () => {
     videos 
   } = movieDetails;
 
+  const history = useHistory()
+  console.log(history);
+
+
+
   return (
-    <section className="movie-details">
+    <section key={window.location.pathname} className="movie-details">
       <div className="movie-details__backdrop">
         <Backdrop backdrop_path={backdrop_path} loading={loading} />
       </div>

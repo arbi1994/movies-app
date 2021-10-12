@@ -46,6 +46,7 @@ const SearchBarMobile = ({
 
         {activeSearch && 
           <SearchWindow 
+            setActiveSearch={setActiveSearch}
             input={input} 
             searchedData={searchedData} 
             isLoading={isLoading} 

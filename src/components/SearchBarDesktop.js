@@ -33,7 +33,7 @@ const SearchBarDesktop = ({
   })
 
   /**
-   * set form element style on active state change
+   * Set form element style on active state change
    */
   useEffect(() => {
     formRef.current.style.borderBottomLeftRadius = `${active ? '0' : '20px'}`
@@ -82,7 +82,9 @@ const SearchBarDesktop = ({
         
         {active &&
           <SearchWindow 
+            setActive={setActive}
             input={input} 
+            formRef={formRef}
             searchedData={searchedData} 
             isLoading={isLoading} 
             error={error}

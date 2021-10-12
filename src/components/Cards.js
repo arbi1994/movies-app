@@ -6,7 +6,6 @@ import Card from './Card';
 import CardsHeader from './CardsHeader';
 
 import useTmdbMain from '../hooks/useTmdbMain';
-import useHandleScroll from '../hooks/useHandleScroll';
 import { GET, BASE_IMAGE_URL, POSTER_SIZES } from '../api_config';
 
 const Cards = ({ setDetails }) => {

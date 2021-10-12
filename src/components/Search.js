@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import debounce from 'lodash.debounce';
-
-import SearchBarMobile from './SearchBarMobile';
-import SearchBarDesktop from './SearchBarDesktop';
+// Hooks
 import useTmdbSearch from '../hooks/useTmdbSearch';
 import useViewport from '../hooks/useViewport';
+//Components
+import SearchBarMobile from './SearchBarMobile';
+import SearchBarDesktop from './SearchBarDesktop';
+// API config
 import { GET } from '../api_config';
 
 const SearchBar = ({ activeSearch, setActiveSearch }) => {
@@ -15,7 +17,7 @@ const SearchBar = ({ activeSearch, setActiveSearch }) => {
   const [input, setInput] = useState("");
   // hook to keep track of the portview width
   const [width] = useViewport()
-  const breakpoint = 768
+  const breakpoint = 768 // tablet viewport width
   // custom hook to get the data
   const [
     searchedData,
@@ -23,7 +25,8 @@ const SearchBar = ({ activeSearch, setActiveSearch }) => {
     isLoading, 
     error, 
     setError,
-    totalPages] = useTmdbSearch(GET.search, page);
+    totalPages
+  ] = useTmdbSearch(GET.search, page);
 
   /**
    * onClick Handler
@@ -45,24 +48,29 @@ const SearchBar = ({ activeSearch, setActiveSearch }) => {
   // Applied a debounce of 300ms with useMemo hook for performance optimization
   const debouncedInput = useMemo(() => debounce(onChange, 300), [input])
 
-  // Stop the invocation of the debounced function
-  // after unmounting
+  /**
+   * Stop the invocation of the debounced function
+   * after unmounting
+   */
   useEffect(() => {
     return () => {
       debouncedInput.cancel()
     }
   }, [])
 
-  // Fetch the data
+  /**
+   * Fetch the data
+   */
   useEffect(() => {
     getData(input) //getting the data we searched for
 
     if(input === '') setPage(1)
-
   }, [input, page])
 
-  // Display error message if what we are searching for 
-  // gives us no data
+  /**
+   * Display error message if what we are searching for 
+    gives us no data
+  */
   useEffect(() => {
     (input !== '' && searchedData.length === 0)
     ? setError(true) 
@@ -87,7 +95,6 @@ const SearchBar = ({ activeSearch, setActiveSearch }) => {
   useEffect(() => {
     if(page <= totalPages) return
   }, [page])
-
 
   return (
     <>
