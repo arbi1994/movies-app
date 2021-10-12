@@ -10,6 +10,8 @@ import navlinks from './navlinksConfig';
 //Components
 import SearchBar from './Search';
 import DiscoverMenu from './DiscoverMenu';
+// import { ReactComponent as Logo } from 'images/logo/logo_1.svg';
+import logo from '../images/logo/logo_1.svg';
 
 const NavBar = ({ active, setActive }) => {
   const [activeSearch, setActiveSearch] = useState(false)
@@ -31,7 +33,7 @@ const NavBar = ({ active, setActive }) => {
         <div className="navbar">
           <div className="navbar__left">
             <Link to='/' className="navbar__left--logo">
-              <img alt="logo" src="images/logo/logo_1.svg"/>
+              <img alt="Logo" src={logo}/>
             </Link>
           </div>
 
