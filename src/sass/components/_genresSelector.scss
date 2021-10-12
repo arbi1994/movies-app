@@ -6,12 +6,16 @@
   border-top-right-radius: 40px;
   position: absolute;
   left: 0;
-  top: -5em;
+  top: -7em;
   padding: 1em 4em;
   @include flex(column, center, center);
   overflow: hidden;
   background: $background_color;
   z-index: 4000;
+
+  @include media("<=phoneL") {
+    top: -5em;
+  }
 
   &.open {
     transform: translateY(-75px);

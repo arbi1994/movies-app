@@ -81,7 +81,7 @@ const Movie = () => {
               <p></p>
               </div> */}
             </div>
-          </div>
+          </div>  
         </div>
       </div>
     </section>
