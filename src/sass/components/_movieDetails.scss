@@ -15,6 +15,10 @@
     width: 100%;
     z-index: -1;
 
+    @include media("<=phoneL") {
+      top: 10vh;
+    }
+
     &::before {
       position: absolute;
       top: 0;
@@ -48,6 +52,71 @@
     }
   }
 
+  &__play {
+    width: 100%;
+    height: 40em;
+    position: absolute;
+    top: 10em;
+    left: 0;
+    color: $link_text_color;
+    @include flex(row, center, center);
+    cursor: pointer;
+
+    @include media("<=tablet") {
+      height: 30em;
+    }
+
+    @include media("<=phoneL") {
+      height: 20em;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      width: 6em;
+      height: 6em;
+      border-radius: 50%;
+      background: $background_color;
+    }
+
+    &--trailer {
+      width: 1150px;
+      height: 100%;
+      margin: auto;
+      padding: 2em;
+      background: $background_color;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -5em;
+        left: 0;
+        width: 5em;
+        height: 5em;
+        background: $background_color;
+        z-index: -1;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -5em;
+        right: 0;
+        width: 5em;
+        height: 5em;
+        background: $background_color;
+        z-index: -1;
+      }
+    }
+  }
+
   &__container {
     background: $background_color;
     max-width: 1150px;
@@ -59,12 +128,12 @@
     border-radius: 20px;
 
     @include media("<=tablet") {
-      margin-top: 20em;
+      margin-top: 30em;
       width: 100%;
     }
 
     @include media("<=phoneL") {
-      margin-top: 10em;
+      margin-top: 20em;
     }
 
     .col-1 {

@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useParams, useLocation } from "react-router-dom";
 import Skeleton from '@mui/material/Skeleton';
+import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 // Hooks
 import useTmdbMovie from '../../hooks/useTmdbMovie';
 // Components 
@@ -12,9 +13,11 @@ import Directors from './Directors';
 import Genres from './Genres';
 import Cast from './Cast';
 import Description from './Description';
+import Trailer from './Trailer';
 
 const Movie = () => {
   const { id } = useParams();
+  const { pathname } = useLocation()
   const [
     getMovieDetails, 
     movieDetails, 
@@ -24,6 +27,9 @@ const Movie = () => {
     directors,
     cast
   ] = useTmdbMovie();
+
+  const [active, setActive] = useState(false)
+  const [trailerKey, setTrailerKey] = useState(null)
 
   useEffect(() => {
     getMovieDetails(id) // get data
@@ -42,12 +48,31 @@ const Movie = () => {
     videos 
   } = movieDetails;
 
-  console.log(genres?.map(genre => genre))
+  /**
+   * Set the trailer key
+   */
+  useEffect(() => {
+    videos?.results
+    .filter(videos => videos.type === 'Trailer')
+    .map((video, index) => index === 0 ? setTrailerKey(video.key) : null)    
+  }, [active])
+
+  /**
+   * Change active state on pathname change
+   */
+  useEffect(() => {
+    setActive(false)
+  }, [pathname])
 
   return (
     <section className="movie-details">
       <div className="movie-details__backdrop">
         <Backdrop backdrop_path={backdrop_path} loading={loading} />
+      </div>
+
+      <div className="movie-details__play" onClick={() => setActive(true)}>
+        {active ? '' : <PlayArrowRoundedIcon sx={{ fontSize: 60 }}/>}
+        {active && <Trailer trailerKey={trailerKey}/>}
       </div>
       
       <div className="movie-details__container">
