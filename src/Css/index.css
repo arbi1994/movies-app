@@ -961,6 +961,11 @@
   z-index: 1;
   background-image: linear-gradient(180deg, #070014, transparent 250px);
 }
+@media (max-width: 426px) {
+  .movie-details__backdrop::before {
+    background-image: linear-gradient(180deg, #070014, transparent 130px);
+  }
+}
 .movie-details__backdrop::after {
   position: absolute;
   top: 0;
@@ -969,7 +974,7 @@
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-image: linear-gradient(0deg, #070014, transparent 250px);
+  background-image: linear-gradient(0deg, #070014, transparent 450px);
 }
 .movie-details__backdrop img {
   height: 100%;
@@ -1099,18 +1104,24 @@
   left: 50%;
   transform: translateX(-50%);
 }
-.movie-details__container .col-2 .details__main--directors, .movie-details__container .col-2 .details__main--cast, .movie-details__container .col-2 .details__main--description {
+.movie-details__container .col-2 .details__main--directors, .movie-details__container .col-2 .details__main--genres, .movie-details__container .col-2 .details__main--cast, .movie-details__container .col-2 .details__main--description {
   width: 100%;
   margin-bottom: 2em;
 }
-.movie-details__container .col-2 .details__main--directors h5, .movie-details__container .col-2 .details__main--cast h5, .movie-details__container .col-2 .details__main--description h5 {
+.movie-details__container .col-2 .details__main--directors h5, .movie-details__container .col-2 .details__main--genres h5, .movie-details__container .col-2 .details__main--cast h5, .movie-details__container .col-2 .details__main--description h5 {
   color: #a0a0a0;
   letter-spacing: 0.5px;
   line-height: 1.5em;
 }
-.movie-details__container .col-2 .details__main--directors p, .movie-details__container .col-2 .details__main--cast p, .movie-details__container .col-2 .details__main--description p {
+.movie-details__container .col-2 .details__main--directors p, .movie-details__container .col-2 .details__main--genres p, .movie-details__container .col-2 .details__main--cast p, .movie-details__container .col-2 .details__main--description p {
   color: #828282;
   font-weight: 500;
+}
+.movie-details__container .col-2 .details__main--genres .wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 .movie-details__container .col-2 .details__main--cast .wrapper {
   height: 4em;

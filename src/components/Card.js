@@ -13,9 +13,8 @@ const Card = ({ id, title, imgURL, rating, loading }) => {
           <LoadingSpinner />
         :
           <Link 
-            to={`movie/${title.split(' ').join('-')}/${id}`} 
+            to={`movie/${title.split(' ').join('-').toLowerCase()}/${id}`} 
             className="card"
-            // onClick={handleOnClick}
           >
             <span className="card__title">
               <h6>{title}</h6>

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Skeleton from '@mui/material/Skeleton';
 // Hooks
 import useTmdbMovie from '../../hooks/useTmdbMovie';
 // Components 
@@ -8,6 +9,7 @@ import Poster from './Poster';
 import Title from './Title';
 import SubTitle from './SubTitle';
 import Directors from './Directors';
+import Genres from './Genres';
 import Cast from './Cast';
 import Description from './Description';
 
@@ -40,13 +42,10 @@ const Movie = () => {
     videos 
   } = movieDetails;
 
-  const history = useHistory()
-  console.log(history);
-
-
+  console.log(genres?.map(genre => genre))
 
   return (
-    <section key={window.location.pathname} className="movie-details">
+    <section className="movie-details">
       <div className="movie-details__backdrop">
         <Backdrop backdrop_path={backdrop_path} loading={loading} />
       </div>
@@ -71,13 +70,19 @@ const Movie = () => {
             <hr className="details__line-separator"/>
 
             <div className="details__main">
-              <Directors directors={directors} />
-              <Cast cast={cast} />
-              <Description overview={overview}/>
-              {/* <div className="details__header--genres">
-              <h5>Genres</h5>
-              <p></p>
-              </div> */}
+              {loading 
+                ? <Skeleton 
+                    variant="rectangular" 
+                    style={{ maxWidth: '60em', height: '50em'}}
+                    sx={{ bgcolor: 'grey.900' }}
+                  />
+                : <>
+                  <Directors directors={directors} />
+                  <Genres genres={genres} />
+                  <Cast cast={cast} />
+                  <Description overview={overview}/>
+                </>
+              }
             </div>
           </div>  
         </div>

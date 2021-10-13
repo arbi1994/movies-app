@@ -8,7 +8,7 @@ const Title = ({ title, vote_average, loading }) => {
         ? <Skeleton
             className="title-loader" 
             sx={{ bgcolor: 'grey.900' }} 
-            style={{ height: '50px' }}
+            style={{ height: '50px', maxWidth: '60em' }}
           />
         : <div className="details__header--title">
             <h4>{title}</h4>

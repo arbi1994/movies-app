@@ -71,7 +71,7 @@ const SearchWindow = ({
 
       return (
           <Link 
-            to={`/movie/${data.title.split(' ').join('-')}/${data.id}`} 
+            to={`/movie/${data.title.split(' ').join('-').toLowerCase()}/${data.id}`} 
             style={{ textDecoration: 'none' }}
             onClick={handleResultClick} 
           >

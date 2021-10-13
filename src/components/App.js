@@ -19,15 +19,16 @@ function App () {
 
   return(
     <Router>
-      <ScrollToTop />
       <NavBar active={active} setActive={setActive} />
       <Menu active={active} setActive={setActive} />
-      <Switch>
-        <Route exact path="/" component={Main} />
-        <Route path="/discover/:path" component={Cards} />
-        <Route path="/movie/:title/:id" component={Movie} /> 
-        <Route path="/*" component={NotFound} /> 
-      </Switch>
+      <ScrollToTop>
+        <Switch>
+          <Route exact path="/" component={Main} />
+          <Route path="/discover/:path" component={Cards} />
+          <Route path="/movie/:title/:id" component={Movie} /> 
+          <Route path="/*" component={NotFound} /> 
+        </Switch>
+      </ScrollToTop>
     </Router> 
   )
 }
