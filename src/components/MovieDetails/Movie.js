@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from "react-router-dom";
+// Material UI components
 import Skeleton from '@mui/material/Skeleton';
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 // Hooks
@@ -14,6 +15,7 @@ import Genres from './Genres';
 import Cast from './Cast';
 import Description from './Description';
 import Trailer from './Trailer';
+import WatchProviders from './WatchProviders/index';
 
 const Movie = () => {
   const { id } = useParams();
@@ -25,11 +27,15 @@ const Movie = () => {
     error,
     productionCountries,
     directors,
-    cast
+    cast,
+    watchProviders
   ] = useTmdbMovie();
 
+  // Trailer component states
   const [active, setActive] = useState(false)
   const [trailerKey, setTrailerKey] = useState(null)
+
+  const [country, setCountry] = useState('');
 
   useEffect(() => {
     getMovieDetails(id) // get data
@@ -45,7 +51,7 @@ const Movie = () => {
     runtime, 
     vote_average,
     overview,
-    videos 
+    videos,
   } = movieDetails;
 
   /**
@@ -83,7 +89,11 @@ const Movie = () => {
         <div className="col-2">
           <div className="details">
             <div className="details__header">
-              <Title title={title} vote_average={vote_average} loading={loading} />
+              <Title 
+                title={title} 
+                vote_average={vote_average} 
+                loading={loading} 
+              />
               <SubTitle 
                 productionCountries={productionCountries} 
                 release_date={release_date} 
@@ -102,15 +112,23 @@ const Movie = () => {
                     sx={{ bgcolor: 'grey.900' }}
                   />
                 : <>
-                  <Directors directors={directors} />
-                  <Genres genres={genres} />
-                  <Cast cast={cast} />
-                  <Description overview={overview}/>
-                </>
+                    <Directors directors={directors} />
+                    <Genres genres={genres} />
+                    <Cast cast={cast} />
+                    <Description overview={overview}/>
+                  </>
               }
             </div>
           </div>  
         </div>
+
+        <WatchProviders 
+          watchProviders={watchProviders} 
+          country={country} 
+          setCountry={setCountry} 
+          pathname={pathname}
+        />
+       
       </div>
     </section>
   )

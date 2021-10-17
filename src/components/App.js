@@ -10,7 +10,6 @@ import Main from './Main';
 import Movie from './MovieDetails/Movie';
 import Cards from './Cards';
 import NotFound from './NotFound';
-
 // Styling
 import '../sass/index.scss';
 

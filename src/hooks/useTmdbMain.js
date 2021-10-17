@@ -28,6 +28,8 @@ const useTmdbMain = () => {
         params: {
           page: pageNum,
           with_genres: genre,
+          sort_by: 'popularity.desc',
+          include_adult: false,
         }
       })
 

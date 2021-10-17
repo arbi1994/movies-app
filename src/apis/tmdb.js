@@ -5,7 +5,5 @@ export default axios.create({
   baseUrl: BASE_URL,
   params: {
     api_key: API_KEY,
-    sort_by: 'popularity.desc',
-    include_adult: false,
   }
 })

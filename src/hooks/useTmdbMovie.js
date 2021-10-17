@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-
+import { useState } from 'react';
+// tmdb api
 import tmdb from '../apis/tmdb';
+// API config
 import { 
   GET,
   BASE_URL,
@@ -13,14 +14,16 @@ const useTmdbMovie = () => {
   const [productionCountries, setProductionCountries] = useState()
   const [directors, setDirectors] = useState()
   const [cast, setCast] = useState()
+  const [watchProviders, setWatchProviders] = useState([])
 
   //get data from api
   const getMovieDetails = async (id) => {
     setLoading(true)
+
     try {
       const { data } = await tmdb.get(`${BASE_URL}${GET.details}/${id}`, { 
         params: { 
-          append_to_response: 'credits,videos',
+          append_to_response: 'credits,videos,watch/providers',
         }
       })
 
@@ -34,13 +37,19 @@ const useTmdbMovie = () => {
       // get credits properties
       const { cast, crew } = data.credits
 
+      // set Directors
       setDirectors(crew.filter(member => {
         if(member.job === "Director"){
           return member
         }
       }).map(director => director.name))
 
+      // set Cast
       setCast(cast.map(actor => actor.name))
+
+      // set WatchProviders
+      const { results } = data["watch/providers"]
+      setWatchProviders(results)
 
     } catch (error) {
       setError(error.message)
@@ -56,7 +65,8 @@ const useTmdbMovie = () => {
     error, 
     productionCountries, 
     directors,
-    cast
+    cast,
+    watchProviders
   ]
 }
 

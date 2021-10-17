@@ -1249,6 +1249,101 @@
   }
 }
 
+.watch-providers {
+  box-sizing: content-box;
+  border-width: 5px;
+  border-style: solid;
+  border-image: linear-gradient(to right bottom, #aab2ff, #eca0ff);
+  border-image-slice: 1;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 2em;
+}
+.watch-providers .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: white !important;
+}
+.watch-providers .css-1ytc46x-MuiInputBase-root-MuiOutlinedInput-root {
+  font-size: 1.2rem;
+}
+.watch-providers .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  padding: 0.5em 2em 0.5em 1em !important;
+}
+.watch-providers__header--title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.watch-providers__header--title h2 {
+  color: #a0a0a0;
+}
+.watch-providers__header--title .ott-titles h6 {
+  color: #a0a0a0;
+  text-align: right;
+  font-weight: 500;
+  padding-bottom: 0.5em;
+}
+.watch-providers__header--title .ott-titles .providers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.watch-providers__header--title .ott-titles .providers img {
+  width: 6em;
+  padding: 0.5em 0 0 1em;
+}
+@media (max-width: 426px) {
+  .watch-providers__header--title .ott-titles .providers img {
+    width: 4.5em;
+  }
+}
+.watch-providers__header--subheader {
+  margin: 2em;
+}
+@media (max-width: 426px) {
+  .watch-providers__header--subheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.watch-providers__providers {
+  margin-top: 3em;
+}
+.watch-providers__providers h5 {
+  color: #a0a0a0;
+  font-weight: 700;
+}
+.watch-providers__providers--rent, .watch-providers__providers--buy {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1em 0 3em;
+}
+.watch-providers__providers--rent li, .watch-providers__providers--buy li {
+  list-style: none;
+  width: 5em;
+  margin: 0 2em 2em 0;
+}
+@media (max-width: 426px) {
+  .watch-providers__providers--rent li, .watch-providers__providers--buy li {
+    width: 3em;
+  }
+}
+.watch-providers__providers--rent li a > img, .watch-providers__providers--buy li a > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+.watch-providers__providers--buy {
+  margin: 1em 0 0 0;
+}
+
 header {
   background: transparent;
   padding: 0em 2em;

@@ -13,7 +13,7 @@ const GET = {
   genres: "/genre/movie/list",
   search: "/search/movie", 
   details: "/movie",
-  configuration: "/configuration"
+  configuration: "/configuration/countries"
 }
 
 const BASE_IMAGE_URL = "http://image.tmdb.org/t/p/"
