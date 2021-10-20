@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
-import { Link, Route, useRouteMatch } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import navlinks from './navlinksConfig';
-import useViewport from '../hooks/useViewport';
-import useTmdbMain from '../hooks/useTmdbMain';
+import navlinks from '../navlinksConfig';
+import useViewport from '../../hooks/useViewport';
 
 const DiscoverMenu = ({ setActive }) => {
   const [width] = useViewport()

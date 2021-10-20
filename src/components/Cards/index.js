@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-import GenresSelector from './GenresSelector';
+import GenresSelector from '../GenresSelector/index';
 import Card from './Card';
 import CardsHeader from './CardsHeader';
 
-import useTmdbMain from '../hooks/useTmdbMain';
-import { GET, BASE_IMAGE_URL, POSTER_SIZES } from '../api_config';
+import useTmdbMain from '../../hooks/useTmdbMain';
+import { IMAGEKIT_URL, POSTER_SIZES } from '../../api_config';
 
 const Cards = ({ setDetails }) => {
   const [page, setPage] = useState(1)
@@ -15,7 +15,6 @@ const Cards = ({ setDetails }) => {
   const [genreName, setGenreName] = useState('Discover')
 
   const { path } = useParams() //get the current URL parameter
-  console.log(path)
 
   useEffect(() => {
     getData(page, genreID) 
@@ -27,11 +26,11 @@ const Cards = ({ setDetails }) => {
 
   const renderedCards = movies.map((card, index) => {
     return (
-      <Card 
+      <Card
         key={index} 
         id={card.id} 
         title={card.title} 
-        imgURL={`${BASE_IMAGE_URL}${POSTER_SIZES[4]}${card.poster_path}`}
+        imgURL={`${IMAGEKIT_URL}t/p/${POSTER_SIZES[4]}${card.poster_path}`}
         rating={card.vote_average}
         loading={loading}
         setDetails={setDetails}

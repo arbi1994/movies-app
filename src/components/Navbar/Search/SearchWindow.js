@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 // API Config 
 import { 
   SECURE_BASE_IMAGE_URL,
   POSTER_SIZES,
-} from '../api_config';
+} from '../../../api_config';
 // Helper
-import { getYear } from '../helpers';
+import { getYear } from '../../../helpers';
 // Hooks
-import useViewport from '../hooks/useViewport';
+import useViewport from '../../../hooks/useViewport';
 // Components
-import LoadingSpinner from './LoadingSpinner';
+import LoadingSpinner from '../../LoadingSpinner';
 import ErrorMessage from './ErrorMessage';
 
 const SearchWindow = ({ 
@@ -77,9 +79,10 @@ const SearchWindow = ({
           >
             <div key={data.id} className="search-window__content">
               <div className="search-window__content--poster">
-                <img 
-                  src={`${SECURE_BASE_IMAGE_URL}${POSTER_SIZES[0]}${data.poster_path}`}
+                <LazyLoadImage 
                   alt={data.title}
+                  effect="blur"
+                  src={`${SECURE_BASE_IMAGE_URL}${POSTER_SIZES[0]}${data.poster_path}`}
                 />
               </div>
               <div className="search-window__content--details">

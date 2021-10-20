@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-
-import Cards from './Cards';
-import useTmdbMain from '../hooks/useTmdbMain';
+import React from 'react';
+// Components
+import Cards from './Cards/index';
 
 const Discover = () => {
   return (

@@ -7,6 +7,7 @@ import CountryProvidersSelect from './CountryProvidersSelect';
 import Providers from './Providers';
 
 const index = ({ watchProviders, country, setCountry, pathname }) => {
+
   return (
     <div className="watch-providers">
       <div className="watch-providers__header">
@@ -22,6 +23,7 @@ const index = ({ watchProviders, country, setCountry, pathname }) => {
           </div>
 
         </div>
+
         <div className="watch-providers__header--subheader">
           <CountryProvidersSelect 
             country={country} 
@@ -31,11 +33,16 @@ const index = ({ watchProviders, country, setCountry, pathname }) => {
         </div>
       </div>
     
-      <Providers 
-        watchProviders={watchProviders} 
-        country={country} 
-        pathname={pathname}
-      />
+      {Object.keys(watchProviders).length === 0 
+        ? null
+        : (
+          <Providers 
+            watchProviders={watchProviders} 
+            country={country} 
+            pathname={pathname}
+          />
+        )
+      }
     </div>
   )
 }

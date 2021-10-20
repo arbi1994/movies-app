@@ -12,23 +12,23 @@ const CountryProvidersSelect = ({ country, setCountry, watchProviders }) => {
   const handleChange = (e) => { 
     setCountry(e.target.value);
   };
-
-  const renderedCountries = Object.keys(watchProviders).map(iso => {
+  
+  const renderedCountries = Object?.keys(watchProviders)?.map(iso => {
     for(let {english_name: countryName, iso_3166_1: countryCode} of data){
       if(countryCode === iso) return <MenuItem key={countryCode} value={countryCode}>{countryName}</MenuItem>
     }
   })
 
-  const saveToSessionStorage = () => {
-    sessionStorage.setItem('locale', country)
-  }
-
   useEffect(() => {
+    const saveToSessionStorage = () => {
+      sessionStorage.setItem('locale', country)
+    }
+
     saveToSessionStorage()
   }, [country])
 
   return (
-    <FormControl sx={{ minWidth: 150, fontSize: '1em' }}>
+    <FormControl sx={{ minWidth: 250, fontSize: '1em' }}>
       <Select
         disableunderline="true"
         value={country}

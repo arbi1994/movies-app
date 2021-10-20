@@ -5,7 +5,7 @@ const Description = ({ overview }) => {
     <>
       <div className="details__main--description">
         <h5>Description</h5>
-        <p>{overview}</p>
+        <p>{overview === '' ? 'Description not yet available' : overview}</p>
       </div>
     </>
   )

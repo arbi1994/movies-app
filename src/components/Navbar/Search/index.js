@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import debounce from 'lodash.debounce';
 // Hooks
-import useTmdbSearch from '../hooks/useTmdbSearch';
-import useViewport from '../hooks/useViewport';
+import useTmdbSearch from '../../../hooks/useTmdbSearch';
+import useViewport from '../../../hooks/useViewport';
 //Components
 import SearchBarMobile from './SearchBarMobile';
 import SearchBarDesktop from './SearchBarDesktop';
 // API config
-import { GET } from '../api_config';
+import { GET } from '../../../api_config';
 
 const SearchBar = ({ activeSearch, setActiveSearch }) => {
   const [page, setPage] = useState(1);
@@ -95,6 +95,16 @@ const SearchBar = ({ activeSearch, setActiveSearch }) => {
   useEffect(() => {
     if(page <= totalPages) return
   }, [page])
+
+  useEffect(() => {
+    if(active){
+      document.body.style.overflow = 'hidden';
+    } 
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    }
+  }, [active])
 
   return (
     <>

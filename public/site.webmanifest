@@ -1,0 +1,15 @@
+{
+    "name": "321 movies",
+    "short_name": "321 movies",
+    "icons": [
+        {
+            "src": "/android-chrome-96x96.png?v=2",
+            "sizes": "96x96",
+            "type": "image/png"
+        }
+    ],
+    "start_url": ".",
+    "theme_color": "#070014",
+    "background_color": "#070014",
+    "display": "standalone"
+}

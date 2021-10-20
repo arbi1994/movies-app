@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Utils
 import ScrollToTop from '../utils/ScrollToTop';
 // Components
-import NavBar from './NavBar';
-import Menu from './Menu'
-import Main from './Main';
-import Movie from './MovieDetails/Movie';
-import Cards from './Cards';
+import NavBar from './Navbar/index';
+import Menu from './Menu';
+import Main from './Main/index';
+import Movie from './MovieDetails/index';
+import Cards from './Cards/index';
 import NotFound from './NotFound';
 // Styling
 import '../sass/index.scss';

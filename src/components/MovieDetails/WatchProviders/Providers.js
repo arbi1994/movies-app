@@ -5,12 +5,8 @@ import { BASE_IMAGE_URL, LOGO_SIZES } from '../../../api_config';
 const Providers = ({ watchProviders, country, pathname }) => {
   const [providers, setProviders] = useState([])
 
-  console.log(pathname)
-  // console.log('providers', providers)
-  console.log('watch providers', watchProviders)
-
   useEffect(() => {
-    Object.keys(watchProviders).map(iso => {
+    Object?.keys(watchProviders)?.map(iso => {
       if(iso === sessionStorage.getItem('locale')) {
         setProviders(watchProviders[iso])
         console.log('providers', watchProviders[iso])
@@ -27,11 +23,9 @@ const Providers = ({ watchProviders, country, pathname }) => {
     const { provider_id, provider_name, logo_path } = rent
 
     return (
-      <>
-        <li key={provider_id}>
-          <a href={link} alt={provider_name} target="_blank" rel="noreferrer"><img alt={provider_name} src={`${BASE_IMAGE_URL}${LOGO_SIZES[LOGO_SIZES.length - 1]}${logo_path}`} /></a>
-        </li>
-     </>
+      <li key={provider_id}>
+        <a href={link} alt={provider_name} target="_blank" rel="noreferrer"><img alt={provider_name} src={`${BASE_IMAGE_URL}${LOGO_SIZES[LOGO_SIZES.length - 1]}${logo_path}`} /></a>
+      </li>
     ) 
   })
 
@@ -42,7 +36,14 @@ const Providers = ({ watchProviders, country, pathname }) => {
 
     return (
       <li key={provider_id}>
-        <a href={link} alt={provider_name} target="_blank"><img src={`${BASE_IMAGE_URL}${LOGO_SIZES[LOGO_SIZES.length - 1]}${logo_path}`} /></a>
+        <a 
+          href={link} 
+          alt={provider_name} 
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img alt={provider_name} src={`${BASE_IMAGE_URL}${LOGO_SIZES[LOGO_SIZES.length - 1]}${logo_path}`} />
+        </a>
       </li>
     )
   })

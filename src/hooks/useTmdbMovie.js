@@ -54,15 +54,14 @@ const useTmdbMovie = () => {
     } catch (error) {
       setError(error.message)
     } finally {
-      setLoading(false)
+      setLoading(false) 
     }
   }
-  
+
   return [
     getMovieDetails, 
     movieDetails, 
     loading, 
-    error, 
     productionCountries, 
     directors,
     cast,

@@ -15,7 +15,7 @@ const SubTitle = ({ productionCountries, release_date, runtime, loading }) => {
         : <div className="details__header--subtitle">
             <h6>{splitData(productionCountries)}</h6>
             <h6>{getYear(release_date)}</h6>
-            <h6>{runtime}min</h6>
+            <h6>{runtime <= 0 ? 'N/A' : `${runtime}min`}</h6>
           </div>
       }
     </>

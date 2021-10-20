@@ -2,11 +2,11 @@ import React from 'react';
 import Skeleton from '@mui/material/Skeleton';
 // api configurations
 import { 
-  BASE_IMAGE_URL, 
+  IMAGEKIT_URL, 
   POSTER_SIZES
 } from '../../api_config';
 
-const Poster = ({ poster_path, loading }) => {
+const Poster = ({ title, poster_path, loading }) => {
   return (
     <>
       {loading 
@@ -16,7 +16,7 @@ const Poster = ({ poster_path, loading }) => {
             sx={{ bgcolor: 'grey.900' }}
           /> 
         : <div className="poster">
-            <img src={`${BASE_IMAGE_URL}${POSTER_SIZES[POSTER_SIZES.length - 1]}${poster_path}`}/>
+            <img alt={title} src={`${IMAGEKIT_URL}t/p/${POSTER_SIZES[POSTER_SIZES.length - 1]}${poster_path}`}/>
           </div>
       }
     </>

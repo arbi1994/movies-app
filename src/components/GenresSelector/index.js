@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-
-import tmdb from '../apis/tmdb';
-import { GET, BASE_URL } from '../api_config';
-import useHandleScroll from '../hooks/useHandleScroll';
-import useViewport from '../hooks/useViewport';
+// tmdb api 
+import tmdb from '../../apis/tmdb';
+// api config
+import { GET, BASE_URL } from '../../api_config';
+// hooks
+import useHandleScroll from '../../hooks/useHandleScroll';
+import useViewport from '../../hooks/useViewport';
+// Components
 import Genre from './Genre';
 
 const GenresSelector = ({ handleGenreCallback, setPage }) => {

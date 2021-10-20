@@ -6,12 +6,12 @@ import ArrowDropUpRoundedIcon from '@mui/icons-material/ArrowDropUpRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 // Navlinks configuration
-import navlinks from './navlinksConfig';
+import navlinks from '../navlinksConfig';
 //Components
-import SearchBar from './Search';
+import SearchBar from './Search/index';
 import DiscoverMenu from './DiscoverMenu';
 // import { ReactComponent as Logo } from 'images/logo/logo_1.svg';
-import logo from '../images/logo/logo_1.svg';
+import logo from '../../images/logo/logo_1.svg';
 
 const NavBar = ({ active, setActive }) => {
   const [activeSearch, setActiveSearch] = useState(false)

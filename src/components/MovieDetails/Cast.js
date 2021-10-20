@@ -12,7 +12,6 @@ const Cast = ({ cast }) => {
   }
 
   return (
- 
     <div className="details__main--cast">
       <h5>Cast</h5>
       <div className={`wrapper ${active ? "active" : ''}`}>
@@ -28,7 +27,6 @@ const Cast = ({ cast }) => {
         }
       </span>
     </div>
-   
   )
 }
 

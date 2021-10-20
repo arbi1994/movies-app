@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import Input from './Input';
 import SearchWindow from './SearchWindow';
 import SearchOverlay from './SearchOverlay';
-import useClickOutside from '../hooks/useClickOutside';
+import useClickOutside from '../../../hooks/useClickOutside';
 
 const SearchBarDesktop = ({ 
   active, 

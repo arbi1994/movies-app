@@ -12,7 +12,7 @@ const Title = ({ title, vote_average, loading }) => {
           />
         : <div className="details__header--title">
             <h4>{title}</h4>
-            <h5>{vote_average}<span><h6>/10</h6></span></h5>
+            {vote_average <= 0 ? null : <h5>{vote_average}<span><h6>/10</h6></span></h5>}
           </div>
       }
     </>

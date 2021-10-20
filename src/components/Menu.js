@@ -5,7 +5,7 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 import navlinks from './navlinksConfig';
 import useClickOutside from '../hooks/useClickOutside';
-import DiscoverMenu from './DiscoverMenu';
+import DiscoverMenu from './Navbar/DiscoverMenu';
 
 const Menu = ({ active, setActive }) => {
   const [dropdownActive, setDropdownActive] = useState(false)

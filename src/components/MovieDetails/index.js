@@ -24,7 +24,6 @@ const Movie = () => {
     getMovieDetails, 
     movieDetails, 
     loading,
-    error,
     productionCountries,
     directors,
     cast,
@@ -34,7 +33,7 @@ const Movie = () => {
   // Trailer component states
   const [active, setActive] = useState(false)
   const [trailerKey, setTrailerKey] = useState(null)
-
+  // Providers state 
   const [country, setCountry] = useState('');
 
   useEffect(() => {
@@ -60,7 +59,7 @@ const Movie = () => {
   useEffect(() => {
     videos?.results
     .filter(videos => videos.type === 'Trailer')
-    .map((video, index) => index === 0 ? setTrailerKey(video.key) : null)    
+    .map((video, index) => index === 0 ? setTrailerKey(video.key) : null)  
   }, [active])
 
   /**
@@ -73,7 +72,7 @@ const Movie = () => {
   return (
     <section className="movie-details">
       <div className="movie-details__backdrop">
-        <Backdrop backdrop_path={backdrop_path} loading={loading} />
+        <Backdrop title={title} backdrop_path={backdrop_path} loading={loading} />
       </div>
 
       <div className="movie-details__play" onClick={() => setActive(true)}>
@@ -83,7 +82,7 @@ const Movie = () => {
       
       <div className="movie-details__container">
         <div className="col-1">
-          <Poster poster_path={poster_path} loading={loading} />      
+          <Poster title={title} poster_path={poster_path} loading={loading} />      
         </div>
         
         <div className="col-2">
