@@ -1,0 +1,21 @@
+@use "../abstracts" as *;
+
+footer {
+  width: 100%;
+  min-height: 10vh;
+  color: $link_text_color;
+  @include flex(row, center, center);
+  background: $background_color;
+
+  span {
+    p {
+      color: $link_text_color;
+      font-weight: 500;
+      a {
+        text-decoration: none;
+        color: $title_text_color;
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -7,8 +7,10 @@ import ScrollToTop from '../utils/ScrollToTop';
 import NavBar from './Navbar/index';
 import Menu from './Menu';
 import Main from './Main/index';
-import Movie from './MovieDetails/index';
 import Cards from './Cards/index';
+import Movie from './MovieDetails/index';
+import About from './About/index';
+import Footer from './Footer';
 import NotFound from './NotFound';
 // Styling
 import '../sass/index.scss';
@@ -25,9 +27,11 @@ function App () {
           <Route exact path="/" component={Main} />
           <Route path="/discover/:path" component={Cards} />
           <Route path="/movie/:title/:id" component={Movie} /> 
+          <Route path="/about" component={About} />
           <Route path="/*" component={NotFound} /> 
         </Switch>
       </ScrollToTop>
+      <Footer />
     </Router> 
   )
 }

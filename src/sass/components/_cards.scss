@@ -5,7 +5,7 @@
   min-height: 100vh;
   width: 100%;
   @include flex(column, flex-start, center);
-  padding: 2em;
+  padding: 2em 2em 5em 2em;
   position: relative;
 
   &__wrapper {
