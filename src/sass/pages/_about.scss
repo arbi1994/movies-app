@@ -2,6 +2,7 @@
 @use "../base/" as *;
 
 .about {
+  min-height: 80vh;
   padding: 2em 3em;
   @include flex(column, center, center);
   z-index: 0;
@@ -35,7 +36,7 @@
       font-weight: 500;
       margin-bottom: 2em;
       color: $link_text_color;
-      letter-spacing: .3px;
+      letter-spacing: 0.3px;
 
       a[title="tmdb"] {
         color: rgba(1, 180, 228);
