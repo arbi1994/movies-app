@@ -16,7 +16,7 @@ const SearchBar = ({ activeSearch, setActiveSearch }) => {
   // hook to set the input value
   const [input, setInput] = useState("");
   // hook to keep track of the portview width
-  const [width] = useViewport()
+  const [width] = useViewport();
   const breakpoint = 768 // tablet viewport width
   // custom hook to get the data
   const [
@@ -34,7 +34,7 @@ const SearchBar = ({ activeSearch, setActiveSearch }) => {
    */
   const onInputClick = (e) => {
     e.preventDefault(); //prevent default browser behaviour
-    setActive(true); //set the active state to true
+    width > breakpoint ? setActive(true) : setActiveSearch(true) //set the active state to true
   }
 
   /**
@@ -96,15 +96,8 @@ const SearchBar = ({ activeSearch, setActiveSearch }) => {
     if(page <= totalPages) return
   }, [page])
 
-  useEffect(() => {
-    if(active){
-      document.body.style.overflow = 'hidden';
-    } 
-
-    return () => {
-      document.body.style.overflow = 'unset';
-    }
-  }, [active])
+  console.log('active state', active)
+  console.log(activeSearch)
 
   return (
     <>

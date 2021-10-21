@@ -345,6 +345,7 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  z-index: 4000;
 }
 
 .loading-spinner {
@@ -397,9 +398,6 @@
 }
 .carousel .swiper-wrapper {
   position: fixed !important;
-}
-.carousel .swiper-wrapper .swiper-slide {
-  width: 100% !important;
 }
 @media (max-width: 1024px) {
   .carousel .swiper-wrapper {
@@ -1039,12 +1037,7 @@ footer span p {
 }
 footer span p a {
   text-decoration: none;
-  background: linear-gradient(90deg, #aab2ff, #eca0ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
+  color: #a0a0a0;
   font-weight: 600;
 }
 
@@ -1128,6 +1121,7 @@ main {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  z-index: 0;
 }
 @media (max-width: 768px) {
   .movie-details__play {
@@ -1160,26 +1154,6 @@ main {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   position: relative;
-}
-.movie-details__play--trailer::before {
-  content: "";
-  position: absolute;
-  bottom: -5em;
-  left: 0;
-  width: 5em;
-  height: 5em;
-  background: #070014;
-  z-index: -1;
-}
-.movie-details__play--trailer::after {
-  content: "";
-  position: absolute;
-  bottom: -5em;
-  right: 0;
-  width: 5em;
-  height: 5em;
-  background: #070014;
-  z-index: -1;
 }
 .movie-details__container {
   background: #070014;
@@ -1436,6 +1410,7 @@ title {
 }
 
 .about {
+  min-height: 80vh;
   padding: 2em 3em;
   display: flex;
   flex-direction: column;

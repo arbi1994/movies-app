@@ -5,7 +5,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 // API Config 
 import { 
-  SECURE_BASE_IMAGE_URL,
+  IMAGEKIT_URL,
   POSTER_SIZES,
 } from '../../../api_config';
 // Helper
@@ -68,7 +68,7 @@ const SearchWindow = ({
   /**
    * Rendered searched results
    */
-  const renderedResults = searchedData.map(data => {
+  const renderedResults = searchedData?.map(data => {
       const year_released = getYear(data.release_date)
 
       return (
@@ -82,7 +82,7 @@ const SearchWindow = ({
                 <LazyLoadImage 
                   alt={data.title}
                   effect="blur"
-                  src={`${SECURE_BASE_IMAGE_URL}${POSTER_SIZES[0]}${data.poster_path}`}
+                  src={`${IMAGEKIT_URL}t/p/${POSTER_SIZES[0]}${data.poster_path}`}
                 />
               </div>
               <div className="search-window__content--details">

@@ -1,5 +1,7 @@
 import React from 'react';
-
+// Hooks 
+import useLockBodyScroll from '../../../hooks/useLockBodyScroll';
+// Components
 import Input from './Input';
 import SearchWindow from './SearchWindow';
 
@@ -17,6 +19,9 @@ const SearchBarMobile = ({
   setPage,
   totalPages 
 }) => {
+
+  useLockBodyScroll(activeSearch);
+
   return (
     <>
       <form 

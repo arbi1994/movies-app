@@ -28,10 +28,6 @@
   .swiper-wrapper {
     position: fixed !important;
 
-    .swiper-slide {
-      width: 100% !important;
-    }
-
     @include media("<=SMdesktop") {
       height: 100vh;
     }

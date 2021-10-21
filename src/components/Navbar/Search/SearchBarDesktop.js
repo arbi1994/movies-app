@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-
+// Components
 import Input from './Input';
 import SearchWindow from './SearchWindow';
 import SearchOverlay from './SearchOverlay';
+// Hooks 
+import useLockBodyScroll from '../../../hooks/useLockBodyScroll';
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const SearchBarDesktop = ({ 
@@ -20,7 +22,10 @@ const SearchBarDesktop = ({
   setPage,
   totalPages
 }) => {
+
   const inputRef = useRef() //inputRef
+
+  useLockBodyScroll(active);
 
   /**
    * Custom hook to handle users clicks event
