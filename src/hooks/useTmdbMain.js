@@ -10,9 +10,9 @@ const useTmdbMain = () => {
   const [loading, setLoading] = useState(false)
   const { path } = useParams() //get the current URL parameter
 
-  console.log("path: ", path)
+  // console.log("path: ", path)
 
-  console.log("endpoint: ", endpoint)
+  // console.log("endpoint: ", endpoint)
     
   useEffect(() => {
     setEndpoint(`/movie/${path}`)
@@ -20,8 +20,6 @@ const useTmdbMain = () => {
 
   const getData = async (pageNum, genre) => {
     setLoading(true)
-
-    console.log('endpoint value: ', endpoint)
 
     try {
       const {data} = await tmdb.get(`${BASE_URL}${path ? endpoint : GET.discover}`, {

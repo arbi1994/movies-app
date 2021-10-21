@@ -96,9 +96,6 @@ const SearchBar = ({ activeSearch, setActiveSearch }) => {
     if(page <= totalPages) return
   }, [page])
 
-  console.log('active state', active)
-  console.log(activeSearch)
-
   return (
     <>
       {width <= breakpoint 

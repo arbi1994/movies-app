@@ -26,7 +26,7 @@ const Main = () => {
   })
   const imgItems = useTmdbImages()
 
-  const renderedImages = imgItems.map(imgItem => {
+  const renderedImages = imgItems?.map(imgItem => {
     return (
       <SwiperSlide>
         <img 

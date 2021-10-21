@@ -7,18 +7,24 @@ import {
 } from '../../api_config';
 
 const Poster = ({ title, poster_path, loading }) => {
+  
+  if(loading) {
+    return (
+      <Skeleton 
+        variant="rectangular" 
+        style={{ minWidth: '35em', height: '40em'}}
+        sx={{ bgcolor: 'grey.900' }}
+      /> 
+    )
+  }
+
   return (
     <>
-      {loading 
-        ? <Skeleton 
-            variant="rectangular" 
-            style={{ minWidth: '35em', height: '40em'}}
-            sx={{ bgcolor: 'grey.900' }}
-          /> 
-        : <div className="poster">
-            <img alt={title} src={`${IMAGEKIT_URL}t/p/${POSTER_SIZES[POSTER_SIZES.length - 1]}${poster_path}`}/>
-          </div>
-      }
+      <div className="poster">
+        <img 
+          alt={title} 
+          src={`${IMAGEKIT_URL}t/p/${POSTER_SIZES[POSTER_SIZES.length - 1]}${poster_path}`}/>
+      </div>
     </>
   )
 }

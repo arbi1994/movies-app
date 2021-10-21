@@ -8,6 +8,8 @@ import {
 } from '../api_config';
 
 const useTmdbMovie = () => {
+  const [backdropPath, setBackdropPath] = useState('')
+  const [posterPath, setPosterPath] = useState('')
   const [movieDetails, setMovieDetails] = useState([])
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -30,6 +32,10 @@ const useTmdbMovie = () => {
       setMovieDetails(data)
 
       console.log(data)
+
+      setBackdropPath(data.backdrop_path)
+
+      setPosterPath(data.poster_path)
 
       // get production country iso codes
       setProductionCountries(data.production_countries.map(country => country.iso_3166_1))
@@ -62,6 +68,8 @@ const useTmdbMovie = () => {
     getMovieDetails, 
     movieDetails, 
     loading, 
+    backdropPath,
+    posterPath,
     productionCountries, 
     directors,
     cast,

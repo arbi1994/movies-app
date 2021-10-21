@@ -8,12 +8,16 @@ import {
 import LoadingSpinner from '../LoadingSpinner';
 
 const Backdrop = ({ title, backdrop_path, loading }) => {
+
+  if(loading) {
+    return <LoadingSpinner />
+  }
+
   return (
     <div>
-      {loading 
-        ? <LoadingSpinner /> 
-        : <img alt={title} src={`${IMAGEKIT_URL}t/p/${BACKDROP_SIZES[BACKDROP_SIZES.length - 1]}${backdrop_path}`}/>
-      }
+      <img 
+        alt={title} 
+        src={`${IMAGEKIT_URL}t/p/${BACKDROP_SIZES[BACKDROP_SIZES.length - 1]}${backdrop_path}`}/>
     </div>
   )
 }
