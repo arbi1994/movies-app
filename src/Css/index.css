@@ -399,9 +399,9 @@
 .carousel .swiper-wrapper {
   position: fixed !important;
 }
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .carousel .swiper-wrapper {
-    height: 100vh;
+    height: 60vh;
   }
 }
 @media (max-width: 426px) {

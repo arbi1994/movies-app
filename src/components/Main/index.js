@@ -17,7 +17,8 @@ import ScrollUpButton from '../../components/ScrollUpButton';
 import useHandleScroll from '../../hooks/useHandleScroll';
 import useTmdbImages from '../../hooks/useTmdbImages';
 import useViewport from '../../hooks/useViewport';
-
+import useHandleImgSize from '../../hooks/useHandleImgSize';
+// api configuration
 import { urlEndpoint, BACKDROP_SIZES } from '../../api_config';
 
 // install Swiper modules
@@ -30,14 +31,22 @@ const Main = () => {
   })
   const imgItems = useTmdbImages()
   const [width] = useViewport() 
-  const breakpoint = 768
+  const tabletBreakpoint = 768
+  const laptopBreakpoint = 1024
+
+  const [size] = useHandleImgSize(
+    width,
+    tabletBreakpoint, 
+    laptopBreakpoint, 
+    BACKDROP_SIZES
+  )
 
   const renderedImages = imgItems?.map(imgItem => {
     return (
       <SwiperSlide className="swiper-lazy">
         <img 
           key={imgItem.id} 
-          src={`${urlEndpoint}t/p/${BACKDROP_SIZES[width <=breakpoint ? 2 : 3]}${imgItem.imgPath}`} 
+          src={`${urlEndpoint}t/p/${size}${imgItem.imgPath}`} 
           alt={imgItem.title}
         />
       </SwiperSlide>

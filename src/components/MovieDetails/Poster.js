@@ -3,12 +3,11 @@ import Skeleton from '@mui/material/Skeleton';
 // api configurations
 import { 
   SECURE_BASE_IMAGE_URL,
-  IMAGEKIT_URL, 
   POSTER_SIZES
 } from '../../api_config';
 
 const Poster = ({ title, poster_path, loading }) => {
-  
+
   if(loading) {
     return (
       <Skeleton 
@@ -24,7 +23,7 @@ const Poster = ({ title, poster_path, loading }) => {
       <div className="poster">
         <img 
           alt={title} 
-          src={`${SECURE_BASE_IMAGE_URL}${POSTER_SIZES[POSTER_SIZES.length - 1]}${poster_path}`}/>
+          src={`${SECURE_BASE_IMAGE_URL}${POSTER_SIZES[4]}${poster_path}`}/>
       </div>
     </>
   )

@@ -28,8 +28,8 @@
   .swiper-wrapper {
     position: fixed !important;
 
-    @include media("<=SMdesktop") {
-      height: 100vh;
+    @include media("<=tablet") {
+      height: 60vh;
     }
 
     @include media("<=phoneL") {

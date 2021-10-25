@@ -24,8 +24,8 @@ const Movie = () => {
     getMovieDetails, 
     movieDetails, 
     loading,
-    backdropPath,
-    posterPath,
+    // backdropPath,
+    // posterPath,
     productionCountries,
     directors,
     cast,
@@ -44,7 +44,9 @@ const Movie = () => {
 
   //extract all the parameters needed
   const { 
-    title, 
+    title,  
+    backdrop_path,
+    poster_path,
     genres, 
     release_date, 
     runtime, 
@@ -72,7 +74,7 @@ const Movie = () => {
   return (
     <section className="movie-details">
       <div className="movie-details__backdrop">
-        <Backdrop title={title} backdrop_path={backdropPath} loading={loading} />
+        <Backdrop title={title} backdrop_path={backdrop_path} loading={loading} />
       </div>
 
       <div className="movie-details__play" onClick={() => setActive(true)}>
@@ -82,7 +84,7 @@ const Movie = () => {
       
       <div className="movie-details__container">
         <div className="col-1">
-          <Poster title={title} poster_path={posterPath} loading={loading} />      
+          <Poster title={title} poster_path={poster_path} loading={loading} />      
         </div>
         
         <div className="col-2">

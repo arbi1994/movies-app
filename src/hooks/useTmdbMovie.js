@@ -31,8 +31,6 @@ const useTmdbMovie = () => {
 
       setMovieDetails(data)
 
-      console.log(data)
-
       setBackdropPath(data.backdrop_path)
 
       setPosterPath(data.poster_path)
@@ -68,8 +66,6 @@ const useTmdbMovie = () => {
     getMovieDetails, 
     movieDetails, 
     loading, 
-    backdropPath,
-    posterPath,
     productionCountries, 
     directors,
     cast,
