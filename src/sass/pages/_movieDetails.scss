@@ -237,6 +237,7 @@
           &--genres {
             .wrapper {
               @include flex(row, flex-start, center);
+              flex-wrap: wrap;
             }
           }
 

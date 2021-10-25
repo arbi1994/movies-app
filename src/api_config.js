@@ -28,7 +28,7 @@ const LOGO_SIZES = ['w45', 'w92', 'w154', 'w185', 'w300', 'w500', 'original']
 
 const PROFILE_SIZES = ['w92', 'w154', 'w185', 'w342', 'w500', 'w780', 'original']
 
-const IMAGEKIT_URL = 'https://ik.imagekit.io/iowcmbydcj3/' //URL for image optimization
+const urlEndpoint  = 'https://ik.imagekit.io/iowcmbydcj3/' //URL for image optimization
 
 export {
   API_KEY,
@@ -40,7 +40,7 @@ export {
   BACKDROP_SIZES,
   LOGO_SIZES,
   PROFILE_SIZES,
-  IMAGEKIT_URL
+  urlEndpoint
 }
 
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 // api config
-import { GET, BASE_URL, IMAGEKIT_URL, BACKDROP_SIZES } from '../api_config';
+import { GET, BASE_URL, urlEndpoint, BACKDROP_SIZES } from '../api_config';
 // tmdb api
 import tmdb from '../apis/tmdb';
 
@@ -18,9 +18,9 @@ const useTmdbImages = () => {
 
       const itemsURL = data?.results.slice(0, numberOfItems).map(item => {
         const {backdrop_path, id, title} = item
-        const imgURL = `${IMAGEKIT_URL}t/p/${BACKDROP_SIZES[3]}${backdrop_path}`
+        const imgPath = `${backdrop_path}`
 
-        return {imgURL, id, title}
+        return {imgPath, id, title}
       })
       
       setImgItems(itemsURL)

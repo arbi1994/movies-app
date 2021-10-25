@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import tmdb from '../apis/tmdb';
 import { BASE_URL } from '../api_config';
 

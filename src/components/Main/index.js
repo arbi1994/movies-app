@@ -5,7 +5,8 @@ import 'swiper/swiper.min.css'
 // Swiper core and required modules
 import SwiperCore, {
   Autoplay,
-  EffectFade
+  EffectFade,
+  Lazy,
 } from 'swiper';
 // Components
 import Hero from './Hero';
@@ -15,9 +16,12 @@ import ScrollUpButton from '../../components/ScrollUpButton';
 // Hooks
 import useHandleScroll from '../../hooks/useHandleScroll';
 import useTmdbImages from '../../hooks/useTmdbImages';
+import useViewport from '../../hooks/useViewport';
+
+import { urlEndpoint, BACKDROP_SIZES } from '../../api_config';
 
 // install Swiper modules
-SwiperCore.use([Autoplay, EffectFade]);
+SwiperCore.use([Autoplay, EffectFade, Lazy]);
 
 const Main = () => {
   const [scrollToTopBtn, setScrollToTopBtn] = useState(false)
@@ -25,13 +29,15 @@ const Main = () => {
     setScrollToTopBtn(ref.current.getBoundingClientRect().top <= (-20))
   })
   const imgItems = useTmdbImages()
+  const [width] = useViewport() 
+  const breakpoint = 768
 
   const renderedImages = imgItems?.map(imgItem => {
     return (
-      <SwiperSlide>
+      <SwiperSlide className="swiper-lazy">
         <img 
           key={imgItem.id} 
-          src={imgItem.imgURL} 
+          src={`${urlEndpoint}t/p/${BACKDROP_SIZES[width <=breakpoint ? 2 : 3]}${imgItem.imgPath}`} 
           alt={imgItem.title}
         />
       </SwiperSlide>
@@ -48,6 +54,7 @@ const Main = () => {
             "delay": 4000,
             "disableOnInteraction": false
           }}
+          lazy
         >{renderedImages}</Swiper>
       </section>
             

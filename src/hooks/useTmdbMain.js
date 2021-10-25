@@ -31,16 +31,16 @@ const useTmdbMain = () => {
         }
       })
 
-      setMovies((prev) => (
+      setMovies(prev => (
         pageNum > 1
-        ? [...prev, ...data.results] 
+        ? [...new Set([...prev, ...data.results])] 
         : [...data.results]
       ))
   
-      setLoading(false)
-
     } catch (error) {
       console.log(error.message)
+    } finally {
+      setLoading(false)
     }
   }
 

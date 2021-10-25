@@ -5,7 +5,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 // API Config 
 import { 
-  IMAGEKIT_URL,
+  urlEndpoint,
   POSTER_SIZES,
 } from '../../../api_config';
 // Helper
@@ -76,13 +76,14 @@ const SearchWindow = ({
             to={`/movie/${data.title.split(' ').join('-').toLowerCase()}/${data.id}`} 
             style={{ textDecoration: 'none' }}
             onClick={handleResultClick} 
+            key={data.id}
           >
             <div key={data.id} className="search-window__content">
               <div className="search-window__content--poster">
                 <LazyLoadImage 
                   alt={data.title}
                   effect="blur"
-                  src={`${IMAGEKIT_URL}t/p/${POSTER_SIZES[0]}${data.poster_path}`}
+                  src={`${urlEndpoint}t/p/${POSTER_SIZES[0]}${data.poster_path}`}
                 />
               </div>
               <div className="search-window__content--details">

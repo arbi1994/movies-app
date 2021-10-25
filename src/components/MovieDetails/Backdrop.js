@@ -1,6 +1,7 @@
 import React from 'react';
 // api configurations
 import { 
+  SECURE_BASE_IMAGE_URL,
   IMAGEKIT_URL, 
   BACKDROP_SIZES
 } from '../../api_config';
@@ -14,11 +15,11 @@ const Backdrop = ({ title, backdrop_path, loading }) => {
   }
 
   return (
-    <div>
+    <>
       <img 
         alt={title} 
-        src={`${IMAGEKIT_URL}t/p/${BACKDROP_SIZES[BACKDROP_SIZES.length - 1]}${backdrop_path}`}/>
-    </div>
+        src={`${SECURE_BASE_IMAGE_URL}${BACKDROP_SIZES[BACKDROP_SIZES.length - 1]}${backdrop_path}`}/>
+    </>
   )
 }
 

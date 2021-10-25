@@ -18,13 +18,13 @@
     }
   }
 
-  @include media("<=phoneL") {
-    height: 21em;
-  }
+  // @include media("<=phoneL") {
+  //   height: 21em;
+  // }
 
-  @include media("<=phone") {
-    height: 18em;
-  }
+  // @include media("<=phone") {
+  //   height: 18em;
+  // }
 
   &__title {
     background: rgba(0, 0, 0, 0.5);

@@ -62,8 +62,7 @@ const GenresSelector = ({ handleGenreCallback, setPage }) => {
           block: "start",
           behavior: "smooth"
         })
-      }
-      else{
+      }else{
         // scroll back to top 
         window.scrollTo({
           top: 0 + elementHeight,
@@ -72,7 +71,7 @@ const GenresSelector = ({ handleGenreCallback, setPage }) => {
         });
       }
       
-      handleGenreCallback(genre.id, genre.name)//pass the genre id to parent Card component
+      handleGenreCallback(genre.id, genre.name) //pass the genre id to parent Card component
 
       setOpen(false) //reset open state
     }

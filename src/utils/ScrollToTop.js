@@ -5,7 +5,15 @@ const ScrollToTop = (props) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    try{
+      window.scroll({
+        top: 0,
+        left: 0,
+      });
+    }catch(error){
+      window.scrollTo(0, 0)
+    }
+   
   }, [pathname]);
 
   return <>{props.children}</>
