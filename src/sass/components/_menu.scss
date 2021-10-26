@@ -1,8 +1,6 @@
 @use "../abstracts" as *;
 
 .burger {
-  // display: block;
-  // padding: 0.5em;
   cursor: pointer;
   color: $hover_text_color;
 
@@ -27,7 +25,6 @@
   }
 
   ul {
-    min-height: 20vh;
     @include flex(column, space-around, center);
 
     li {

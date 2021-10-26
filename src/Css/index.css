@@ -194,7 +194,6 @@
   }
 }
 .menu ul {
-  min-height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
