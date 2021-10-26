@@ -13,15 +13,24 @@ import useViewport from '../../hooks/useViewport';
 const Cards = () => {
   const { path } = useParams() //get the current URL parameter
   const [page, setPage] = useState(1)
-  const [getData, movies, loading] = useTmdbMain()
+  const [
+    getData, 
+    movies, 
+    loading, 
+    endpoint
+  ] = useTmdbMain()
   const [genreID, setGenreID] = useState(null)
   const [genreName, setGenreName] = useState('Discover')
   const [width] = useViewport()
   const breakpoint = 768
 
   useEffect(() => {
-    getData(page, genreID) 
-  }, [path, page, genreID])
+    getData(page, genreID) // call the getData function
+  }, [page, genreID, endpoint])
+
+  useEffect(() => {
+    setPage(1) // reset page number on path change
+  }, [path])
 
   const onButtonClick = () => {
     setPage((prev) => prev + 1)
@@ -58,7 +67,7 @@ const Cards = () => {
         />
       }
 
-      <CardsHeader genreName={genreName}/>
+      <CardsHeader genreName={genreName} path={path} />
 
       <div className="cards__wrapper">
         {loading ? <LoadingSpinner /> : renderedCards}

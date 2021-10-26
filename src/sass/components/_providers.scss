@@ -1,7 +1,6 @@
 @use "../abstracts" as *;
 
 .watch-providers {
-  box-sizing: content-box;
   border-width: 5px;
   border-style: solid;
   border-image: linear-gradient(to right bottom, $logo_color-1, $logo_color-2);
@@ -64,7 +63,7 @@
 
   &__providers {
     margin-top: 3em;
-    
+
     h5 {
       color: $title_text_color;
       font-weight: 700;
@@ -79,10 +78,11 @@
       li {
         list-style: none;
         width: 5em;
-        margin: 0 2em 2em 0;
+        margin: 0 3em 1em 0;
 
         @include media("<=phoneL") {
           width: 3em;
+          margin: 0 1em 1em 0;
         }
 
         a > img {

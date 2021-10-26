@@ -21,10 +21,6 @@ const navLinksConfig = [
     path: '/',
     movies: [
       {
-        label: 'Latest',
-        path: 'latest'
-      },
-      {
         label: 'Now Play',
         path: 'now_playing'
       },

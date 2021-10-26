@@ -10,6 +10,7 @@ import Main from './Main/index';
 import Cards from './Cards/index';
 import Movie from './MovieDetails/index';
 import About from './About/index';
+import ScrollUpButton from './ScrollUpButton';
 import Footer from './Footer';
 import NotFound from './NotFound';
 // Styling
@@ -31,6 +32,7 @@ function App () {
           <Route path="/*" component={NotFound} /> 
         </Switch>
       </ScrollToTop>
+      <ScrollUpButton />
       <Footer />
     </Router> 
   )

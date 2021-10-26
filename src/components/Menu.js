@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+// Material ui icons 
 import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded';
 import ArrowDropUpRoundedIcon from '@mui/icons-material/ArrowDropUpRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-
+// navlinks configuration
 import navlinks from './navlinksConfig';
+// Components
 import useClickOutside from '../hooks/useClickOutside';
+// Components
 import DiscoverMenu from './Navbar/DiscoverMenu';
 
 const Menu = ({ active, setActive }) => {
@@ -21,16 +24,14 @@ const Menu = ({ active, setActive }) => {
 
   const onDiscoverClick = () => {
     setDropdownActive(!dropdownActive)
+    setActive(true)
   }
 
   const renderedMenu = navlinks.map((links, index) => { 
-
     if(links.label === 'Discover'){
-
       return (
         <>
-          <li key={index}>
-            {links.icon}
+          <li key={index}>{links.icon}
             <a onClick={onDiscoverClick}>
               {links.label} 
               {dropdownActive 
@@ -44,7 +45,14 @@ const Menu = ({ active, setActive }) => {
       )
     }
 
-    return <li key={index}>{links.icon}<a href={links.path} onClick={() => setActive(false)}>{links.label}</a></li> 
+    return (
+      <li key={index}>{links.icon}
+        <a 
+          href={links.path} 
+          onClick={() => setActive(false)}
+        >{links.label}</a>
+      </li> 
+    )
   })
 
   return (

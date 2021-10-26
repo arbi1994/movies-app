@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+// navlinks configuration
 import navlinks from '../navlinksConfig';
+// hooks
 import useViewport from '../../hooks/useViewport';
 
 const DiscoverMenu = ({ setActive }) => {
@@ -10,11 +11,10 @@ const DiscoverMenu = ({ setActive }) => {
 
   const rendereMenu = navlinks[1].movies.map((links, index) => {
     return (
-      <li key={index}>
+      <li key={index} onClick={() => setActive(false)}>
         <Link 
           to={`/discover/${links.path}`} 
           className="discover-menu__links"
-          onClick={() => setActive(false)}
         >
           {links.label}
         </Link>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
@@ -12,9 +12,7 @@ import SwiperCore, {
 import Hero from './Hero';
 import Cards from '../Cards/index';
 import GenresSelector from '../GenresSelector/index';
-import ScrollUpButton from '../../components/ScrollUpButton';
 // Hooks
-import useHandleScroll from '../../hooks/useHandleScroll';
 import useTmdbImages from '../../hooks/useTmdbImages';
 import useViewport from '../../hooks/useViewport';
 import useHandleImgSize from '../../hooks/useHandleImgSize';
@@ -25,14 +23,12 @@ import { urlEndpoint, BACKDROP_SIZES } from '../../api_config';
 SwiperCore.use([Autoplay, EffectFade, Lazy]);
 
 const Main = () => {
-  const [scrollToTopBtn, setScrollToTopBtn] = useState(false)
-  const ref = useHandleScroll(() => {
-    setScrollToTopBtn(ref.current.getBoundingClientRect().top <= (-20))
-  })
   const imgItems = useTmdbImages()
   const [width] = useViewport() 
   const tabletBreakpoint = 768
   const laptopBreakpoint = 1024
+
+  const ref = useRef()
 
   const [size] = useHandleImgSize(
     width,
@@ -72,9 +68,6 @@ const Main = () => {
       <Cards>
         <GenresSelector />
       </Cards>
-
-      <ScrollUpButton scrollToTopBtn={scrollToTopBtn}/>
-      
     </main>
   )
 }

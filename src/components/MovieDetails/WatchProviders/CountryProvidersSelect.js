@@ -28,7 +28,7 @@ const CountryProvidersSelect = ({ country, setCountry, watchProviders }) => {
   }, [country])
 
   return (
-    <FormControl sx={{ minWidth: 250, fontSize: '1em' }}>
+    <FormControl sx={{ width: 250, fontSize: '1em' }}>
       <Select
         disableunderline="true"
         value={country}

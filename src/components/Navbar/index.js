@@ -59,7 +59,7 @@ const NavBar = ({ active, setActive }) => {
                           : <ArrowDropDownRoundedIcon style={iconStyle}/>
                         }
 
-                        {dropdownActive && <DiscoverMenu />}
+                        {dropdownActive && <DiscoverMenu setActive={setActive} />}
                       </li>
                     )
                   }
