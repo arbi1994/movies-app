@@ -38,7 +38,8 @@ const Cards = () => {
 
   const renderedCards = movies?.map((card, index) => {
     if(card.poster_path === null || card.poster_path === undefined) return
-    
+    if(card.backdrop_path === null || card.backdrop_path === undefined) return
+
     return (
       <Card
         key={card.id} 

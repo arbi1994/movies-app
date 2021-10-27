@@ -73,6 +73,7 @@ const SearchWindow = ({
       const year_released = getYear(data.release_date)
 
       if(data.poster_path === null || data.poster_path === undefined) return
+      if(data.backdrop_path === null || data.backdrop_path === undefined) return
 
       return (
           <Link 

@@ -31,14 +31,16 @@ export const splitData = (data) => {
  * @returns 
  */
 export const decodePathName = (str) => {
-  return str.split('').map(l => {
-    if(l === '%'){
-      const encodedStr = encodeURI(l)
+  return str.split('').map(char => {
+    if(char === '%'){
+      const encodedStr = encodeURI(char)
       return decodeURI(encodedStr).split('%').join('')
-    }else if(l === ' '){
-      return l.split(' ').join('-')
+    }else if(char === ' '){
+      return char.split(' ').join('-')
+    }else if(char === '/'){
+      return char.split('/').join('-')
     }else{
-      return l
+      return char
     }
   }).join('').toLocaleLowerCase()
 }
