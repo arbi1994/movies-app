@@ -10,6 +10,7 @@ import {
 } from '../../../api_config';
 // Helper
 import { getYear } from '../../../helpers';
+import { decodePathName } from '../../../helpers';
 // Hooks
 import useViewport from '../../../hooks/useViewport';
 // Components
@@ -71,9 +72,11 @@ const SearchWindow = ({
   const renderedResults = searchedData?.map(data => {
       const year_released = getYear(data.release_date)
 
+      if(data.poster_path === null || data.poster_path === undefined) return
+
       return (
           <Link 
-            to={`/movie/${data.title.split(' ').join('-').toLowerCase()}/${data.id}`} 
+            to={`/movie/${decodePathName(data.title)}/${data.id}`} 
             style={{ textDecoration: 'none' }}
             onClick={handleResultClick} 
             key={data.id}

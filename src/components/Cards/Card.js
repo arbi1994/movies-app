@@ -5,17 +5,19 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 // Hooks
 import useViewport from '../../hooks/useViewport';
 import { urlEndpoint } from '../../api_config';
+// Helpers 
+import { decodePathName } from '../../helpers';
 // Components
 import Rating from '../Rating';
 
 const Card = ({ id, title, imgURL, rating, scrollPosition }) => {
   const [width] = useViewport()
   const breakpoint = 425
-
+  
   return (
     <>
       <Link 
-        to={`/movie/${title.split(' ').join('-').toLowerCase()}/${id}`} 
+        to={`/movie/${decodePathName(title)}/${id}`} 
         className="card"
       >
         <LazyLoadImage

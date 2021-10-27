@@ -71,6 +71,19 @@ const Movie = () => {
     setActive(false)
   }, [pathname])
 
+  const location = useLocation()
+  const str = '100%'
+  const encodedStr = location.pathname.split('').map(l => {
+    if(l === '%'){
+      const encodedStr = encodeURI(l)
+      return decodeURI(encodedStr).split('%').join()
+    }else{
+      return l
+    }
+  }).join('').toLocaleLowerCase()
+
+  console.log(encodedStr)
+
   return (
     <section className="movie-details">
       <div className="movie-details__backdrop">

@@ -22,7 +22,7 @@ const useTmdb = (endpoint, pageNum) => {
       const {data} = await tmdb.get(`${BASE_URL}${endpoint}`, {
         params: {
           page: pageNum,
-          query: term
+          query: `${decodeURIComponent(term)}`
         }
       })
   

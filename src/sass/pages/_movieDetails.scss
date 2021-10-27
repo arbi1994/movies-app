@@ -16,7 +16,7 @@
     z-index: -1;
 
     @include media("<=phoneL") {
-      top: 10vh;
+      top: 5vh;
     }
 
     &::before {
@@ -49,6 +49,14 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
+
+      @include media("<tablet") {
+        height: 50vh;
+      }
+
+      @include media("<=phoneL") {
+        height: 32vh;
+      }
     }
   }
 
@@ -65,6 +73,11 @@
 
     @include media("<=tablet") {
       height: 30em;
+      top: calc(100% / 10);
+    }
+
+    @include media("<tablet") {
+      height: 28em;
     }
 
     @include media("<=phoneL") {
@@ -111,8 +124,12 @@
       width: 100%;
     }
 
+    @include media("<tablet") {
+      margin-top: 25em;
+    }
+
     @include media("<=phoneL") {
-      margin-top: 20em;
+      margin-top: 18em;
     }
 
     .col-1 {

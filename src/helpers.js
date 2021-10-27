@@ -12,10 +12,33 @@ export const getYear = (date) => {
   return year
 }
 
+/**
+ * Split data fetched
+ * @param {Array} data 
+ * @returns 
+ */
 export const splitData = (data) => {
   if(data === undefined) return
   
   if(data.length > 1) return data.join(', ') 
 
   return data
+}
+
+/**
+ * Validate pathname (decode %25 and %20)
+ * @param {String} str 
+ * @returns 
+ */
+export const decodePathName = (str) => {
+  return str.split('').map(l => {
+    if(l === '%'){
+      const encodedStr = encodeURI(l)
+      return decodeURI(encodedStr).split('%').join('')
+    }else if(l === ' '){
+      return l.split(' ').join('-')
+    }else{
+      return l
+    }
+  }).join('').toLocaleLowerCase()
 }
