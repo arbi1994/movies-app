@@ -21,14 +21,17 @@ const navLinksConfig = [
     path: '/',
     movies: [
       {
+        id: 2.1,
         label: 'Now Play',
         path: 'now_playing'
       },
       {
+        id: 2.2,
         label: 'Popular',
         path: 'popular'
       },
       {
+        id: 2.3,
         label: 'Upcoming',
         path: 'upcoming'
       },

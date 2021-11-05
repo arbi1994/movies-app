@@ -10,7 +10,7 @@ const index = () => {
 
       <main class="about__description">
         <p>
-          321moviesinfo.com is a website, more precisily, a web app built to
+          321moviesinfo.com is a website, more precisely, a web app built to
           give cinephiles and non, a great experience by finding the most
           important information about any kind of movie, from the oldest to the
           newest.

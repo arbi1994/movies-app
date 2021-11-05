@@ -47,7 +47,9 @@
   }
 
   .swiper-wrapper {
-    position: fixed !important;
+    // position: fixed !important;
+    // top: 0;
+    // left: 0;
 
     @include media("<=tablet") {
       height: 60vh;
@@ -60,7 +62,7 @@
   }
 
   img {
-    width: 100%;
+    width: 100vw;
     height: 100%;
     object-fit: cover;
   }

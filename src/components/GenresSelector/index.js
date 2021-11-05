@@ -9,11 +9,11 @@ import useViewport from '../../hooks/useViewport';
 // Components
 import Genre from './Genre';
 
-const GenresSelector = ({ handleGenreCallback, setPage }) => {
+const GenresSelector = ({ handleGenreCallback }) => {
   const [open, setOpen] = useState(false)
   const [genres, setGenres] = useState([])
   const [isSticky, setIsSticky] = useState(false);
-  const [elementHeight, setElementHeight] = useState()
+  const [elementHeight, setElementHeight] = useState(null)
   const [width, height] = useViewport()
 
   const genreRef = useHandleScroll(() => {
@@ -53,7 +53,7 @@ const GenresSelector = ({ handleGenreCallback, setPage }) => {
      * Handle all behaviours on click event
      */
     const handleGenderClick = () => {
-      if(genre.id) setPage(1) //reset page to 1
+      // if(genre.id) setPage(1) //reset page to 1
 
       genreRef.current.classList.remove('open') // remove open class which translateY the Genre component
 

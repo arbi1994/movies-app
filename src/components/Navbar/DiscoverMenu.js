@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 // navlinks configuration
 import navlinks from '../navlinksConfig';
@@ -10,10 +10,11 @@ const DiscoverMenu = ({ setActive }) => {
   const breakpoint = 1024
 
   const rendereMenu = navlinks[1].movies.map((links, index) => {
+    const genreName = localStorage.getItem('genre')
     return (
-      <li key={index} onClick={() => setActive(false)}>
+      <li key={links.id} onClick={() => setActive(false)}>
         <Link 
-          to={`/discover/${links.path}`} 
+          to={`/discover/${links.path}?genre=${JSON.parse(genreName.split(' ').join('-').toLocaleLowerCase())}`} 
           className="discover-menu__links"
         >
           {links.label}

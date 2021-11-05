@@ -412,9 +412,6 @@
     background-image: linear-gradient(180deg, #070014, transparent 150px);
   }
 }
-.carousel .swiper-wrapper {
-  position: fixed !important;
-}
 @media (max-width: 768px) {
   .carousel .swiper-wrapper {
     height: 60vh;
@@ -427,7 +424,7 @@
   }
 }
 .carousel img {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   object-fit: cover;
 }
@@ -508,6 +505,9 @@
   .card:hover .card__rating {
     bottom: 0;
   }
+}
+.card .lazy-load-image-background {
+  display: contents !important;
 }
 .card__title {
   background: rgba(0, 0, 0, 0.5);
@@ -699,6 +699,16 @@
   align-items: center;
   position: relative;
   z-index: -5000;
+}
+@media (max-width: 1441px) {
+  .hero {
+    min-height: 70vh;
+  }
+}
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 60vh;
+  }
 }
 @media (max-width: 768px) {
   .hero {
@@ -1016,7 +1026,7 @@
   color: #a0a0a0;
   font-weight: 700;
 }
-.watch-providers__providers--rent, .watch-providers__providers--buy {
+.watch-providers__providers--rent, .watch-providers__providers--buy, .watch-providers__providers--flatrate {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -1024,18 +1034,18 @@
   flex-wrap: wrap;
   margin: 1em 0 3em;
 }
-.watch-providers__providers--rent li, .watch-providers__providers--buy li {
+.watch-providers__providers--rent li, .watch-providers__providers--buy li, .watch-providers__providers--flatrate li {
   list-style: none;
   width: 5em;
   margin: 0 3em 1em 0;
 }
 @media (max-width: 426px) {
-  .watch-providers__providers--rent li, .watch-providers__providers--buy li {
+  .watch-providers__providers--rent li, .watch-providers__providers--buy li, .watch-providers__providers--flatrate li {
     width: 3em;
     margin: 0 1em 1em 0;
   }
 }
-.watch-providers__providers--rent li a > img, .watch-providers__providers--buy li a > img {
+.watch-providers__providers--rent li a > img, .watch-providers__providers--buy li a > img, .watch-providers__providers--flatrate li a > img {
   width: 100%;
   height: 100%;
   border-radius: 5px;
@@ -1159,17 +1169,22 @@ main {
 @media (max-width: 768px) {
   .movie-details__play {
     height: 30em;
-    top: 10%;
+    top: 12.5%;
   }
 }
 @media (max-width: 767px) {
   .movie-details__play {
-    height: 28em;
+    height: 24em;
   }
 }
 @media (max-width: 426px) {
   .movie-details__play {
     height: 20em;
+  }
+}
+@media (max-width: 425px) {
+  .movie-details__play {
+    height: 19em;
   }
 }
 .movie-details__play::after {

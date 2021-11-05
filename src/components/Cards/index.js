@@ -1,42 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
+// api configurations
+import { POSTER_SIZES } from '../../api_config';
+// Hooks
+import useTmdbMain from '../../hooks/useTmdbMain';
+import useViewport from '../../hooks/useViewport';
+import usePersistedState from '../../hooks/usePersistedState';
 // Components
 import GenresSelector from '../GenresSelector/index';
 import Card from './Card';
 import CardsHeader from './CardsHeader';
 import LoadingSpinner from '../LoadingSpinner';
-// Hooks
-import useTmdbMain from '../../hooks/useTmdbMain';
-import { POSTER_SIZES } from '../../api_config';
-import useViewport from '../../hooks/useViewport';
 
 const Cards = () => {
   const { path } = useParams() //get the current URL parameter
-  const [page, setPage] = useState(1)
   const [
-    getData, 
     movies, 
     loading, 
-    endpoint
+    setIsLoadingMore, 
+    setGenre
   ] = useTmdbMain()
-  const [genreID, setGenreID] = useState(null)
-  const [genreName, setGenreName] = useState('Discover')
+  const [genreName, setGenreName] = usePersistedState('genre', 'Discover')
   const [width] = useViewport()
   const breakpoint = 768
 
-  useEffect(() => {
-    getData(page, genreID) // call the getData function
-  }, [page, genreID, endpoint])
-
-  useEffect(() => {
-    setPage(1) // reset page number on path change
-  }, [path])
 
   const onButtonClick = () => {
-    setPage((prev) => prev + 1)
-  } 
+    setIsLoadingMore(true)
+  }
 
-  const renderedCards = movies?.map((card, index) => {
+  const renderedCards = movies.results?.map((card, index) => {
     if(card.poster_path === null || card.poster_path === undefined) return
     if(card.backdrop_path === null || card.backdrop_path === undefined) return
 
@@ -57,7 +50,7 @@ const Cards = () => {
    * @param {Number} id 
    */
   const handleGenreCallback = (id, name) => {
-    setGenreID(id)
+    setGenre(id)  
     setGenreName(name)
   }
 
@@ -66,7 +59,6 @@ const Cards = () => {
       {!path && 
         <GenresSelector 
           handleGenreCallback={handleGenreCallback}
-          setPage={setPage}
         />
       }
 
@@ -76,7 +68,7 @@ const Cards = () => {
         {loading ? <LoadingSpinner /> : renderedCards}
       </div>
 
-      {loading 
+      {loading || movies.page === movies.total_pages
         ? null 
         : <button 
             className="loadMore-btn" 

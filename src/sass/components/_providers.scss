@@ -70,7 +70,8 @@
     }
 
     &--rent,
-    &--buy {
+    &--buy,
+    &--flatrate {
       @include flex(row, flex-start, center);
       flex-wrap: wrap;
       margin: 1em 0 3em;

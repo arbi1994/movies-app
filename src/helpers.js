@@ -44,3 +44,8 @@ export const decodePathName = (str) => {
     }
   }).join('').toLocaleLowerCase()
 }
+
+export const persistedState = (key) => {
+  const state = JSON.parse(localStorage.getItem(key)); 
+  return state
+}

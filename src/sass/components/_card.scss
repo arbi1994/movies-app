@@ -18,6 +18,10 @@
     }
   }
 
+  .lazy-load-image-background{
+    display: contents !important;
+  }
+
   &__title {
     background: rgba(0, 0, 0, 0.5);
     min-height: 4em;

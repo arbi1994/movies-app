@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LazyLoadImage,trackWindowScroll  } from 'react-lazy-load-image-component';
+import { LazyLoadImage, trackWindowScroll  } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 // Hooks
 import useViewport from '../../hooks/useViewport';
@@ -14,11 +14,16 @@ const Card = ({ id, title, imgURL, rating, scrollPosition }) => {
   const [width] = useViewport()
   const breakpoint = 425
   
+  const handleClick = (e) => {
+    sessionStorage.setItem('scrollPosition', window.pageYOffset)
+  }
+
   return (
     <>
       <Link 
         to={`/movie/${decodePathName(title)}/${id}`} 
         className="card"
+        onClick={handleClick}
       >
         <LazyLoadImage
           alt={title}

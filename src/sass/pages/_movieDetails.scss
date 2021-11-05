@@ -73,15 +73,19 @@
 
     @include media("<=tablet") {
       height: 30em;
-      top: calc(100% / 10);
+      top: calc(100% / 8);
     }
 
     @include media("<tablet") {
-      height: 28em;
+      height: 24em;
     }
 
     @include media("<=phoneL") {
       height: 20em;
+    }
+
+    @include media("<phoneL") {
+      height: 19em;
     }
 
     &::after {

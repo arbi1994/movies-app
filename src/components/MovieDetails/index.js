@@ -71,6 +71,10 @@ const Movie = () => {
     setActive(false)
   }, [pathname])
 
+  useEffect(() => {
+    document.querySelector('.movie-details__container').style.borderRadius = `${active ? '0' : '20px' }`
+  }, [active])
+
   return (
     <section className="movie-details">
       <div className="movie-details__backdrop">

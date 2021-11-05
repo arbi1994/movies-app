@@ -39,9 +39,11 @@ const Main = () => {
 
   const renderedImages = imgItems?.map(imgItem => {
     return (
-      <SwiperSlide className="swiper-lazy">
+      <SwiperSlide 
+        key={imgItem.id} 
+        className="swiper-lazy"
+      >
         <img 
-          key={imgItem.id} 
           src={`${urlEndpoint}t/p/${size}${imgItem.imgPath}`} 
           alt={imgItem.title}
         />

@@ -17,7 +17,16 @@ const CardsHeader = ({ genreName, path }) => {
     <div className="cardsHeader">
       <hr/>
       <div className="cardsHeader__title">
-        <h3>{path ? setPath(path) : genreName}</h3>
+        {
+          path 
+            ? (
+              <>
+                <h2>{setPath(path).toUpperCase()}</h2>
+                <h3 style={{marginTop: '1em'}}>{genreName.toUpperCase()}</h3>
+              </>
+            )
+            : <h3>{genreName}</h3>
+        }
       </div>
       <hr/>
     </div>

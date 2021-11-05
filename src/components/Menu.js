@@ -30,8 +30,8 @@ const Menu = ({ active, setActive }) => {
   const renderedMenu = navlinks.map((links, index) => { 
     if(links.label === 'Discover'){
       return (
-        <>
-          <li key={index}>{links.icon}
+        <div key={links.id}>
+          <li>{links.icon}
             <a onClick={onDiscoverClick}>
               {links.label} 
               {dropdownActive 
@@ -41,12 +41,12 @@ const Menu = ({ active, setActive }) => {
             </a>
           </li>
           {dropdownActive ? <DiscoverMenu setActive={setActive} /> : null}
-        </>
+        </div>
       )
     }
 
     return (
-      <li key={index}>{links.icon}
+      <li key={links.id}>{links.icon}
         <a 
           href={links.path} 
           onClick={() => setActive(false)}

@@ -6,6 +6,14 @@
   position: relative;
   z-index: -5000;
 
+  @include media("<=desktop") {
+    min-height: 70vh;
+  }
+
+  @include media("<=SMdesktop") {
+    min-height: 60vh;
+  }
+
   @include media("<=tablet") {
     min-height: 50vh;
     @include flex(column, flex-start, center);

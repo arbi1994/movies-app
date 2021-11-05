@@ -9,18 +9,30 @@ const Providers = ({ watchProviders, country, pathname }) => {
     Object?.keys(watchProviders)?.map(iso => {
       if(iso === sessionStorage.getItem('locale')) {
         setProviders(watchProviders[iso])
-        console.log('providers', watchProviders[iso])
+        // console.log('providers', watchProviders[iso])
       }
     })
   }, [country, pathname, watchProviders])
 
   // get all the properties out of providers obj
-  const { buy, link, rent } = providers 
+  const { buy, link, rent, flatrate } = providers 
 
   const renderedRentProviders = rent?.map(rent => {
     if(!providers.hasOwnProperty('rent')) return
 
     const { provider_id, provider_name, logo_path } = rent
+
+    return (
+      <li key={provider_id}>
+        <a href={link} alt={provider_name} target="_blank" rel="noreferrer"><img alt={provider_name} src={`${BASE_IMAGE_URL}${LOGO_SIZES[LOGO_SIZES.length - 1]}${logo_path}`} /></a>
+      </li>
+    ) 
+  })
+
+  const renderedFlatrateProviders = flatrate?.map(flatrate => {
+    if(!providers.hasOwnProperty('flatrate')) return
+
+    const { provider_id, provider_name, logo_path } = flatrate
 
     return (
       <li key={provider_id}>
@@ -57,6 +69,18 @@ const Providers = ({ watchProviders, country, pathname }) => {
             <h5>Rent</h5>
             <ul className="watch-providers__providers--rent">
               {renderedRentProviders}
+            </ul>
+          </> 
+        ) : null
+      }
+
+      {
+        providers.hasOwnProperty('flatrate')
+        ? (
+          <>
+            <h5>Streaming</h5>
+            <ul className="watch-providers__providers--flatrate">
+              {renderedFlatrateProviders}
             </ul>
           </> 
         ) : null
