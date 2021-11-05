@@ -67,7 +67,7 @@ const GenresSelector = ({ handleGenreCallback }) => {
           behavior: "smooth"
         })
       }else{
-        // scroll back to top 
+        // scroll back to top  
         window.scrollTo({
           top: 0 + elementHeight + 5,
           left: 0,
