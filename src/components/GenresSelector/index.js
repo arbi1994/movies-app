@@ -16,8 +16,6 @@ const GenresSelector = ({ handleGenreCallback }) => {
   const [elementHeight, setElementHeight] = useState(() => null)
   const [width, height] = useViewport()
 
-  console.log(isSticky)
-
   const genreRef = useHandleScroll(() => {
     setIsSticky(false) 
     //set isSticky to true only when window's top border touches
@@ -49,8 +47,6 @@ const GenresSelector = ({ handleGenreCallback }) => {
 
   useEffect(() => {
     setElementHeight(document.querySelector(".hero").getBoundingClientRect().height) // set Hero element height
-    console.log('elementHeight', elementHeight)
-    console.log('offsetY', genreRef.current.getBoundingClientRect().top)
   }, [width, height])
 
   const renderedGenres = genres.map((genre, index) => {
