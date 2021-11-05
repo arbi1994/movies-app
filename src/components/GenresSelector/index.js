@@ -23,11 +23,6 @@ const GenresSelector = ({ handleGenreCallback }) => {
     setIsSticky(genreRef.current.getBoundingClientRect().top < 1)
   })
 
-  useEffect(() => {
-    const offsetY = getHeightDifference( document.querySelector(".hero"), genreRef.current)
-    setOffsetY(offsetY)
-  }, [height, width])
-
   const getGenres = async () => {
     try {
       const {data} = await tmdb.get(`${BASE_URL}${GET.genres}`)
