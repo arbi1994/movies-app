@@ -13,7 +13,7 @@ const GenresSelector = ({ handleGenreCallback }) => {
   const [open, setOpen] = useState(false)
   const [genres, setGenres] = useState(() => [])
   const [isSticky, setIsSticky] = useState(false);
-  const [elementHeight, setElementHeight] = useState(() => null)
+  const [elementHeight, setElementHeight] = useState(() => 0)
   const [width, height] = useViewport()
 
   const genreRef = useHandleScroll(() => {
@@ -22,6 +22,11 @@ const GenresSelector = ({ handleGenreCallback }) => {
     //the DOM element top border
     setIsSticky(genreRef.current.getBoundingClientRect().top < 1)
   })
+
+  useEffect(() => {
+    const offsetY = getHeightDifference( document.querySelector(".hero"), genreRef.current)
+    setOffsetY(offsetY)
+  }, [height, width])
 
   const getGenres = async () => {
     try {
@@ -49,7 +54,7 @@ const GenresSelector = ({ handleGenreCallback }) => {
     setElementHeight(document.querySelector(".hero").getBoundingClientRect().height) // set Hero element height
   }, [width, height])
 
-  const renderedGenres = genres.map((genre, index) => {
+  const renderedGenres = genres.map(genre => {
     /**
      * Handle all behaviours on click event
      */
@@ -57,13 +62,11 @@ const GenresSelector = ({ handleGenreCallback }) => {
       genreRef.current.classList.remove('open') // remove open class which translateY the Genre component
 
       if(!isSticky) {
-        console.log('window scrollIntoView')
         genreRef.current.scrollIntoView({
           block: "start",
           behavior: "smooth"
         })
       }else{
-        console.log('window scrollTo')
         // scroll back to top 
         window.scrollTo({
           top: 0 + elementHeight + 5,
@@ -79,7 +82,7 @@ const GenresSelector = ({ handleGenreCallback }) => {
 
     return (
       <Genre 
-        key={index} 
+        key={genre.id} 
         id={genre.id} 
         name={genre.name}
         handleGenderClick={handleGenderClick}

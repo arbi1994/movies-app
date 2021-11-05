@@ -609,9 +609,16 @@
   background: #070014;
   z-index: 4000;
 }
+@media (max-width: 768px) {
+  .genres {
+    top: -10em;
+    min-height: 11em;
+  }
+}
 @media (max-width: 426px) {
   .genres {
-    top: -5em;
+    top: -8em;
+    min-height: 9em;
   }
 }
 .genres.open {
@@ -624,7 +631,7 @@
 }
 @media (max-width: 426px) {
   .genres.open {
-    transform: translateY(-250px);
+    transform: translateY(-220px);
   }
 }
 .genres.sticky {
