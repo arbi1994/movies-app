@@ -11,16 +11,18 @@ import Genre from './Genre';
 
 const GenresSelector = ({ handleGenreCallback }) => {
   const [open, setOpen] = useState(false)
-  const [genres, setGenres] = useState([])
+  const [genres, setGenres] = useState(() => [])
   const [isSticky, setIsSticky] = useState(false);
-  const [elementHeight, setElementHeight] = useState(null)
+  const [elementHeight, setElementHeight] = useState(() => null)
   const [width, height] = useViewport()
+
+  console.log(isSticky)
 
   const genreRef = useHandleScroll(() => {
     setIsSticky(false) 
     //set isSticky to true only when window's top border touches
     //the DOM element top border
-    setIsSticky(genreRef.current.getBoundingClientRect().top <= 1)
+    setIsSticky(genreRef.current.getBoundingClientRect().top < 1)
   })
 
   const getGenres = async () => {
@@ -32,6 +34,7 @@ const GenresSelector = ({ handleGenreCallback }) => {
     }
   } 
 
+  // Get genres on first render
   useEffect(() => {
     getGenres()
   }, [])
@@ -46,6 +49,8 @@ const GenresSelector = ({ handleGenreCallback }) => {
 
   useEffect(() => {
     setElementHeight(document.querySelector(".hero").getBoundingClientRect().height) // set Hero element height
+    console.log('elementHeight', elementHeight)
+    console.log('offsetY', genreRef.current.getBoundingClientRect().top)
   }, [width, height])
 
   const renderedGenres = genres.map((genre, index) => {
@@ -53,19 +58,19 @@ const GenresSelector = ({ handleGenreCallback }) => {
      * Handle all behaviours on click event
      */
     const handleGenderClick = () => {
-      // if(genre.id) setPage(1) //reset page to 1
-
       genreRef.current.classList.remove('open') // remove open class which translateY the Genre component
 
       if(!isSticky) {
+        console.log('window scrollIntoView')
         genreRef.current.scrollIntoView({
           block: "start",
           behavior: "smooth"
         })
       }else{
+        console.log('window scrollTo')
         // scroll back to top 
         window.scrollTo({
-          top: 0 + elementHeight,
+          top: 0 + elementHeight + 5,
           left: 0,
           behavior: 'smooth'
         });
