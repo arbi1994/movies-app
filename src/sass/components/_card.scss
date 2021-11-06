@@ -24,7 +24,7 @@
 
   &__title {
     background: rgba(0, 0, 0, 0.5);
-    min-height: 4em;
+    min-height: 3em;
     padding: 1em;
     text-align: center;
     position: absolute;
@@ -33,7 +33,7 @@
     width: 100%;
     backdrop-filter: blur(10px);
     cursor: auto;
-    transition: top 0.5s ease;
+    transition: top 300ms ease;
 
     h6 {
       color: white;
@@ -61,7 +61,7 @@
       background: hsla(261, 100%, 4%, 0.8);
     }
     @include flex(row, space-between, center);
-    transition: bottom 0.5s ease;
+    transition: bottom 300ms ease;
     cursor: auto;
 
     h6 {

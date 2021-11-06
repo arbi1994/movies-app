@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSpring, animated } from 'react-spring';
+import { useTransition, animated } from 'react-spring';
 
 const ScrollUpButton = () => {
   const [scrollToTopBtn, setScrollToTopBtn] = useState(false)
@@ -18,8 +18,11 @@ const ScrollUpButton = () => {
     }
   }, [])
 
-  const fade = useSpring({
-    opacity: scrollToTopBtn ? 1 : 0,
+  const transition = useTransition(scrollToTopBtn, {
+    config: { duration: 150 },
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
   })
 
   const handleScroll = () => {
@@ -35,14 +38,20 @@ const ScrollUpButton = () => {
   }
 
   return (
-    scrollToTopBtn && 
-    <animated.div style={fade}>
-      <button 
-        className="scroll-up" 
-        onClick={handleScroll}
-      ><i className="fa fa-angle-up"></i>
-      </button>
-    </animated.div>
+    <> 
+      {transition((style, item) => 
+        item 
+          ? <animated.div style={style}>
+              <button 
+                className="scroll-up" 
+                onClick={handleScroll}
+              ><i className="fa fa-angle-up"></i>
+              </button>
+            </animated.div>
+         : null
+        )
+      }
+    </>
   )
 }
 

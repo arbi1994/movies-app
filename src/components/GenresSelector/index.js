@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSpring, animated } from 'react-spring';
 // tmdb api 
 import tmdb from '../../apis/tmdb';
 // api config
@@ -10,11 +11,41 @@ import useViewport from '../../hooks/useViewport';
 import Genre from './Genre';
 
 const GenresSelector = ({ handleGenreCallback }) => {
+  const defaultHeight = "20px";
+  const breakpoints = {
+    tablet: 768,
+    phoneL: 426,
+    phone: 325
+  }
   const [open, setOpen] = useState(false)
+  // The height of the content inside of the accordion
+  const [contentHeight, setContentHeight] = useState(defaultHeight);
+  // Animations
+  const expand = useSpring({
+    config: { duration: 150 },
+    height: open ? `${contentHeight}px` : defaultHeight
+  });
+  const spin = useSpring({
+    config: { duration: 150 },
+    transform: open ? "rotate(540deg)" : "rotate(0deg)"
+  });
+
   const [genres, setGenres] = useState(() => [])
   const [isSticky, setIsSticky] = useState(false);
   const [elementHeight, setElementHeight] = useState(() => 0)
   const [width, height] = useViewport()
+
+  useEffect(() => {
+    // Desktop height
+    setContentHeight(100)
+    // Tablet/iPad height
+    if(width === breakpoints.tablet) setContentHeight(150);
+    if(width < breakpoints.tablet) setContentHeight(250); // smaller tablet screen
+    // Phone height
+    if(width <= breakpoints.phoneL) setContentHeight(300); // phone large screen
+    if(width <= breakpoints.phone) setContentHeight(400); // phone small screen
+    
+  }, [width, height]);
 
   const genreRef = useHandleScroll(() => {
     setIsSticky(false) 
@@ -37,12 +68,9 @@ const GenresSelector = ({ handleGenreCallback }) => {
     getGenres()
   }, [])
 
+  // Hande arrow click event
   const onArrowDownClick = () => {
     setOpen(!open)
-
-    if(!isSticky) genreRef.current.classList.toggle('open') // toggle open class on genres element
-    // remove open class if open state is set to true and isSticky is false
-    if(!isSticky && open) genreRef.current.classList.remove('open')
   }
 
   useEffect(() => {
@@ -87,14 +115,15 @@ const GenresSelector = ({ handleGenreCallback }) => {
 
   return (
     <section ref={genreRef} className={`genres ${isSticky ? 'sticky' : ''}`}>
-      
-      <div 
-        className={`genres__wrapper ${open ? 'active' : ''}`}
-      >
+        
+      <animated.div className="genres__wrapper" style={expand}>
         {renderedGenres}
-      </div>
+      </animated.div>
 
-      <i className={`fas fa-caret-${open ? 'up' : 'down'}`} onClick={onArrowDownClick}></i>    
+      <animated.button style={spin} onClick={onArrowDownClick} className="arrow-down">
+        <i className="fas fa-caret-down" /> 
+      </animated.button>
+        
     </section>
   )
 }

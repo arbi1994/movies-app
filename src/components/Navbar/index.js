@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTransition, animated } from 'react-spring';
 //Material UI icons
 import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded';
 import ArrowDropUpRoundedIcon from '@mui/icons-material/ArrowDropUpRounded';
@@ -16,6 +17,12 @@ import logo from '../../images/logo/logo_1.svg';
 const NavBar = ({ active, setActive }) => {
   const [activeSearch, setActiveSearch] = useState(false)
   const [dropdownActive, setDropdownActive] = useState(false)
+  const transition = useTransition(dropdownActive, {
+    config: { duration: 150 },
+    from: { opacity: 0, transform: 'translate3d(60px, 0px, 0)'},
+    enter: { opacity: 1, transform: 'translate3d(70px, 15px, 0)'},
+    leave: { opacity: 0, transform: 'translate3d(70px, 0px, 0)' },
+  })
 
   const iconStyle = {
     fontSize: '2.4rem',
@@ -59,7 +66,13 @@ const NavBar = ({ active, setActive }) => {
                           : <ArrowDropDownRoundedIcon style={iconStyle}/>
                         }
 
-                        {dropdownActive && <DiscoverMenu setActive={setActive} />}
+                        {transition((style, item) => 
+                          item 
+                            ? <animated.div style={style}>
+                                <DiscoverMenu setActive={setActive} /> 
+                              </animated.div> 
+                            : null
+                        )}
                       </li>
                     )
                   }
