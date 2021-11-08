@@ -13,11 +13,6 @@
   right: 40em;
   transform: translateY(-50%);
   z-index: 5000;
-  //background: transparent;
-
-  // &.active {
-  //   width: 60em;
-  // }
 
   &:hover {
     width: 60em;
@@ -76,8 +71,4 @@
   .fa-times {
     cursor: pointer;
   }
-
-  // .active {
-  //   width: 2em;
-  // }
 }

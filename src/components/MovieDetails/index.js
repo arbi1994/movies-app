@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useLocation } from "react-router-dom";
 // Material UI components
 import Skeleton from '@mui/material/Skeleton';
@@ -17,15 +17,14 @@ import Description from './Description';
 import Trailer from './Trailer';
 import WatchProviders from './WatchProviders/index';
 
-const Movie = () => {
+const Movie = ({ setVideoPlayerEl }) => {
+  const playerRef = useRef()
   const { id } = useParams();
   const { pathname } = useLocation()
   const [
     getMovieDetails, 
     movieDetails, 
     loading,
-    // backdropPath,
-    // posterPath,
     productionCountries,
     directors,
     cast,
@@ -75,13 +74,17 @@ const Movie = () => {
     document.querySelector('.movie-details__container').style.borderRadius = `${active ? '0' : '20px' }`
   }, [active])
 
+  useEffect(() => {
+    setVideoPlayerEl(playerRef.current)
+  }, [])
+
   return (
     <section className="movie-details">
       <div className="movie-details__backdrop">
         <Backdrop title={title} backdrop_path={backdrop_path} loading={loading} />
       </div>
 
-      <div className="movie-details__play" onClick={() => setActive(true)}>
+      <div ref={playerRef} className="movie-details__play" onClick={() => setActive(true)}>
         {active ? '' : <PlayArrowRoundedIcon sx={{ fontSize: 60 }}/>}
         {active && <Trailer trailerKey={trailerKey}/>}
       </div>

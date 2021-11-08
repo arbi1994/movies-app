@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useRouteMatch } from "react-router-dom";
 import { useTransition, animated } from 'react-spring';
 //Material UI icons
 import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded';
@@ -14,13 +15,14 @@ import DiscoverMenu from './DiscoverMenu';
 // import { ReactComponent as Logo } from 'images/logo/logo_1.svg';
 import logo from '../../images/logo/logo_1.svg';
 
-const NavBar = ({ active, setActive }) => {
+const NavBar = ({ active, setActive, videoPlayerEl }) => {
+  const match = useRouteMatch("/page-not-found")
   const [activeSearch, setActiveSearch] = useState(false)
   const [dropdownActive, setDropdownActive] = useState(false)
   const transition = useTransition(dropdownActive, {
     config: { duration: 150 },
     from: { opacity: 0, transform: 'translate3d(60px, 0px, 0)'},
-    enter: { opacity: 1, transform: 'translate3d(70px, 15px, 0)'},
+    enter: { opacity: 1, transform: 'translate3d(70px, 15px, 0)', zIndex: 5},
     leave: { opacity: 0, transform: 'translate3d(70px, 0px, 0)' },
   })
 
@@ -34,6 +36,16 @@ const NavBar = ({ active, setActive }) => {
     display: 'flex',
     alignItems: 'center',
   }
+
+  useEffect(() => {
+    if(videoPlayerEl === null) return
+    if(dropdownActive && videoPlayerEl) videoPlayerEl.style.pointerEvents = 'none'
+
+    return () => videoPlayerEl.style.removeProperty('pointer-events')
+  }, [dropdownActive])
+
+  // check if pathname matches the 404 path
+  if(match) return null
 
   return (
       <header>

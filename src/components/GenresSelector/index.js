@@ -22,11 +22,11 @@ const GenresSelector = ({ handleGenreCallback }) => {
   const [contentHeight, setContentHeight] = useState(defaultHeight);
   // Animations
   const expand = useSpring({
-    config: { duration: 150 },
+    config: { duration: 300 },
     height: open ? `${contentHeight}px` : defaultHeight
   });
   const spin = useSpring({
-    config: { duration: 150 },
+    config: { duration: 300 },
     transform: open ? "rotate(540deg)" : "rotate(0deg)"
   });
 

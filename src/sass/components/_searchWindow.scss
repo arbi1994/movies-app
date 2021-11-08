@@ -112,4 +112,13 @@
       }
     }
   }
+
+  .error-message {
+    margin-top: 2em;
+    @include flex(column, center, center);
+
+    img {
+      margin: 2em 0 2em 2em; 
+    }
+  }
 }
