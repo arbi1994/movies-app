@@ -129,7 +129,7 @@ SearchWindow.propTypes = {
   setActive: PropTypes.func,
   setActiveSearch: PropTypes.func,
   input: PropTypes.string, 
-  formRef: PropTypes.func,
+  formRef: PropTypes.object,
   searchedData: PropTypes.array,
   isLoading: PropTypes.bool,
   error: PropTypes.bool,
