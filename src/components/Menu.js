@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 // Material ui icons 
 import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded';
 import ArrowDropUpRoundedIcon from '@mui/icons-material/ArrowDropUpRounded';
@@ -68,6 +69,11 @@ const Menu = ({ active, setActive }) => {
       </ul>
     </div>
   )
+}
+
+Menu.propTypes = {
+  active: PropTypes.bool,
+  setActive: PropTypes.func
 }
 
 export default Menu

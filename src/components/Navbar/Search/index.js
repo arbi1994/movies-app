@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 // Hooks
 import useTmdbSearch from '../../../hooks/useTmdbSearch';
@@ -131,6 +132,11 @@ const SearchBar = ({ activeSearch, setActiveSearch }) => {
       }
     </>
   )
+}
+
+SearchBar.propTypes = {
+  activeSearch: PropTypes.bool,
+  setActiveSearch: PropTypes.func
 }
 
 export default SearchBar

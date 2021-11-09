@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 // Components
 import Input from './Input';
 import SearchWindow from './SearchWindow';
@@ -104,6 +105,22 @@ const SearchBarDesktop = ({
 
     </>
   )
+}
+
+SearchBarDesktop.propTypes = {
+  active: PropTypes.bool,
+  onInputClick: PropTypes.func,
+  debouncedInput: PropTypes.func,
+  resetInputValue: PropTypes.func,
+  setActive: PropTypes.func,
+  input: PropTypes.string,
+  setInput: PropTypes.func,
+  searchedData: PropTypes.array,
+  isLoading: PropTypes.bool,
+  error: PropTypes.bool,
+  page: PropTypes.number,
+  setPage: PropTypes.func,
+  totalPages: PropTypes.number,
 }
 
 export default SearchBarDesktop

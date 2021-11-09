@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Skeleton from '@mui/material/Skeleton';
 // Helper functions
 import { getYear, splitData } from '../../helpers';
@@ -20,6 +21,13 @@ const SubTitle = ({ productionCountries, release_date, runtime, loading }) => {
       }
     </>
   )
+}
+
+SubTitle.propTypes = {
+  productionCountries: PropTypes.array,
+  release_date: PropTypes.string,
+  runtime: PropTypes.number,
+  loading: PropTypes.bool,
 }
 
 export default SubTitle

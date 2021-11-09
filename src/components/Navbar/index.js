@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useRouteMatch } from "react-router-dom";
+import PropTypes from 'prop-types';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { useTransition, animated } from 'react-spring';
 //Material UI icons
 import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded';
@@ -12,7 +12,6 @@ import navlinks from '../navlinksConfig';
 //Components
 import SearchBar from './Search/index';
 import DiscoverMenu from './DiscoverMenu';
-// import { ReactComponent as Logo } from 'images/logo/logo_1.svg';
 import logo from '../../images/logo/logo_1.svg';
 
 const NavBar = ({ active, setActive, videoPlayerEl }) => {
@@ -43,7 +42,7 @@ const NavBar = ({ active, setActive, videoPlayerEl }) => {
 
     return () => videoPlayerEl.style.removeProperty('pointer-events')
   }, [dropdownActive])
-
+ 
   // check if pathname matches the 404 path
   if(match) return null
 
@@ -106,6 +105,12 @@ const NavBar = ({ active, setActive, videoPlayerEl }) => {
         </div>      
       </header>
   )
+}
+
+NavBar.propTypes = {
+  active: PropTypes.bool,
+  setActive: PropTypes.func,
+  videoPlayerEl: PropTypes.object,
 }
 
 export default NavBar

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Skeleton from '@mui/material/Skeleton';
 // api configurations
 import { 
@@ -27,6 +28,12 @@ const Poster = ({ title, poster_path, loading }) => {
       </div>
     </>
   )
+}
+
+Poster.propTypes = {
+  title: PropTypes.string,
+  poster_path: PropTypes.string,
+  loading: PropTypes.bool,
 }
 
 export default Poster

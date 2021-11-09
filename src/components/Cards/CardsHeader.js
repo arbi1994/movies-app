@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const CardsHeader = ({ genreName, path }) => {
 
@@ -31,6 +32,11 @@ const CardsHeader = ({ genreName, path }) => {
       <hr/>
     </div>
   )
+}
+
+CardsHeader.propTypes = {
+  genreName: PropTypes.string,
+  path: PropTypes.string
 }
 
 export default CardsHeader

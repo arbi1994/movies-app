@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Input = ({ inputRef, onInputClick, debouncedInput }) => {
   return (
@@ -11,6 +12,12 @@ const Input = ({ inputRef, onInputClick, debouncedInput }) => {
       onChange={debouncedInput}
     />
   )
+}
+
+Input.propTypes = {
+  inputRef: PropTypes.object,
+  onInputClick: PropTypes.func,
+  debouncedInput: PropTypes.func
 }
 
 export default Input

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // api configurations
 import { 
   SECURE_BASE_IMAGE_URL,
@@ -33,6 +34,12 @@ const Backdrop = ({ title, backdrop_path, loading }) => {
         src={`${SECURE_BASE_IMAGE_URL}${size}${backdrop_path}`}/>
     </>
   )
+}
+
+Backdrop.propTypes = {
+  title: PropTypes.string,
+  backdrop_path: PropTypes.string,
+  loading: PropTypes.bool
 }
 
 export default Backdrop

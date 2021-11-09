@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Description = ({ overview }) => {
   return (
@@ -9,6 +10,10 @@ const Description = ({ overview }) => {
       </div>
     </>
   )
+}
+
+Description.propTypes = { 
+  overview: PropTypes.string
 }
 
 export default Description

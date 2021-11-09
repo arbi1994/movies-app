@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -122,6 +123,19 @@ const SearchWindow = ({
       </div>
     </animated.div>
   )
+}
+
+SearchWindow.propTypes = {
+  setActive: PropTypes.func,
+  setActiveSearch: PropTypes.func,
+  input: PropTypes.string, 
+  formRef: PropTypes.func,
+  searchedData: PropTypes.array,
+  isLoading: PropTypes.bool,
+  error: PropTypes.bool,
+  page: PropTypes.number,
+  setPage: PropTypes.func,
+  totalPages: PropTypes.number,
 }
 
 export default SearchWindow

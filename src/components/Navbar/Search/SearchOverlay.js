@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const SearchOverlay = ({ setActive, setInput }) => {
 
@@ -13,6 +14,11 @@ const SearchOverlay = ({ setActive, setInput }) => {
       onClick={onClick}
     ></div>
   )
+}
+
+SearchOverlay.propTypes = {
+  setActive: PropTypes.func,
+  setInput: PropTypes.func
 }
 
 export default SearchOverlay

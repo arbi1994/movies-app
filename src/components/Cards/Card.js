@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { LazyLoadImage, trackWindowScroll  } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -8,7 +9,7 @@ import { urlEndpoint } from '../../api_config';
 // Helpers 
 import { decodePathName } from '../../helpers';
 // Components
-import Rating from '../Rating';
+import Rating from './Rating';
 
 const Card = ({ id, title, imgURL, rating, scrollPosition }) => {
   const [width] = useViewport()
@@ -38,6 +39,14 @@ const Card = ({ id, title, imgURL, rating, scrollPosition }) => {
       </Link>
     </>
   )
+}
+
+Card.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  imgURL: PropTypes.string,
+  rating: PropTypes.number,
+  scrollPosition: PropTypes.number,
 }
 
 export default trackWindowScroll(Card)

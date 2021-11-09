@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import anime from 'animejs';
 
-const Hero = ({ heroRef }) => {
+const Hero = () => {
   const [active, setActive] = useState(false)
 
   const animateHeroContainer = () => {
@@ -33,7 +33,7 @@ const Hero = ({ heroRef }) => {
   }, [])
 
   return (
-    <section ref={heroRef} className="hero">
+    <section className="hero">
       <div className="hero__wrapper">
         <h2>
           <span className="from-left">Discover</span>

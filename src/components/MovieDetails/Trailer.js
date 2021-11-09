@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Trailer = ({ trailerKey }) => {
   return (
@@ -14,6 +15,10 @@ const Trailer = ({ trailerKey }) => {
       ></iframe>
     </div>
   )
+}
+
+Trailer.propTypes = {
+  trailerKey: PropTypes.string
 }
 
 export default Trailer

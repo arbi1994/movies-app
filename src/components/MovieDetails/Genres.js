@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Genres = ({ genres }) => {
   return (
@@ -17,4 +18,7 @@ const Genres = ({ genres }) => {
   )
 }
 
+Genres.propTypes = {
+  genres: PropTypes.array
+}
 export default Genres

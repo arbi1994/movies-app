@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { useParams, useLocation } from "react-router-dom";
 // Material UI components
 import Skeleton from '@mui/material/Skeleton';
@@ -140,6 +141,10 @@ const Movie = ({ setVideoPlayerEl }) => {
       </div>
     </section>
   )
+}
+
+Movie.proptTypes = {
+  setVideoPlayerEl: PropTypes.func,
 }
 
 export default Movie

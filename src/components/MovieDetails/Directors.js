@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// helper function
 import { splitData } from '../../helpers';
 
 const Directors = ({ directors }) => {
@@ -10,6 +12,10 @@ const Directors = ({ directors }) => {
       </div>
     </>
   )
+}
+
+Directors.propTypes = {
+  directors: PropTypes.array
 }
 
 export default Directors

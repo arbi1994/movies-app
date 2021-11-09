@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 // api configurations
 import { POSTER_SIZES } from '../../api_config';
@@ -11,6 +11,7 @@ import GenresSelector from '../GenresSelector/index';
 import Card from './Card';
 import CardsHeader from './CardsHeader';
 import LoadingSpinner from '../LoadingSpinner';
+import NotFound from '../NotFound'
 
 const Cards = () => {
   const { path } = useParams() //get the current URL parameter
@@ -18,12 +19,12 @@ const Cards = () => {
     movies, 
     loading, 
     setIsLoadingMore, 
-    setGenre
+    setGenre,
+    error,
   ] = useTmdbMain()
   const [genreName, setGenreName] = usePersistedState('genre', 'Discover')
   const [width] = useViewport()
   const breakpoint = 768
-
 
   const onButtonClick = () => {
     setIsLoadingMore(true)
@@ -53,6 +54,14 @@ const Cards = () => {
     setGenre(id)  
     setGenreName(name)
   }
+
+  useEffect(() => {
+    if(error) document.querySelector('header').style.display = 'none'
+
+    return () => document.querySelector('header').style.display = 'block'
+  }, [error])
+
+  if(error) return <NotFound />
 
   return (
     <section className="cards" id="cards">

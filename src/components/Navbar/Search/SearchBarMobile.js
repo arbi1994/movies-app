@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // Hooks 
 import useLockBodyScroll from '../../../hooks/useLockBodyScroll';
 // Components
@@ -64,6 +65,21 @@ const SearchBarMobile = ({
       </form>
     </>  
   )
+}
+
+SearchBarMobile.propTypes = {
+  input: PropTypes.string,
+  activeSearch: PropTypes.bool,
+  setActiveSearch: PropTypes.string,
+  onInputClick: PropTypes.func,
+  debouncedInput: PropTypes.func,
+  resetInputValue: PropTypes.func,
+  searchedData: PropTypes.array,
+  isLoading: PropTypes.bool,
+  error: PropTypes.bool,
+  page: PropTypes.number,
+  setPage: PropTypes.func,
+  totalPages: PropTypes.number,
 }
 
 export default SearchBarMobile

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useSpring, animated } from 'react-spring';
 import useMeasure from "react-use-measure";
 // Expand more icon
@@ -13,7 +14,7 @@ const Cast = ({ cast }) => {
   const [contentHeight, setContentHeight] = useState(defaultHeight);
   // Animations
   const expand = useSpring({
-    config: { duration: 300 },
+    config: { duration: 250 },
     height: open ? `${contentHeight}px` : defaultHeight
   });
   const spin = useSpring({
@@ -62,6 +63,10 @@ const Cast = ({ cast }) => {
       </span>
     </div>
   )
+}
+
+Cast.propTypes = {
+  cast: PropTypes.array
 }
 
 export default Cast

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 import Skeleton from '@mui/material/Skeleton';
 
 const Title = ({ title, vote_average, loading }) => {
@@ -17,6 +18,12 @@ const Title = ({ title, vote_average, loading }) => {
       }
     </>
   )
+}
+
+Title.proptTypes = {
+  title: PropTypes.string,
+  vote_average: PropTypes.number,
+  loading: PropTypes.bool
 }
 
 export default Title

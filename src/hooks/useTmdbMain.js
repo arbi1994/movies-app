@@ -26,8 +26,8 @@ const useTmdbMain = () => {
   const [genre, setGenre] = useState(
     () => JSON.parse(localStorage.getItem('genre-id')) || null
   )
-
   const [endpoint, setEndpoint] = useState(null)
+  const [error, setError] = useState(false)
     
   useEffect(() => {
     if(!path) return
@@ -54,13 +54,12 @@ const useTmdbMain = () => {
       }))
   
     } catch (error) {
-      console.log(error.message)
+      setError(true)
     } finally {
       setLoading(false)
     }
   }
 
-  // console.log('genre', genre)
   const localState = persistedState('movies-data')
   const localDiscoverState = persistedState('discover-data')
 
@@ -98,11 +97,10 @@ const useTmdbMain = () => {
     if(endpoint){
       if(!path) return
       getData(1)
-      // setIsLoaded(true)
     }
     
     if(localDiscoverState) {
-      console.log('get data from local discover storage')
+      // console.log('get data from local discover storage')
       setMovies(localDiscoverState)
       return
     }
@@ -132,7 +130,7 @@ const useTmdbMain = () => {
   }, [endpoint, movies])
 
 
-  return [movies, loading, setIsLoadingMore, setGenre]
+  return [movies, loading, setIsLoadingMore, setGenre, error]
 }
 
 export default useTmdbMain

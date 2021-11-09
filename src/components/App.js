@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 // Routing
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { 
+  BrowserRouter as Router, 
+  Route, 
+  Switch, 
+  Redirect, 
+} from 'react-router-dom';
 // Utils
 import ScrollToTop from '../utils/ScrollToTop';
 // Components
@@ -35,9 +40,7 @@ function App () {
           </Route> 
           <Route exact path="/about" component={About} />
           <Route path="/page-not-found" component={NotFound} />
-          <Route path="*">
-            <Redirect to="/page-not-found"/>
-          </Route> 
+          <Redirect to="/page-not-found"/>
         </Switch>
       </ScrollToTop>
       

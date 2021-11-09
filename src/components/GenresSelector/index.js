@@ -22,7 +22,7 @@ const GenresSelector = ({ handleGenreCallback }) => {
   const [contentHeight, setContentHeight] = useState(defaultHeight);
   // Animations
   const expand = useSpring({
-    config: { duration: 300 },
+    config: { duration: 250 },
     height: open ? `${contentHeight}px` : defaultHeight
   });
   const spin = useSpring({

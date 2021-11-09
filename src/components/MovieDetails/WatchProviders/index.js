@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // provider's logos
 import justwatchLogo from '../../../images/logo-providers/justwatch_logo.svg';
 import tmdbLogo from '../../../images/logo-providers/tmdb_logo.svg';
@@ -6,7 +7,7 @@ import tmdbLogo from '../../../images/logo-providers/tmdb_logo.svg';
 import CountryProvidersSelect from './CountryProvidersSelect';
 import Providers from './Providers';
 
-const index = ({ watchProviders, country, setCountry, pathname }) => {
+const WatchProviders = ({ watchProviders, country, setCountry, pathname }) => {
 
   return (
     <div className="watch-providers">
@@ -47,4 +48,11 @@ const index = ({ watchProviders, country, setCountry, pathname }) => {
   )
 }
 
-export default index
+WatchProviders.propTypes = {
+  watchProviders: PropTypes.object.isRequired,
+  country: PropTypes.string,
+  setCountry: PropTypes.func,
+  pathname: PropTypes.string,
+}
+
+export default WatchProviders
