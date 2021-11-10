@@ -8,13 +8,8 @@
   min-height: 20vh;
   z-index: 6000;
   display: none;
-
-  &.active {
-    display: flex;
-
-    @include flex(row, center, center);
-    background: $background_color;
-  }
+  @include flex(row, center, center);
+  background: $background_color;
 
   .searchbar__icon {
     color: $link_text_color;

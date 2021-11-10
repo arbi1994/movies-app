@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTransition, animated } from 'react-spring';
 import PropTypes from 'prop-types';
 import { useParams, useLocation } from "react-router-dom";
 // Material UI components
@@ -79,6 +80,12 @@ const Movie = ({ setVideoPlayerEl }) => {
     setVideoPlayerEl(playerRef.current)
   }, [])
 
+  const transition = useTransition(active, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 }
+  })
+
   return (
     <section className="movie-details">
       <div className="movie-details__backdrop">
@@ -87,7 +94,14 @@ const Movie = ({ setVideoPlayerEl }) => {
 
       <div ref={playerRef} className="movie-details__play" onClick={() => setActive(true)}>
         {active ? '' : <PlayArrowRoundedIcon sx={{ fontSize: 60 }}/>}
-        {active && <Trailer trailerKey={trailerKey}/>}
+        {transition((style, item) =>
+            item
+              ? <animated.div style={style} className="movie-details__play--trailer">
+                  <Trailer trailerKey={trailerKey}/>
+                </animated.div>
+              : null
+          )
+        }
       </div>
       
       <div className="movie-details__container">

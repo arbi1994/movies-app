@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTransition, animated } from 'react-spring';
 // Hooks 
 import useLockBodyScroll from '../../../hooks/useLockBodyScroll';
 // Components
@@ -23,46 +24,57 @@ const SearchBarMobile = ({
 
   useLockBodyScroll(activeSearch);
 
+  const transition = useTransition(activeSearch, {
+    config: { duration: 150 },
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  })
+
   return (
     <>
-      <form 
-        className={`mobile-searchbar ${activeSearch ? 'active' : ''}`}
-        onSubmit={(e) => e.preventDefault()}  
-      >
-        <span 
-          className={`close-icon ${activeSearch ? 'active' : ''}`}
-          onClick={() => setActiveSearch(false)}
-        >
-          <i className="fas fa-times"></i>
-        </span>
+      {transition((style, item) => 
+          item 
+            ? <animated.form 
+                style={style}  
+                className="mobile-searchbar"
+                onSubmit={(e) => e.preventDefault()}
+              >
+                <span 
+                  className={`close-icon ${activeSearch ? 'active' : ''}`}
+                  onClick={() => setActiveSearch(false)}
+                >
+                  <i className="fas fa-times"></i>
+                </span>
 
-        <span className="searchbar__icon">
-          <i className="fas fa-search"></i>
-        </span>
+                <span className="searchbar__icon">
+                  <i className="fas fa-search"></i>
+                </span>
 
-        <Input 
-          onInputClick={onInputClick}
-          debouncedInput={debouncedInput}
-        />
+                <Input 
+                  onInputClick={onInputClick}
+                  debouncedInput={debouncedInput}
+                />
 
-        <i 
-          className={input ? "fas fa-times" : null}
-          onClick={resetInputValue} //reset input value
-        ></i>
+                <i 
+                  className={input ? "fas fa-times" : null}
+                  onClick={resetInputValue} //reset input value
+                ></i>
 
-        {activeSearch && 
-          <SearchWindow 
-            setActiveSearch={setActiveSearch}
-            input={input} 
-            searchedData={searchedData} 
-            isLoading={isLoading} 
-            error={error}
-            page={page}
-            setPage={setPage}
-            totalPages={totalPages}
-          />
+                <SearchWindow 
+                  setActiveSearch={setActiveSearch}
+                  input={input} 
+                  searchedData={searchedData} 
+                  isLoading={isLoading} 
+                  error={error}
+                  page={page}
+                  setPage={setPage}
+                  totalPages={totalPages}
+                />
+              </animated.form>
+            : null
+          )
         }
-      </form>
     </>  
   )
 }

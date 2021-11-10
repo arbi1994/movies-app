@@ -9,6 +9,8 @@ import Providers from './Providers';
 
 const WatchProviders = ({ watchProviders, country, setCountry, pathname }) => {
 
+  if(watchProviders.length === 0) return null
+
   return (
     <div className="watch-providers">
       <div className="watch-providers__header">

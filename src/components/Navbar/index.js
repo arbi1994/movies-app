@@ -20,9 +20,9 @@ const NavBar = ({ active, setActive, videoPlayerEl }) => {
   const [dropdownActive, setDropdownActive] = useState(false)
   const transition = useTransition(dropdownActive, {
     config: { duration: 150 },
-    from: { opacity: 0, transform: 'translate3d(60px, 0px, 0)'},
-    enter: { opacity: 1, transform: 'translate3d(70px, 15px, 0)', zIndex: 5},
-    leave: { opacity: 0, transform: 'translate3d(70px, 0px, 0)' },
+    from: { opacity: 0, transform: 'translate3d(40px, 0px, 0)'},
+    enter: { opacity: 1, transform: 'translate3d(60px, 15px, 0)', zIndex: 5},
+    leave: { opacity: 0, transform: 'translate3d(40px, 0px, 0)', pointerEvents: 'none'},
   })
 
   const iconStyle = {
@@ -50,7 +50,7 @@ const NavBar = ({ active, setActive, videoPlayerEl }) => {
       <header>
         <div className="navbar">
           <div className="navbar__left">
-            <Link to='/' className="navbar__left--logo">
+            <Link to='/' title="Home" className="navbar__left--logo">
               <img alt="Logo" src={logo}/>
             </Link>
           </div>
@@ -88,7 +88,7 @@ const NavBar = ({ active, setActive, videoPlayerEl }) => {
                     )
                   }
 
-                  return <li key={links.label} onClick={() => {setActive(false)}}>
+                  return <li key={links.label} title={links.label} onClick={() => {setActive(false)}}>
                       <Link to={links.path}>{links.label}</Link>
                     </li>
                 })}

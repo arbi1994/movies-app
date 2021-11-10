@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { useSpring, animated } from 'react-spring';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 // API Config 
@@ -33,13 +32,6 @@ const SearchWindow = ({
 
   const [width] = useViewport()
   const breakpoint = 768 // tablet viewport width
-
-  // set fade animation with useSpring hook
-  const fade = useSpring({
-    from: {opacity: 0},
-    to: {opacity: 1},
-    config: { duration: 200}
-  })
 
   /**
    * Changing the page number on scroll event
@@ -101,27 +93,24 @@ const SearchWindow = ({
     })
 
   return (
-    <animated.div style={fade}>
-      <div className="search-window">
-        <hr className="search-window__top-line"></hr>
-        
-        <header className="search-window__header">
-          <h2>{input ? `Results for: ${input}` : ''}</h2>
-        </header>
-        
-        {error === true && input !== ''
-          ? <ErrorMessage /> 
-          : (
-            <div className="search-window__wrapper" onScroll={handleScroll}>
-              {input && renderedResults}
-            </div>
-          )
-        }
+    <div className="search-window">
+      <hr className="search-window__top-line"></hr>
+    
+      <header className="search-window__header">
+        <h2>{input ? `Results for: ${input}` : ''}</h2>
+      </header>
+    
+      {error === true && input !== ''
+        ? <ErrorMessage /> 
+        : (
+          <div className="search-window__wrapper" onScroll={handleScroll}>
+            {input && renderedResults}
+          </div>
+        )
+      }
 
-        {isLoading && <LoadingSpinner />}
-        
-      </div>
-    </animated.div>
+      {isLoading && <LoadingSpinner />}
+    </div>
   )
 }
 

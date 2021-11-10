@@ -3,7 +3,7 @@
 .cardsHeader {
   width: 80%;
   @include flex(row, center, center);
-  margin: 1em 0 2em 0;
+  margin: 2em 0 2em 0;
 
   hr {
     border: none;

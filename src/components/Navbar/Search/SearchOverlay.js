@@ -2,17 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SearchOverlay = ({ setActive, setInput }) => {
-
   const onClick = () => {
     setActive(false)
     setInput('')
   }
 
   return (
-    <div 
-      className="search-overlay" 
-      onClick={onClick}
-    ></div>
+    <div className="search-overlay" onClick={onClick}></div>
   )
 }
 

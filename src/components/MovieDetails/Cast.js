@@ -14,7 +14,7 @@ const Cast = ({ cast }) => {
   const [contentHeight, setContentHeight] = useState(defaultHeight);
   // Animations
   const expand = useSpring({
-    config: { duration: 250 },
+    config: { duration: 200 },
     height: open ? `${contentHeight}px` : defaultHeight
   });
   const spin = useSpring({

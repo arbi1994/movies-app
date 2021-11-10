@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, useTransition, animated } from 'react-spring';
 // tmdb api 
 import tmdb from '../../apis/tmdb';
 // api config
@@ -20,21 +20,21 @@ const GenresSelector = ({ handleGenreCallback }) => {
   const [open, setOpen] = useState(false)
   // The height of the content inside of the accordion
   const [contentHeight, setContentHeight] = useState(defaultHeight);
-  // Animations
-  const expand = useSpring({
-    config: { duration: 250 },
-    height: open ? `${contentHeight}px` : defaultHeight
-  });
-  const spin = useSpring({
-    config: { duration: 300 },
-    transform: open ? "rotate(540deg)" : "rotate(0deg)"
-  });
-
-  const [genres, setGenres] = useState(() => [])
-  const [isSticky, setIsSticky] = useState(false);
+  const [genres, setGenres] = useState(() => []) //genres data
+  const [isSticky, setIsSticky] = useState(false); 
   const [elementHeight, setElementHeight] = useState(() => 0)
   const [width, height] = useViewport()
 
+    // Animations
+    const expand = useSpring({
+      config: { duration: 200 },
+      height: open ? `${contentHeight}px` : defaultHeight,
+    });
+    
+    const spin = useSpring({
+      config: { duration: 300 },
+      transform: open ? "rotate(540deg)" : "rotate(0deg)"
+    });
   useEffect(() => {
     // Desktop height
     setContentHeight(100)
@@ -51,7 +51,7 @@ const GenresSelector = ({ handleGenreCallback }) => {
     setIsSticky(false) 
     //set isSticky to true only when window's top border touches
     //the DOM element top border
-    setIsSticky(genreRef.current.getBoundingClientRect().top < 1)
+    setIsSticky(genreRef.current.getBoundingClientRect().top <= 1)
   })
 
   const getGenres = async () => {
@@ -73,8 +73,9 @@ const GenresSelector = ({ handleGenreCallback }) => {
     setOpen(!open)
   }
 
-  useEffect(() => {
-    setElementHeight(document.querySelector(".hero").getBoundingClientRect().height) // set Hero element height
+  // set Hero element height
+  useEffect(() => { 
+    setElementHeight(document.querySelector(".hero").getBoundingClientRect().height) 
   }, [width, height])
 
   const renderedGenres = genres.map(genre => {
@@ -92,7 +93,7 @@ const GenresSelector = ({ handleGenreCallback }) => {
       }else{
         // scroll back to top  
         window.scrollTo({
-          top: 0 + elementHeight + 5,
+          top: 0 + elementHeight + 75,
           left: 0,
           behavior: 'smooth'
         });
@@ -106,6 +107,7 @@ const GenresSelector = ({ handleGenreCallback }) => {
     return (
       <Genre 
         key={genre.id} 
+        title={genre.name}
         id={genre.id} 
         name={genre.name}
         handleGenderClick={handleGenderClick}

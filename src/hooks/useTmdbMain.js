@@ -72,7 +72,6 @@ const useTmdbMain = () => {
   // Render on genre selection
   useEffect(() => {
     if(!genre) {
-      console.log('ok')
       // getData(1)
 
       if(localState) {

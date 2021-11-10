@@ -347,7 +347,6 @@
 
 .search-overlay {
   position: fixed;
-  display: block;
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -448,6 +447,7 @@
   align-items: center;
   padding: 2em 2em 5em 2em;
   position: relative;
+  margin-top: 70px;
 }
 .cards__wrapper {
   padding: 2em 4em;
@@ -610,14 +610,14 @@
   position: absolute;
   left: 0;
   top: -7em;
-  padding: 1em 4em;
+  padding: 2em 4em 0em 4em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   background: #070014;
-  z-index: 4000;
+  z-index: 1;
 }
 @media (max-width: 768px) {
   .genres {
@@ -636,6 +636,8 @@
   top: 0;
   left: 0;
   z-index: 1;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 .genres__wrapper {
   display: grid;
@@ -806,9 +808,6 @@
   min-height: 20vh;
   z-index: 6000;
   display: none;
-}
-.mobile-searchbar.active {
-  display: flex;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -944,7 +943,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 1em 0 2em 0;
+  margin: 2em 0 2em 0;
 }
 .cardsHeader hr {
   border: none;

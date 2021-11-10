@@ -7,11 +7,11 @@
   position: absolute;
   left: 0;
   top: -7em;
-  padding: 1em 4em;
+  padding: 2em 4em 0em 4em;
   @include flex(column, center, center);
   overflow: hidden;
   background: $background_color;
-  z-index: 4000;
+  z-index: 1;
 
   @include media("<=tablet") {
     top: -10em;
@@ -22,12 +22,13 @@
     top: -8em;
     min-height: 9em;
   }
-
   &.sticky {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
   }
 
   &__wrapper {

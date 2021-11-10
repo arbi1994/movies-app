@@ -64,7 +64,7 @@ const Cards = () => {
   if(error) return <NotFound />
 
   return (
-    <section className="cards" id="cards">
+    <section className="cards" id="cards" style={{marginTop: path ? '0' : '70px'}}>
       {!path && 
         <GenresSelector 
           handleGenreCallback={handleGenreCallback}

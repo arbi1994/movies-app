@@ -53,6 +53,7 @@ const useTmdbMovie = () => {
 
       // set WatchProviders
       const { results } = data["watch/providers"]
+      if(Object.keys(results).length === 0 && results.constructor === Object) return 
       setWatchProviders(results)
 
     } catch (error) {

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useTransition, animated } from 'react-spring';
 import PropTypes from 'prop-types';
 // Components
 import Input from './Input';
@@ -27,6 +28,13 @@ const SearchBarDesktop = ({
   const inputRef = useRef() //inputRef
 
   useLockBodyScroll(active);
+
+  const transition = useTransition(active, {
+    config: { duration: 150 },
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },  
+  })
 
   /**
    * Custom hook to handle users clicks event
@@ -86,23 +94,34 @@ const SearchBarDesktop = ({
           ></i>
         }
         
-        {active &&
-          <SearchWindow 
-            setActive={setActive}
-            input={input} 
-            formRef={formRef}
-            searchedData={searchedData} 
-            isLoading={isLoading} 
-            error={error}
-            page={page}
-            setPage={setPage}
-            totalPages={totalPages}
-          />
+        {transition((style, item) => 
+            item 
+              ? <animated.div style={style}>
+                  <SearchWindow 
+                    setActive={setActive}
+                    input={input} 
+                    formRef={formRef}
+                    searchedData={searchedData} 
+                    isLoading={isLoading} 
+                    error={error}
+                    page={page}
+                    setPage={setPage}
+                    totalPages={totalPages}
+                  />
+                </animated.div>
+              : null
+          )
         }
       </form> 
     
-      {active && <SearchOverlay setActive={setActive} setInput={setInput} />}
-
+      {transition((style, item) => 
+          item 
+            ? <animated.div style={style}>
+                <SearchOverlay setActive={setActive} setInput={setInput} />  
+              </animated.div> 
+            : null
+        ) 
+      }
     </>
   )
 }
