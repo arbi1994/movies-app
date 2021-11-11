@@ -8,9 +8,7 @@ import useTmdbConfig from '../../../hooks/useTmdbConfig';
 
 const CountryProvidersSelect = ({ country, setCountry, watchProviders }) => {
   const [data] = useTmdbConfig()
-  const [countryName] = useState(() => 
-    localStorage.getItem('locale') === null ? "Select country" : localStorage.getItem('locale-name')
-  )
+  const [countryName, setCountryName] = useState(() => "Select country")
 
   const handleChange = (e) => { 
     setCountry(e.target.value);
@@ -23,23 +21,40 @@ const CountryProvidersSelect = ({ country, setCountry, watchProviders }) => {
     }
   })
 
+  // save the selected country's iso code to local storage
   useEffect(() => {
-    const saveToSessionStorage = () => {
+    const saveToLocalStorage = () => {
       localStorage.setItem('locale', country)
     }
 
-    if(country) saveToSessionStorage()
+    if(country) saveToLocalStorage()
   }, [country])
 
+  // save the selected country's name to local storage
   useEffect(() => {
     const localLocale = localStorage.getItem('locale')
 
+    // check if there is any data saved already in the local storage
     if(localLocale?.length === 1) return
 
     for(let {english_name: countryName, iso_3166_1: countryCode} of data){
       if(countryCode === localLocale) localStorage.setItem('locale-name', countryName)
     }
   }, [country])
+
+  // set the country's name based on condition provided
+  useEffect(() => {
+    // get providers' key values
+    const providers = Object?.keys(watchProviders) 
+    // get result based on condition provided
+    const result = providers?.some(key => key === localStorage.getItem('locale'))
+
+    if(!result || localStorage.getItem('locale') === null){
+      setCountryName('Select country')
+    }else{
+      setCountryName(localStorage.getItem('locale-name'))
+    }
+  }, [])
 
   return (
     <FormControl sx={{ width: 250, fontSize: '1em' }}>
