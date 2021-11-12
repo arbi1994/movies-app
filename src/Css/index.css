@@ -450,7 +450,7 @@
   margin-top: 70px;
 }
 .cards__wrapper {
-  padding: 2em 4em;
+  padding: 2em;
   width: 100%;
   min-height: 60em;
   display: grid;
@@ -460,7 +460,7 @@
 @media (max-width: 426px) {
   .cards__wrapper {
     grid-template-columns: repeat(2, minmax(9em, 1fr));
-    padding: 2em 3em;
+    padding: 2em 0;
   }
 }
 @media (max-width: 319px) {
@@ -629,6 +629,7 @@
   .genres {
     top: -8em;
     min-height: 9em;
+    padding: 2em;
   }
 }
 .genres.sticky {
@@ -1170,13 +1171,13 @@ main {
 }
 @media (max-width: 768px) {
   .movie-details__play {
-    height: 30em;
-    top: 12.5%;
+    height: 32em;
+    top: 9.5%;
   }
 }
 @media (max-width: 767px) {
   .movie-details__play {
-    height: 24em;
+    height: 28em;
   }
 }
 @media (max-width: 426px) {
@@ -1210,6 +1211,11 @@ main {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   position: relative;
+}
+@media (max-width: 426px) {
+  .movie-details__play--trailer {
+    padding: 0;
+  }
 }
 .movie-details__container {
   background: #070014;

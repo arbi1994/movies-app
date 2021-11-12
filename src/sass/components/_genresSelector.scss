@@ -21,6 +21,7 @@
   @include media("<=phoneL") {
     top: -8em;
     min-height: 9em;
+    padding: 2em;
   }
   &.sticky {
     position: fixed;

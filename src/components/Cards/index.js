@@ -24,7 +24,7 @@ const Cards = () => {
   ] = useTmdbMain()
   const [genreName, setGenreName] = usePersistedState('genre', 'Discover')
   const [width] = useViewport()
-  const breakpoint = 768
+  const breakpoint = 768 //tablet breakpoint
 
   const onButtonClick = () => {
     setIsLoadingMore(true)
@@ -39,7 +39,7 @@ const Cards = () => {
         key={card.id} 
         id={card.id} 
         title={card.title} 
-        imgURL={`${POSTER_SIZES[width <= breakpoint ? 2 : 4]}${card.poster_path}`}
+        imgURL={`${POSTER_SIZES[width <= breakpoint ? 3 : 4]}${card.poster_path}`}
         rating={card.vote_average}
       />
     )

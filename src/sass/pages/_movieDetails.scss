@@ -72,12 +72,12 @@
     z-index: 0;
 
     @include media("<=tablet") {
-      height: 30em;
-      top: calc(100% / 8);
+      height: 32em;
+      top: 9.5%;
     }
 
     @include media("<tablet") {
-      height: 24em;
+      height: 28em;
     }
 
     @include media("<=phoneL") {
@@ -110,6 +110,10 @@
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
       position: relative;
+
+      @include media("<=phoneL") {
+        padding: 0;
+      }
     }
   }
 
