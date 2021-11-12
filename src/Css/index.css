@@ -10,7 +10,7 @@
   width: 4em;
   height: 4em;
   border-radius: 20px;
-  transition: width 0.5s ease;
+  transition: width 0.3s ease;
   position: absolute;
   top: 50%;
   right: 40em;
@@ -710,17 +710,16 @@
 }
 @media (max-width: 1441px) {
   .hero {
-    min-height: 70vh;
+    min-height: 60vh;
   }
 }
 @media (max-width: 1024px) {
   .hero {
-    min-height: 60vh;
+    min-height: 45vh;
   }
 }
 @media (max-width: 768px) {
   .hero {
-    min-height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
