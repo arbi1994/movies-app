@@ -266,7 +266,7 @@
 .search-window__header h2 {
   text-align: center;
   font-size: 2rem;
-  color: #a0a0a0;
+  color: #d9d8da;
   letter-spacing: 0.5px;
 }
 .search-window__wrapper {
@@ -957,7 +957,7 @@
   }
 }
 .cardsHeader__title {
-  color: #a0a0a0;
+  color: #d9d8da;
   margin: 0 1em;
   text-align: center;
 }
@@ -988,10 +988,10 @@
   align-items: center;
 }
 .watch-providers__header--title h2 {
-  color: #a0a0a0;
+  color: #d9d8da;
 }
 .watch-providers__header--title .ott-titles h6 {
-  color: #a0a0a0;
+  color: #d9d8da;
   text-align: right;
   font-weight: 500;
   padding-bottom: 0.5em;
@@ -1026,7 +1026,7 @@
   margin-top: 3em;
 }
 .watch-providers__providers h5 {
-  color: #a0a0a0;
+  color: #d9d8da;
   font-weight: 700;
 }
 .watch-providers__providers--rent, .watch-providers__providers--buy, .watch-providers__providers--flatrate {
@@ -1073,7 +1073,7 @@ footer span p {
 }
 footer span p a {
   text-decoration: none;
-  color: #a0a0a0;
+  color: #d9d8da;
   font-weight: 600;
 }
 
@@ -1273,7 +1273,7 @@ main {
   align-items: center;
 }
 .movie-details__container .col-2 .details__header--title h4 {
-  color: #a0a0a0;
+  color: #d9d8da;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1292,7 +1292,7 @@ main {
 }
 .movie-details__container .col-2 .details__header--title h5 {
   font-weight: 600;
-  color: #a0a0a0;
+  color: #d9d8da;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1350,7 +1350,7 @@ main {
   margin-bottom: 2em;
 }
 .movie-details__container .col-2 .details__main--directors h5, .movie-details__container .col-2 .details__main--genres h5, .movie-details__container .col-2 .details__main--cast h5, .movie-details__container .col-2 .details__main--description h5 {
-  color: #a0a0a0;
+  color: #afafaf;
   letter-spacing: 0.5px;
   line-height: 1.5em;
 }
