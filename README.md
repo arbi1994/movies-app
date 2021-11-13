@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# 321movies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[321moviesinfo.com](https://321moviesinfo.com) is a react web app created with CRA, that provides users with all the latest and updated information about any sort of movie.
 
-## Available Scripts
+The data has been provided by [tmdb](https://www.themoviedb.org/documentation/api) api.
 
-In the project directory, you can run:
+## Installation
+Check the version of __node__ you have installed with the following command
+```bash
+node -v
+```
+If __node__ is not in your computer, download it [here](https://nodejs.dev/download)
 
-### `npm start`
+Run the following command to install [npm](https://www.npmjs.com/package/install) locally
+```bash
+npm install
+```
+OR
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Run the following command to install [npm](https://www.npmjs.com/package/install) globally.
+```bash
+npm install -g
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Check the [documentation](https://docs.npmjs.com/) for more info.
 
-### `npm test`
+Just to make sure everything has been installed correctly, check the version of both __node__ and __npm__ with the following commands
+```bash
+node -v
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+AND
 
-### `npm run build`
+```bash
+npm -v
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Get your personal API key by creating a [tmdb](https://www.themoviedb.org/signup) account. Then, go to the following [link](https://www.themoviedb.org/settings/api), click on the link provided under "Request an API Key", and follow the instructions provided.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Once you've got your own API key, create a .env file in the project's root folder and type the following
+```bash
+REACT_APP_SECRET_KEY=your_api_key
+```
+Run the following command to run the project in a localhost
+```bash
+npm start
+```
+AND the following for the sass compiler
 
-### `npm run eject`
+```bash
+npm run sass
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Please make sure to update tests as appropriate.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
