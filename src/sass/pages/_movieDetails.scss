@@ -71,6 +71,11 @@
     cursor: pointer;
     z-index: 0;
 
+    /* iPad Pro */
+    @media screen and (min-width: 1024px) and (min-height: 1366px) {
+      top: 14em;
+    }
+
     @include media("<=tablet") {
       height: 32em;
       top: 9.5%;

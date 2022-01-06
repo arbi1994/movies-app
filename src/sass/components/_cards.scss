@@ -16,6 +16,10 @@
     grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
     gap: 2em;
 
+    @include media("<=tablet") {
+      padding: 2em 0;
+    }
+
     @include media("<=phoneL") {
       grid-template-columns: repeat(2, minmax(9em, 1fr));
       padding: 2em 0;

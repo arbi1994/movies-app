@@ -11,11 +11,17 @@
   }
 
   @include media("<=SMdesktop") {
-    min-height: 45vh;
+    min-height: 55vh;
+  }
+
+  /* iPad Pro */
+  @media screen and (min-width: 1024px) and (min-height: 1366px) {
+    min-height: 28vh;
   }
 
   @include media("<=tablet") {
     @include flex(column, flex-start, center);
+    min-height: 45vh;
   }
 
   &__wrapper {

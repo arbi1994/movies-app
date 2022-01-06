@@ -12,7 +12,6 @@ import ScrollToTop from '../utils/ScrollToTop';
 import NavBar from './Navbar/index';
 import Menu from './Menu';
 import Home from './Home/index';
-import Cards from './Cards/index';
 import Discover from './Discover';
 import Movie from './MovieDetails/index';
 import About from './About/index';

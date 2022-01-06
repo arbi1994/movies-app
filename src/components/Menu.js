@@ -33,7 +33,7 @@ const Menu = ({ active, setActive }) => {
       return (
         <div key={links.id}>
           <li>{links.icon}
-            <a onClick={onDiscoverClick}>
+            <a href={links.pathon} Click={onDiscoverClick}>
               {links.label} 
               {dropdownActive 
                 ? <ArrowDropUpRoundedIcon style={iconStyle}/>

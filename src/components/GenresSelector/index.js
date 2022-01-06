@@ -25,16 +25,17 @@ const GenresSelector = ({ handleGenreCallback }) => {
   const [elementHeight, setElementHeight] = useState(() => 0)
   const [width, height] = useViewport()
 
-    // Animations
-    const expand = useSpring({
-      config: { duration: 200 },
-      height: open ? `${contentHeight}px` : defaultHeight,
-    });
-    
-    const spin = useSpring({
-      config: { duration: 300 },
-      transform: open ? "rotate(540deg)" : "rotate(0deg)"
-    });
+  // Animations
+  const expand = useSpring({
+    config: { duration: 200 },
+    height: open ? `${contentHeight}px` : defaultHeight,
+  });
+  
+  const spin = useSpring({
+    config: { duration: 300 },
+    transform: open ? "rotate(540deg)" : "rotate(0deg)"
+  });
+  
   useEffect(() => {
     // Desktop height
     setContentHeight(100)

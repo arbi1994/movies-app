@@ -41,7 +41,7 @@ const NavBar = ({ active, setActive, videoPlayerEl }) => {
     if(dropdownActive && videoPlayerEl) videoPlayerEl.style.pointerEvents = 'none'
 
     return () => videoPlayerEl.style.removeProperty('pointer-events')
-  }, [dropdownActive])
+  }, [dropdownActive, videoPlayerEl])
  
   // check if pathname matches the 404 path
   if(match) return null
