@@ -21,7 +21,7 @@ const ScrollUpButton = () => {
   const transition = useTransition(scrollToTopBtn, {
     config: { duration: 150 },
     from: { opacity: 0 },
-    enter: { opacity: 1 },
+    enter: { opacity: 1, zIndex: 5000 },
     leave: { opacity: 0 },
   })
 
