@@ -50,12 +50,17 @@
       width: 100%;
       object-fit: cover;
 
+      /* iPad Air */
+      @media screen and (min-width: 820px) and (min-height: 1180px) {
+        height: 50vh;
+      }
+
       @include media("<tablet") {
         height: 50vh;
       }
 
       @include media("<=phoneL") {
-        height: 32vh;
+        height: 38vh;
       }
     }
   }
@@ -74,6 +79,16 @@
     /* iPad Pro */
     @media screen and (min-width: 1024px) and (min-height: 1366px) {
       top: 14em;
+    }
+
+    /* iPad Air */
+    @media screen and (min-width: 820px) and (min-height: 1180px) {
+      top: 10em;
+    }
+
+    /* Surface Pro 7 */
+    @media screen and (min-width: 912px) and (min-height: 1368px) {
+      top: 12em;
     }
 
     @include media("<=tablet") {
@@ -131,6 +146,11 @@
     margin-top: 40em;
     padding: 2em;
     border-radius: 20px;
+
+    /* iPad Air */
+    @media screen and (min-width: 820px) and (min-height: 1180px) {
+      margin-top: 37em;
+    }
 
     @include media("<=tablet") {
       margin-top: 30em;

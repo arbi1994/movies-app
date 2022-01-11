@@ -19,6 +19,11 @@
     min-height: 28vh;
   }
 
+  /* iPad Air */
+  @media screen and (min-width: 820px) and (min-height: 1180px) {
+    min-height: 25vh;
+  }
+
   @include media("<=tablet") {
     @include flex(column, flex-start, center);
     min-height: 45vh;

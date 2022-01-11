@@ -17,8 +17,9 @@
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   display: block;
-  transition: right 0.5s ease;
+  transition: right 0.5s ease 0.15s;
   padding: 0 2em 2em;
+  z-index: 6000;
 
   @include media(">SMdesktop") {
     display: none;
@@ -67,7 +68,6 @@
 
   &.active {
     right: 0;
-    transition: right 0.5s ease;
-    z-index: 6000;
+    transition: right 0.5s ease 0.15s;
   }
 }
